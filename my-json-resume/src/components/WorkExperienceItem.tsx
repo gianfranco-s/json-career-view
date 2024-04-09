@@ -1,6 +1,6 @@
 import React from 'react';
 
-function WorkExperience({ workExperienceItem }) {
+function WorkExperienceItem({ workExperienceItem }) {
     return (
         <div>
             <p>{workExperienceItem.position}</p>
@@ -15,4 +15,4 @@ function WorkExperience({ workExperienceItem }) {
     );
 }
 
-export default WorkExperience;
+export default WorkExperienceItem;
