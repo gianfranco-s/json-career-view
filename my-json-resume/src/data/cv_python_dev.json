@@ -1,12 +1,12 @@
 {
-    "customizationDescription": {
+    "metadata": {
         "resumeName": "python-developer-eng",
         "jobTitle": null,
         "jobUrl": null,
         "resumeDate": "2024-04-09"
     },
-    "mainTitle": "Gianfranco Salomone",
-    "subtitle": "Python Developer",
+    "name": "Gianfranco Salomone",
+    "resumeTitle": "Python Developer",
     "contactInfo": {
         "mobilePhone": "+5491157318476",
         "email": "gianfranco.s@gmail.com",
@@ -15,7 +15,7 @@
     },
     "workExperience": {
         "sectionTitle": "Experience",
-        "workExp": [
+        "sectionList": [
             {
                 "id": "py-lead-baitcon",
                 "position": "Lead Python Dev",
@@ -112,99 +112,111 @@
             }
         ]
     },
-    "skills": [
-        "Python",
-        "Flask",
-        "FastAPI",
-        "Pandas",
-        "Linux",
-        "Git",
-        "Docker",
-        "Selenium",
-        "Pytest",
-        "Gherkin",
-        "Cypress",
-        "AWS EC2",
-        "SSH",
-        "PostgreSQL",
-        "MySQL",
-        "InfluxDB",
-        "ORM",
-        "SAP HANA",
-        "SAP BAS",
-        "SAP BTP",
-        "CloudFoundry",
-        "React",
-        "JavaScript",
-        "Bootstrap",
-        "C/C++",
-        "Assembly",
-        "MATLAB"
-    ],
-    "education": [
-        {
-            "title": "AWS Solutions Architect",
-            "yearStart": 2024,
-            "yearEnd": null,
-            "certificateBy": "SAA-C03 - AWS"
-        },
-        {
-            "title": "SAP HANA 2.0 SPS07 - Associate Cert.",
-            "yearStart": 2024,
-            "yearEnd": 2024,
-            "certificateBy": "C_HANATEC_19 - SAP"
-        },
-        {
-            "title": "Native Mobile Development",
-            "yearStart": 2021,
-            "yearEnd": 2021,
-            "certificateBy": "IBM Skillsbuild"
-        },
-        {
-            "title": "Python Full Stack",
-            "yearStart": 2021,
-            "yearEnd": 2021,
-            "certificateBy": "Buenos Aires Ciudad - Codo a Codo"
-        },
-        {
-            "title": "Control Systems Specialist",
-            "yearStart": 2014,
-            "yearEnd": 2016,
-            "certificateBy": "Facultad de Ingeniería del Ejército "
-        },
-        {
-            "title": "Electronics Engineer",
-            "yearStart": 2003,
-            "yearEnd": 2009,
-            "certificateBy": "Facultad de Ingeniería del Ejército "
-        }
-    ],
-    "spokenLanguages": [
-        {
-            "language": "spanish",
-            "level": "native"
-        },
-        {
-            "language": "english",
-            "level": "advanced (C2)"
-        },
-        {
-            "language": "german",
-            "level": "basic"
-        }
-    ],
-    "about": [
-        {
-            "subtitle": "Problem solver",
-            "description": "Skilled at breaking down intricate challenges into actionable steps, excelling in project leadership by meeting diverse stakeholder needs for optimal outcomes."
-        },
-        {
-            "subtitle": "Team player",
-            "description": "Efficient at using Jira and GitHub for streamlined project management. I foster a cohesive, goal-oriented team prioritizing collective success."
-        },
-        {
-            "subtitle": "Problem solver",
-            "description": "Passionate about continual growth, I actively pursue new knowledge while deepening my expertise in existing domains."
-        }
-    ]
+    "skills": {
+        "sectionTitle": "Skills",
+        "sectionList": [
+            "Python",
+            "Flask",
+            "FastAPI",
+            "Pandas",
+            "Linux",
+            "Git",
+            "Docker",
+            "Selenium",
+            "Pytest",
+            "Gherkin",
+            "Cypress",
+            "AWS EC2",
+            "SSH",
+            "PostgreSQL",
+            "MySQL",
+            "InfluxDB",
+            "ORM",
+            "SAP HANA",
+            "SAP BAS",
+            "SAP BTP",
+            "CloudFoundry",
+            "React",
+            "JavaScript",
+            "Bootstrap",
+            "C/C++",
+            "Assembly",
+            "MATLAB"
+        ]
+    },
+    "education": {
+        "sectionTitle": "Education",
+        "sectionList": [
+            {
+                "title": "AWS Solutions Architect",
+                "yearStart": 2024,
+                "yearEnd": null,
+                "certificateBy": "SAA-C03 - AWS"
+            },
+            {
+                "title": "SAP HANA 2.0 SPS07 - Associate Cert.",
+                "yearStart": 2024,
+                "yearEnd": 2024,
+                "certificateBy": "C_HANATEC_19 - SAP"
+            },
+            {
+                "title": "Native Mobile Development",
+                "yearStart": 2021,
+                "yearEnd": 2021,
+                "certificateBy": "IBM Skillsbuild"
+            },
+            {
+                "title": "Python Full Stack",
+                "yearStart": 2021,
+                "yearEnd": 2021,
+                "certificateBy": "Buenos Aires Ciudad - Codo a Codo"
+            },
+            {
+                "title": "Control Systems Specialist",
+                "yearStart": 2014,
+                "yearEnd": 2016,
+                "certificateBy": "Facultad de Ingeniería del Ejército "
+            },
+            {
+                "title": "Electronics Engineer",
+                "yearStart": 2003,
+                "yearEnd": 2009,
+                "certificateBy": "Facultad de Ingeniería del Ejército "
+            }
+        ]
+    },
+    "spokenLanguages": {
+        "sectionTitle": "Languages",
+        "sectionList": [
+            {
+                "language": "spanish",
+                "level": "native"
+            },
+            {
+                "language": "english",
+                "level": "advanced (C2)"
+            },
+            {
+                "language": "german",
+                "level": "basic"
+            }
+        ]
+    },
+    "about": {
+        "sectionTitle": "About",
+        "sectionList": [
+            {
+                "subtitle": "Problem solver",
+                "description": "Skilled at breaking down intricate challenges into actionable steps, excelling in project leadership by meeting diverse stakeholder needs for optimal outcomes."
+            },
+            {
+                "subtitle": "Team player",
+                "description": "Efficient at using Jira and GitHub for streamlined project management. I foster a cohesive, goal-oriented team prioritizing collective success."
+            },
+            {
+                "subtitle": "Problem solver",
+                "description": "Passionate about continual growth, I actively pursue new knowledge while deepening my expertise in existing domains."
+            }
+        ]
+    }
 }
