@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Education({ educationItem }) {
+function EducationItem({ educationItem }) {
     return (
         <div>
             <h1 className="text-1xl font-bold mb-4">{educationItem.title}</h1>
@@ -11,4 +11,4 @@ function Education({ educationItem }) {
     );
 }
 
-export default Education;
+export default EducationItem;

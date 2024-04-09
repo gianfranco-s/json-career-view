@@ -3,7 +3,7 @@ import Title from '../components/ResumeTitle'
 import ContactInfo from '../components/ContactInfo'
 import WorkExperienceCard from '../components/WorkExperienceCard'
 import SkillsCard from '../components/SkillsCard'
-import Education from '../components/Education'
+import EducationCard from '../components/EducationCard'
 import SpokenLanguagesCard from '../components/SpokenLanguagesCard'
 
 const Home = () => {
@@ -13,15 +13,7 @@ const Home = () => {
       <ContactInfo contactInfo={resumeData.contactInfo} />
       <WorkExperienceCard workExperience={resumeData.workExperience}/>
       <SkillsCard skills={resumeData.skills}/>
-
-      <h2 className="text-2xl font-bold mb-4">{resumeData.education.sectionTitle}</h2>
-      <Education educationItem={resumeData.education.sectionList[0]} />
-      <Education educationItem={resumeData.education.sectionList[1]} />
-      <Education educationItem={resumeData.education.sectionList[2]} />
-      <Education educationItem={resumeData.education.sectionList[3]} />
-      <Education educationItem={resumeData.education.sectionList[4]} />
-      <Education educationItem={resumeData.education.sectionList[5]} />
-
+      <EducationCard education={resumeData.education}/>
       <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
 
       {/* About Section */}
