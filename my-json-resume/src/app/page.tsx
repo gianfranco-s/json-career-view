@@ -3,6 +3,7 @@ import Title from '../components/ResumeTitle'
 import ContactInfo from '../components/ContactInfo'
 import WorkExperience from '../components/WorkExperience'
 import Skills from '../components/Skills'
+import Education from '../components/Education'
 
 const Home = () => {
   return (
@@ -21,38 +22,13 @@ const Home = () => {
       <h2 className="text-2xl font-bold mb-4">{resumeData.skills.sectionTitle}</h2>
       <Skills skills={resumeData.skills.sectionList}/>
 
-      {/* Education Section */}
       <h2 className="text-2xl font-bold mb-4">{resumeData.education.sectionTitle}</h2>
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[0].title}</h1>
-        <p>{resumeData.education.sectionList[0].yearStart} {resumeData.education.sectionList[0].yearEnd}</p>
-        <p>{resumeData.education.sectionList[0].certificateBy}</p>
-      </div><br />
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[1].title}</h1>
-        <p>{resumeData.education.sectionList[1].yearStart} {resumeData.education.sectionList[1].yearEnd}</p>
-        <p>{resumeData.education.sectionList[1].certificateBy}</p>
-      </div><br />
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[2].title}</h1>
-        <p>{resumeData.education.sectionList[2].yearStart} {resumeData.education.sectionList[2].yearEnd}</p>
-        <p>{resumeData.education.sectionList[2].certificateBy}</p>
-      </div><br />
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[3].title}</h1>
-        <p>{resumeData.education.sectionList[3].yearStart} {resumeData.education.sectionList[3].yearEnd}</p>
-        <p>{resumeData.education.sectionList[3].certificateBy}</p>
-      </div><br />
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[4].title}</h1>
-        <p>{resumeData.education.sectionList[4].yearStart} {resumeData.education.sectionList[4].yearEnd}</p>
-        <p>{resumeData.education.sectionList[4].certificateBy}</p>
-      </div><br />
-      <div>
-        <h1 className="text-1xl font-bold mb-4">{resumeData.education.sectionList[5].title}</h1>
-        <p>{resumeData.education.sectionList[5].yearStart} {resumeData.education.sectionList[5].yearEnd}</p>
-        <p>{resumeData.education.sectionList[5].certificateBy}</p>
-      </div><br />
+      <Education educationItem={resumeData.education.sectionList[0]} />
+      <Education educationItem={resumeData.education.sectionList[1]} />
+      <Education educationItem={resumeData.education.sectionList[2]} />
+      <Education educationItem={resumeData.education.sectionList[3]} />
+      <Education educationItem={resumeData.education.sectionList[4]} />
+      <Education educationItem={resumeData.education.sectionList[5]} />
 
 
       {/* Spoken Languages Section */}
