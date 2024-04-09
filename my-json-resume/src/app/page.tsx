@@ -5,6 +5,7 @@ import WorkExperienceCard from '../components/WorkExperienceCard'
 import SkillsCard from '../components/SkillsCard'
 import EducationCard from '../components/EducationCard'
 import SpokenLanguagesCard from '../components/SpokenLanguagesCard'
+import AboutCard from '../components/AboutCard'
 
 const Home = () => {
   return (
@@ -15,16 +16,7 @@ const Home = () => {
       <SkillsCard skills={resumeData.skills}/>
       <EducationCard education={resumeData.education}/>
       <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
-
-      {/* About Section */}
-      <h2 className="text-2xl font-bold mb-4">{resumeData.about.sectionTitle}</h2>
-      <h3 className="text-1xl font-bold mb-4">{resumeData.about.sectionList[0].subtitle}</h3>
-      <p>{resumeData.about.sectionList[0].description}</p>
-      <h3 className="text-1xl font-bold mb-4">{resumeData.about.sectionList[1].subtitle}</h3>
-      <p>{resumeData.about.sectionList[1].description}</p>
-      <h3 className="text-1xl font-bold mb-4">{resumeData.about.sectionList[2].subtitle}</h3>
-      <p>{resumeData.about.sectionList[2].description}</p>
-
+      <AboutCard about={resumeData.about}/>
     </div>
   );
 };
