@@ -4,6 +4,7 @@ import ContactInfo from '../components/ContactInfo'
 import WorkExperience from '../components/WorkExperience'
 import Skills from '../components/Skills'
 import Education from '../components/Education'
+import SpokenLanguagesCard from '../components/SpokenLanguagesCard'
 
 const Home = () => {
   return (
@@ -30,12 +31,7 @@ const Home = () => {
       <Education educationItem={resumeData.education.sectionList[4]} />
       <Education educationItem={resumeData.education.sectionList[5]} />
 
-
-      {/* Spoken Languages Section */}
-      <h2 className="text-2xl font-bold mb-4">{resumeData.spokenLanguages.sectionTitle}</h2>
-      <p>{resumeData.spokenLanguages.sectionList[0].language}: {resumeData.spokenLanguages.sectionList[0].level}</p>
-      <p>{resumeData.spokenLanguages.sectionList[1].language}: {resumeData.spokenLanguages.sectionList[1].level}</p>
-      <p>{resumeData.spokenLanguages.sectionList[2].language}: {resumeData.spokenLanguages.sectionList[2].level}</p>
+      <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
 
       {/* About Section */}
       <h2 className="text-2xl font-bold mb-4">{resumeData.about.sectionTitle}</h2>
