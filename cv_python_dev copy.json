@@ -1,0 +1,121 @@
+{
+    "customizationDescription": {
+        "resumeName": "lead-python-dev-jpmorgan",
+        "jobTitle": "Lead Software Engineer - Python & AWS",
+        "jobUrl": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210501793",
+        "resumeDate": "2024-04-09"
+    },
+    "mainTitle": "Gianfranco Salomone",
+    "subtitle": "Lead Python Engineer",
+    "contactInfo": {
+        "mobilePhone": "+5491157318476",
+        "email": "gianfranco.s@gmail.com",
+        "LinkedIn": "https://www.linkedin.com/in/gianfranco-salomone/",
+        "GitHub": "https://github.com/gianfranco-s"
+    },
+    "workExperience": {
+        "sectionTitle": "Experience",
+        "workExp": [
+            {
+                "id": "py-lead-baitcon",
+                "position": "Lead Python Dev",
+                "company": "Baitcon/AySA",
+                "yearStart": 2022,
+                "yearEnd": null,
+                "isRemote": true,
+                "location": "Buenos Aires",
+                "decription": [
+                    "Led a team in designing and developing Flask microsites for corporate use.",
+                    "Managed deployment across multiple environments and advocated for Test-Driven Development.",
+                    "Built Python ETL pipeline for Oracle to SAP HANA data migration using SAP BAS and SAP HANA.",
+                    "Focused on migrating local workflows to cloud-based solutions for operational stability."
+                ]
+            },
+            {
+                "id": "py-dev-devops-mecantronic",
+                "position": "Cloud Developer / DevOps",
+                "company": "MecanTronic",
+                "yearStart": 2022,
+                "yearEnd": null,
+                "isRemote": true,
+                "location": "Buenos Aires",
+                "decription": [
+                    "Developed IoT projects using MQTT for sensor monitoring on ESP32.",
+                    "Optimized development workflows with Docker, InfluxDB-Grafana-MQTT containers.",
+                    "Deployed environments on AWS and contributed to technical sales pitches."
+                ]
+            },
+            {
+                "id": "full-dev-shuttle99",
+                "position": "Full Stack developer",
+                "company": "Shuttle99",
+                "yearStart": 2022,
+                "yearEnd": 2023,
+                "isRemote": true,
+                "location": "Canary Islands",
+                "decription": [
+                    "Maintained complex Flask project for multinational Fintech firm, integrating partner APIs.",
+                    "Managed user data in PostgreSQL databases and conducted code peer reviews."
+                ]
+            }
+        ]
+    },
+    "skills": [
+        "Python",
+        "Flask",
+        "FastAPI",
+        "Pandas",
+        "AWS",
+        "Docker",
+        "Selenium",
+        "CI/CD",
+        "Agile Methodologies",
+        "Application Resiliency",
+        "Security",
+        "Cloud Native Development",
+        "Git",
+        "PostgreSQL",
+        "MySQL",
+        "InfluxDB",
+        "SAP HANA",
+        "SAP BAS"
+    ],
+    "education": [
+        {
+            "title": "AWS Solutions Architect",
+            "yearStart": 2024,
+            "yearEnd": null,
+            "certificateBy": "SAA-C03 - AWS"
+        },
+        {
+            "title": "SAP HANA 2.0 SPS07 - Associate Cert.",
+            "yearStart": 2024,
+            "yearEnd": 2024,
+            "certificateBy": "C_HANATEC_19 - SAP"
+        }
+    ],
+    "spokenLanguages": [
+        {
+            "language": "Spanish",
+            "level": "Native"
+        },
+        {
+            "language": "English",
+            "level": "Advanced (C2)"
+        }
+    ],
+    "about": [
+        {
+            "subtitle": "Problem Solver",
+            "description": "Experienced in breaking down intricate challenges into actionable steps, excelling in project leadership for optimal outcomes."
+        },
+        {
+            "subtitle": "Team Player",
+            "description": "Efficient at project management using Jira and GitHub, fostering cohesive, goal-oriented teams prioritizing collective success."
+        },
+        {
+            "subtitle": "Continual Learner",
+            "description": "Passionate about continual growth, actively pursuing new knowledge and deepening expertise in existing domains."
+        }
+    ]
+}
