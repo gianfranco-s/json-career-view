@@ -5,8 +5,10 @@
         "jobUrl": null,
         "resumeDate": "2024-04-09"
     },
-    "name": "Gianfranco Salomone",
-    "resumeTitle": "Python Developer",
+    "titleData": {
+        "name": "Gianfranco Salomone",
+        "resumeTitle": "Python Developer"
+    },
     "contactInfo": {
         "mobilePhone": "+5491157318476",
         "email": "gianfranco.s@gmail.com",
