@@ -1,6 +1,7 @@
 import resumeData from '../data/cv_python_dev.json'
 import Title from '../components/ResumeTitle'
 import ContactInfo from '../components/ContactInfo'
+import WorkExperience from '../components/WorkExperience'
 
 const Home = () => {
   return (
@@ -10,66 +11,12 @@ const Home = () => {
 
       {/* WorkExperience Section */}
       <h2 className="text-2xl font-bold mb-4">{resumeData.workExperience.sectionTitle}</h2>
-      <div>
-        <p>{resumeData.workExperience.sectionList[0].position}</p>
-        <p>{resumeData.workExperience.sectionList[0].company}</p>
-        <p>{resumeData.workExperience.sectionList[0].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[0].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[0].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[0].location}</p>
-        <p>{resumeData.workExperience.sectionList[0].decription}</p>
-      </div>
-      <br />
-      <div>
-        <p>{resumeData.workExperience.sectionList[1].position}</p>
-        <p>{resumeData.workExperience.sectionList[1].company}</p>
-        <p>{resumeData.workExperience.sectionList[1].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[1].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[1].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[1].location}</p>
-        <p>{resumeData.workExperience.sectionList[1].decription}</p>
-      </div>
-      <br />
-      <div>
-        <p>{resumeData.workExperience.sectionList[2].position}</p>
-        <p>{resumeData.workExperience.sectionList[2].company}</p>
-        <p>{resumeData.workExperience.sectionList[2].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[2].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[2].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[2].location}</p>
-        <p>{resumeData.workExperience.sectionList[2].decription}</p>
-      </div>
-      <br />
-      <div>
-        <p>{resumeData.workExperience.sectionList[3].position}</p>
-        <p>{resumeData.workExperience.sectionList[3].company}</p>
-        <p>{resumeData.workExperience.sectionList[3].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[3].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[3].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[3].location}</p>
-        <p>{resumeData.workExperience.sectionList[3].decription}</p>
-      </div>
-      <br />
-      <div>
-        <p>{resumeData.workExperience.sectionList[4].position}</p>
-        <p>{resumeData.workExperience.sectionList[4].company}</p>
-        <p>{resumeData.workExperience.sectionList[4].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[4].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[4].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[4].location}</p>
-        <p>{resumeData.workExperience.sectionList[4].decription}</p>
-      </div>
-      <br />
-      <div>
-        <p>{resumeData.workExperience.sectionList[5].position}</p>
-        <p>{resumeData.workExperience.sectionList[5].company}</p>
-        <p>{resumeData.workExperience.sectionList[5].yearStart}</p>
-        <p>{resumeData.workExperience.sectionList[5].yearEnd}</p>
-        <p>{resumeData.workExperience.sectionList[5].isRemote}</p>
-        <p>{resumeData.workExperience.sectionList[5].location}</p>
-        <p>{resumeData.workExperience.sectionList[5].decription}</p>
-      </div>
-      <br />
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[0]}/>
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[1]}/>
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[2]}/>
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[3]}/>
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[4]}/>
+      <WorkExperience workExperienceItem={resumeData.workExperience.sectionList[5]}/>
 
     {/* Skills Section */}
     <h2 className="text-2xl font-bold mb-4">{resumeData.skills.sectionTitle}</h2>
