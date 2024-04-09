@@ -2,7 +2,7 @@ import resumeData from '../data/cv_python_dev.json'
 import Title from '../components/ResumeTitle'
 import ContactInfo from '../components/ContactInfo'
 import WorkExperienceCard from '../components/WorkExperienceCard'
-import Skills from '../components/Skills'
+import SkillsCard from '../components/SkillsCard'
 import Education from '../components/Education'
 import SpokenLanguagesCard from '../components/SpokenLanguagesCard'
 
@@ -12,10 +12,7 @@ const Home = () => {
       <Title titleData={resumeData.titleData} />
       <ContactInfo contactInfo={resumeData.contactInfo} />
       <WorkExperienceCard workExperience={resumeData.workExperience}/>
-
-
-      <h2 className="text-2xl font-bold mb-4">{resumeData.skills.sectionTitle}</h2>
-      <Skills skills={resumeData.skills.sectionList}/>
+      <SkillsCard skills={resumeData.skills}/>
 
       <h2 className="text-2xl font-bold mb-4">{resumeData.education.sectionTitle}</h2>
       <Education educationItem={resumeData.education.sectionList[0]} />
