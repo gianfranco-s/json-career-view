@@ -1,17 +1,12 @@
 import resumeData from '../data/cv_python_dev.json'
 import Title from '../components/ResumeTitle'
+import ContactInfo from '../components/ContactInfo'
 
 const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* CV title */}
       <Title titleData={resumeData.titleData}/>
-
-      {/* Contact Information */}
-      <p className="text-gray-600">Telephone icon: {resumeData.contactInfo.mobilePhone}</p>
-      <p className="text-gray-600">Email icon: {resumeData.contactInfo.email}</p>
-      <p className="text-gray-600">LinkedIn icon: {resumeData.contactInfo.LinkedIn}</p>
-      <p className="text-gray-600">GitHub icon: {resumeData.contactInfo.GitHub}</p>
+      <ContactInfo contactInfo={resumeData.contactInfo}/>
 
       {/* WorkExperience Section */}
       <h2 className="text-2xl font-bold mb-4">{resumeData.workExperience.sectionTitle}</h2>
