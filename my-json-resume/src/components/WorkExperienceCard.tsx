@@ -1,8 +1,7 @@
 import React from 'react';
-import WorkExperienceItem from './WorkExperienceItem';
-import { WorkExperienceItemDataProps } from './WorkExperienceItem';
+import WorkExperienceItem, { WorkExperienceItemDataProps } from './WorkExperienceItem';
 
-interface WorkExperienceCardProps {
+interface WorkExperienceCardProps{
     workExperience: {
         sectionTitle: string;
         sectionList: WorkExperienceItemDataProps[];
@@ -10,8 +9,8 @@ interface WorkExperienceCardProps {
 }
 
 function WorkExperienceCard({ workExperience }: WorkExperienceCardProps) {
-    const workExperiences = workExperience.sectionList.map((workExp, index) => {
-        return <WorkExperienceItem key={index} workExperienceItemData={workExp} />
+    const workExperiences = workExperience.sectionList.map((workExp) => {
+        return <WorkExperienceItem key={workExp.id} workExperienceItemData={workExp} />
     })
     return (
         <div>
