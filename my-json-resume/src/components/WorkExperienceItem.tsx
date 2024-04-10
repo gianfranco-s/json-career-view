@@ -14,14 +14,15 @@ export interface WorkExperienceItemDataProps {
 }
 
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
+    const datesSpan = `${workExperienceItemData.yearStart} - ${workExperienceItemData.yearEnd ? workExperienceItemData.yearEnd : 'Present'}`;
+    const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site'
+    const additionalData = `${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
+
     return (
         <div>
-            <p>{workExperienceItemData.position}</p>
-            <p>{workExperienceItemData.company}</p>
-            <p>{workExperienceItemData.yearStart}</p>
-            <p>{workExperienceItemData.yearEnd}</p>
-            <p>{workExperienceItemData.isRemote ? 'Remote' : 'On-site'}</p>
-            <p>{workExperienceItemData.location}</p>
+            <h3>{workExperienceItemData.position}</h3>
+            <h4>{workExperienceItemData.company}</h4>
+            <span>{additionalData}</span>
             <p>{workExperienceItemData.decription}</p>
             <br />
         </div>
