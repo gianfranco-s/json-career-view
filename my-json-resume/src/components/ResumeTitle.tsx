@@ -1,6 +1,13 @@
 import React from 'react';
 
-function Title({ titleData }) {
+interface titleDataProps {
+    titleData: {
+        name: string;
+        resumeTitle: string;
+    }
+}
+
+function Title({ titleData }: titleDataProps) {
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">{titleData.name}</h2>
