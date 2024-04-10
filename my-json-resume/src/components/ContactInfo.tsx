@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface contactInfoProps {
+interface ContactInfoProps {
     contactInfo: {
         mobilePhone: string;
         email: string;
@@ -9,7 +9,7 @@ interface contactInfoProps {
     };
 }
 
-function ContactInfo({ contactInfo }: contactInfoProps) {
+function ContactInfo({ contactInfo }: ContactInfoProps) {
     return (
         <div>
             <p className="text-gray-600">Telephone icon: {contactInfo.mobilePhone}</p>

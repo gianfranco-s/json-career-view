@@ -2,14 +2,14 @@ import React from 'react';
 import SpokenLanguagesItem from './SpokenLanguagesItem';
 import { SpokenLanguagesItemDataProps } from './SpokenLanguagesItem';
 
-interface spokenLanguagesProps {
+interface SpokenLanguagesProps {
     spokenLanguages: {
         sectionTitle: string;
         sectionList: SpokenLanguagesItemDataProps[];
     };
 }
 
-function SpokenLanguagesCard({ spokenLanguages }: spokenLanguagesProps) {
+function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
     const languagesList = spokenLanguages.sectionList.map((lang, index) =>
         <SpokenLanguagesItem spokenLanguagesItemData={lang} />)
     return (
