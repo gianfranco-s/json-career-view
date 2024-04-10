@@ -17,7 +17,6 @@ function EducationCard({ education }: EducationProps) {
         <div>
             <h2 className="text-2xl mb-4">{education.sectionTitle}</h2>
             {educationList}
-            <br />
         </div>
     );
 }

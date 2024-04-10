@@ -10,8 +10,7 @@ export interface SpokenLanguagesItemDataProps {
 function SpokenLanguagesItem({ spokenLanguagesItemData }: SpokenLanguagesItemDataProps) {
     return (
         <div>
-            <p>{spokenLanguagesItemData.language}: {spokenLanguagesItemData.level}</p>
-            <br />
+            <p className="text-sm mb-2">{spokenLanguagesItemData.language}: {spokenLanguagesItemData.level}</p>
         </div>
     );
 }

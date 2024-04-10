@@ -11,12 +11,23 @@ const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <Title titleData={resumeData.titleData} />
-      <ContactInfo contactInfo={resumeData.contactInfo} />
-      <WorkExperienceCard workExperience={resumeData.workExperience}/>
-      <SkillsCard skills={resumeData.skills}/>
-      <EducationCard education={resumeData.education}/>
-      <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
-      <AboutCard about={resumeData.about}/>
+      <div className="mb-10 mt-5">
+        <ContactInfo contactInfo={resumeData.contactInfo} />
+      </div>
+      <div className="mb-10">
+        <WorkExperienceCard workExperience={resumeData.workExperience} />
+      </div>
+      <div className="mb-10">
+        <SkillsCard skills={resumeData.skills} />
+      </div>
+      <div className="mb-10">
+        <EducationCard education={resumeData.education} />
+      </div>
+      <div className="mb-10">
+        <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
+      </div>
+      
+      <AboutCard about={resumeData.about} />
     </div>
   );
 };

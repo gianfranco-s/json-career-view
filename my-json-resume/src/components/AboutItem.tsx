@@ -10,8 +10,8 @@ interface AboutItemDataProps {
 function AboutItem({ aboutItemData }: AboutItemDataProps) {
     return (
         <div>
-            <h3 className="text-1xl font-bold mb-4">{aboutItemData.subtitle}</h3>
-            <p>{aboutItemData.description}</p>
+            <h3 className="text-sm font-medium mb-1">{aboutItemData.subtitle}</h3>
+            <p className="text-sm mb-2">{aboutItemData.description}</p>
         </div>
     );
 }

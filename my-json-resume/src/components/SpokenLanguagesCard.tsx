@@ -16,7 +16,6 @@ function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
         <div>
             <h2 className="text-2xl mb-4">{spokenLanguages.sectionTitle}</h2>
             {languagesList}
-            <br />
         </div>
     );
 }
