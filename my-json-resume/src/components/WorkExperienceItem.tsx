@@ -9,21 +9,24 @@ export interface WorkExperienceItemDataProps {
         yearEnd: string;
         isRemote: boolean;
         location: string;
-        decription: string;
+        decription: string[];
     };
 }
 
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
     const datesSpan = `${workExperienceItemData.yearStart} - ${workExperienceItemData.yearEnd ? workExperienceItemData.yearEnd : 'Present'}`;
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site'
-    const additionalData = `${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
+    const additionalData = `${workExperienceItemData.company} | ${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
 
     return (
         <div>
-            <h3>{workExperienceItemData.position}</h3>
-            <h4>{workExperienceItemData.company}</h4>
-            <span>{additionalData}</span>
-            <p>{workExperienceItemData.decription}</p>
+            <h3 className="text-sm font-medium mb-1">{workExperienceItemData.position}</h3>
+            <h4 className="text-xs text-gray-500 mb-2">{additionalData}</h4>
+            <ul className="list-disc pl-4 ml-2"> {/* unordered list for bullets */}
+                {workExperienceItemData.decription.map((descrItm, index) => (
+                    <li key={index} className="text-sm">{descrItm}</li>
+                ))}
+            </ul>
             <br />
         </div>
     );
