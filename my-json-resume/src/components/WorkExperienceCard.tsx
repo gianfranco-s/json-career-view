@@ -10,15 +10,13 @@ interface WorkExperienceCardProps {
 }
 
 function WorkExperienceCard({ workExperience }: WorkExperienceCardProps) {
+    const workExperiences = workExperience.sectionList.map(workExp => {
+        return <WorkExperienceItem workExperienceItemData={workExp} />
+    })
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">{workExperience.sectionTitle}</h2>
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[0]}/>
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[1]} />
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[2]} />
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[3]} />
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[4]} />
-            <WorkExperienceItem workExperienceItemData={workExperience.sectionList[5]} />
+            {workExperiences}
         </div>
     );
 }
