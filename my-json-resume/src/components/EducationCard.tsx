@@ -1,16 +1,22 @@
 import React from 'react';
 import EducationItem from './EducationItem'
+import { EducationItemDataProps } from './EducationItem';
 
-function EducationCard({ education }) {
+export interface EducationProps {
+    education: {
+        sectionTitle: string;
+        sectionList: EducationItemDataProps[];
+    };
+}
+
+function EducationCard({ education }: EducationProps) {
+    const educationList = education.sectionList.map((educ, index) => (
+        <EducationItem educationItemData={educ} />
+    ))
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">{education.sectionTitle}</h2>
-            <EducationItem educationItemData={education.sectionList[0]} />
-            <EducationItem educationItemData={education.sectionList[1]} />
-            <EducationItem educationItemData={education.sectionList[2]} />
-            <EducationItem educationItemData={education.sectionList[3]} />
-            <EducationItem educationItemData={education.sectionList[4]} />
-            <EducationItem educationItemData={education.sectionList[5]} />
+            {educationList}
             <br />
         </div>
     );

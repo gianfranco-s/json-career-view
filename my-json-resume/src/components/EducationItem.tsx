@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface EducationItemDataProps {
+export interface EducationItemDataProps {
     educationItemData: {
         title: string;
         yearStart: string;
