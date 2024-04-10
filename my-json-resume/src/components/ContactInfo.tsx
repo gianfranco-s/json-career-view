@@ -1,6 +1,15 @@
 import React from 'react';
 
-function ContactInfo({ contactInfo }) {
+interface contactInfoProps {
+    contactInfo: {
+        mobilePhone: string;
+        email: string;
+        LinkedIn: string;
+        GitHub: string;
+    };
+}
+
+function ContactInfo({ contactInfo }: contactInfoProps) {
     return (
         <div>
             <p className="text-gray-600">Telephone icon: {contactInfo.mobilePhone}</p>
