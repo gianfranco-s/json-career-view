@@ -10,8 +10,8 @@ interface TitleDataProps {
 function Title({ titleData }: TitleDataProps) {
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">{titleData.name}</h2>
-            <p className="text-gray-600">{titleData.resumeTitle}</p>
+            <h1 className="text-center text-3xl mb-4">{titleData.name}</h1>
+            <h2 className="text-center font-bold text-lg">{titleData.resumeTitle}</h2>
         </div>
     );
 }
