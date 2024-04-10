@@ -11,7 +11,7 @@ interface SpokenLanguagesProps {
 
 function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
     const languagesList = spokenLanguages.sectionList.map((lang, index) =>
-        <SpokenLanguagesItem spokenLanguagesItemData={lang} />)
+        <SpokenLanguagesItem key={index} spokenLanguagesItemData={lang} />)
     return (
         <div>
             <h2 className="text-2xl mb-4">{spokenLanguages.sectionTitle}</h2>

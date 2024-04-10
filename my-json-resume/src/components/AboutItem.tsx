@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface AboutItemDataProps {
+export interface AboutItemDataProps {
     aboutItemData: {
         subtitle: string;
         description: string;

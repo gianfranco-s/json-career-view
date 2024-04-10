@@ -11,7 +11,7 @@ export interface EducationProps {
 
 function EducationCard({ education }: EducationProps) {
     const educationList = education.sectionList.map((educ, index) => (
-        <EducationItem educationItemData={educ} />
+        <EducationItem key={index} educationItemData={educ} />
     ))
     return (
         <div>

@@ -10,8 +10,8 @@ interface WorkExperienceCardProps {
 }
 
 function WorkExperienceCard({ workExperience }: WorkExperienceCardProps) {
-    const workExperiences = workExperience.sectionList.map(workExp => {
-        return <WorkExperienceItem workExperienceItemData={workExp} />
+    const workExperiences = workExperience.sectionList.map((workExp, index) => {
+        return <WorkExperienceItem key={index} workExperienceItemData={workExp} />
     })
     return (
         <div>
