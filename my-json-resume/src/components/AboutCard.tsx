@@ -13,7 +13,7 @@ function AboutCard({ about }: AboutProps) {
         <AboutItem aboutItemData={aboutItm}/>)
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">{about.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">{about.sectionTitle}</h2>
             {aboutList}
             <br />
         </div>

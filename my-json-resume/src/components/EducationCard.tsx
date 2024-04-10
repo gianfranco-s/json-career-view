@@ -15,7 +15,7 @@ function EducationCard({ education }: EducationProps) {
     ))
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">{education.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">{education.sectionTitle}</h2>
             {educationList}
             <br />
         </div>

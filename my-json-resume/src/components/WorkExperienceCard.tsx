@@ -15,7 +15,7 @@ function WorkExperienceCard({ workExperience }: WorkExperienceCardProps) {
     })
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">{workExperience.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">{workExperience.sectionTitle}</h2>
             {workExperiences}
         </div>
     );

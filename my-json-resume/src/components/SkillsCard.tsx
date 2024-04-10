@@ -9,11 +9,11 @@ interface SkillsProps {
 
 function Skills({ skills }: SkillsProps) {
     const skillsList = skills.sectionList.map((skill, index) => (
-        <span key={index}>{skill} </span>
+        <span key={index} className="text-sm">{skill} </span>
     ))
     return (
         <div>
-            <h2 className="text-2xl font-bold mb-4">{skills.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">{skills.sectionTitle}</h2>
             {skillsList}
         </div>
     );

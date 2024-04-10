@@ -22,7 +22,7 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
         <div>
             <h3 className="text-sm font-medium mb-1">{workExperienceItemData.position}</h3>
             <h4 className="text-xs text-gray-500 mb-2">{additionalData}</h4>
-            <ul className="list-disc pl-4 ml-2"> {/* unordered list for bullets */}
+            <ul className="list-disc pl-4 ml-2">
                 {workExperienceItemData.decription.map((descrItm, index) => (
                     <li key={index} className="text-sm">{descrItm}</li>
                 ))}
