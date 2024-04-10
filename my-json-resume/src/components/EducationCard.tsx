@@ -5,12 +5,12 @@ function EducationCard({ education }) {
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">{education.sectionTitle}</h2>
-            <EducationItem educationItem={education.sectionList[0]} />
-            <EducationItem educationItem={education.sectionList[1]} />
-            <EducationItem educationItem={education.sectionList[2]} />
-            <EducationItem educationItem={education.sectionList[3]} />
-            <EducationItem educationItem={education.sectionList[4]} />
-            <EducationItem educationItem={education.sectionList[5]} />
+            <EducationItem educationItemData={education.sectionList[0]} />
+            <EducationItem educationItemData={education.sectionList[1]} />
+            <EducationItem educationItemData={education.sectionList[2]} />
+            <EducationItem educationItemData={education.sectionList[3]} />
+            <EducationItem educationItemData={education.sectionList[4]} />
+            <EducationItem educationItemData={education.sectionList[5]} />
             <br />
         </div>
     );

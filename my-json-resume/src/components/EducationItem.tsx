@@ -1,11 +1,20 @@
 import React from 'react';
 
-function EducationItem({ educationItem }) {
+interface EducationItemDataProps {
+    educationItemData: {
+        title: string;
+        yearStart: string;
+        yearEnd: string;
+        certificateBy: string;
+    };
+}
+
+function EducationItem({ educationItemData }: EducationItemDataProps) {
     return (
         <div>
-            <h1 className="text-1xl font-bold mb-4">{educationItem.title}</h1>
-            <p>{educationItem.yearStart} {educationItem.yearEnd}</p>
-            <p>{educationItem.certificateBy}</p>
+            <h1 className="text-1xl font-bold mb-4">{educationItemData.title}</h1>
+            <p>{educationItemData.yearStart} {educationItemData.yearEnd}</p>
+            <p>{educationItemData.certificateBy}</p>
             <br />
         </div>
     );
