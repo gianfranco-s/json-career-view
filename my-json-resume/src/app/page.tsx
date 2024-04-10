@@ -14,7 +14,7 @@ const Home = () => {
       <div className="flex justify-center">
         <div className="w-full md:w-1/2"> {/* Center title and contact info */}
           <Title titleData={resumeData.titleData} />
-          <div className="mb-10 mt-5">
+          <div className="mb-5 mt-5">
             <ContactInfo contactInfo={resumeData.contactInfo} />
           </div>
         </div>

@@ -21,26 +21,18 @@ function ContactInfo({ contactInfo }: ContactInfoProps) {
 
     return (
         <div className="grid grid-cols-2 gap-2">
-            <p className="flex items-center text-gray-600">
-                <a href={whatsappUrl} target="_blank">
-                    <FontAwesomeIcon icon={faPhone} className="h-4 w-4 mr-2" /> {contactInfo.mobilePhone}
-                </a>
-            </p>
-            <p className="flex items-center text-gray-600">
-                <a href={emailTo}>
-                    <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4 mr-2" /> {contactInfo.email}
-                </a>
-            </p>
-            <p className="flex items-center text-gray-600">
-                <a href={contactInfo.LinkedIn}>
-                    <FontAwesomeIcon icon={faLinkedin} className="h-4 w-4 mr-2" /> {linkedInEndpoint}
-                </a>
-            </p>
-            <p className="flex items-center text-gray-600">
-                <a href={contactInfo.GitHub}>
-                    <FontAwesomeIcon icon={faGithub} className="h-4 w-4 mr-2" /> {gitHubEndpoint}
-                </a>
-            </p>
+            <a href={whatsappUrl} target="_blank" className="flex items-center text-gray-600">
+                <FontAwesomeIcon icon={faPhone} className="h-4 w-4 mr-2" /> {contactInfo.mobilePhone}
+            </a>
+            <a href={emailTo} className="flex items-center text-gray-600">
+                <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4 mr-2" /> {contactInfo.email}
+            </a>
+            <a href={contactInfo.LinkedIn} className="flex items-center text-gray-600">
+                <FontAwesomeIcon icon={faLinkedin} className="h-4 w-4 mr-2" /> {linkedInEndpoint}
+            </a>
+            <a href={contactInfo.GitHub} className="flex items-center text-gray-600">
+                <FontAwesomeIcon icon={faGithub} className="h-4 w-4 mr-2" /> {gitHubEndpoint}
+            </a>
         </div >
     );
 }
