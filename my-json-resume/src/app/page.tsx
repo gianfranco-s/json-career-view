@@ -10,13 +10,23 @@ import AboutCard from '../components/AboutCard'
 const Home = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      <Title titleData={resumeData.titleData} />
-      <div className="mb-10 mt-5">
-        <ContactInfo contactInfo={resumeData.contactInfo} />
+
+      <div className="flex justify-center">
+        <div className="w-full md:w-1/2"> {/* Center title and contact info */}
+          <Title titleData={resumeData.titleData} />
+          <div className="mb-10 mt-5">
+            <ContactInfo contactInfo={resumeData.contactInfo} />
+          </div>
+        </div>
       </div>
-      <div className="mb-10">
-        <WorkExperienceCard workExperience={resumeData.workExperience} />
+
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-10">
+          <WorkExperienceCard workExperience={resumeData.workExperience} />
+        </div>
       </div>
+
       <div className="mb-10">
         <SkillsCard skills={resumeData.skills} />
       </div>
@@ -26,7 +36,7 @@ const Home = () => {
       <div className="mb-10">
         <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
       </div>
-      
+
       <AboutCard about={resumeData.about} />
     </div>
   );
