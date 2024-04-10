@@ -1,13 +1,21 @@
 import React from 'react';
 import SpokenLanguagesItem from './SpokenLanguagesItem';
+import { SpokenLanguagesItemDataProps } from './SpokenLanguagesItem';
 
-function SpokenLanguagesCard({ spokenLanguages }) {
+interface spokenLanguagesProps {
+    spokenLanguages: {
+        sectionTitle: string;
+        sectionList: SpokenLanguagesItemDataProps[];
+    };
+}
+
+function SpokenLanguagesCard({ spokenLanguages }: spokenLanguagesProps) {
+    const languagesList = spokenLanguages.sectionList.map((lang, index) =>
+        <SpokenLanguagesItem spokenLanguagesItemData={lang} />)
     return (
         <div>
             <h2 className="text-2xl font-bold mb-4">{spokenLanguages.sectionTitle}</h2>
-            <SpokenLanguagesItem spokenLanguagesItem={spokenLanguages.sectionList[0]}/>
-            <SpokenLanguagesItem spokenLanguagesItem={spokenLanguages.sectionList[1]}/>
-            <SpokenLanguagesItem spokenLanguagesItem={spokenLanguages.sectionList[2]}/>
+            {languagesList}
             <br />
         </div>
     );

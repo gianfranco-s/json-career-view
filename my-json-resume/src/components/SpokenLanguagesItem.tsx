@@ -1,9 +1,16 @@
 import React from 'react';
 
-function SpokenLanguagesItem({ spokenLanguagesItem }) {
+export interface SpokenLanguagesItemDataProps {
+    spokenLanguagesItemData: {
+        language: string;
+        level: string;
+    };
+}
+
+function SpokenLanguagesItem({ spokenLanguagesItemData }: SpokenLanguagesItemDataProps) {
     return (
         <div>
-            <p>{spokenLanguagesItem.language}: {spokenLanguagesItem.level}</p>
+            <p>{spokenLanguagesItemData.language}: {spokenLanguagesItemData.level}</p>
             <br />
         </div>
     );
