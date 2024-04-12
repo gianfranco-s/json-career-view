@@ -36,7 +36,17 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Flask", "DTAP environments", "ETL", "SAP HANA", "SAP BTP", "SAP AI Core", "Code Reviews", "TDD", "MySQL", "React", "Pytest"
+                "Flask",
+                "DTAP environments",
+                "ETL",
+                "SAP HANA",
+                "SAP BTP",
+                "SAP AI Core",
+                "Code Reviews",
+                "TDD",
+                "MySQL",
+                "React",
+                "Pytest"
             ]
         },
         {
@@ -49,7 +59,15 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Python", "MQTT", "IoT", "Docker", "DEV and PRD environments", "AWS EC2", "InfluxDB", "Grafana", "SSH"
+                "Python",
+                "MQTT",
+                "IoT",
+                "Docker",
+                "DEV and PRD environments",
+                "AWS EC2",
+                "InfluxDB",
+                "Grafana",
+                "SSH"
             ]
         },
         {
@@ -62,7 +80,13 @@
             "isRemote": true,
             "location": "Canary Islands",
             "highlights": [
-                "Flask", "BDD", "Selenium", "REST", "SOAP", "PostgreSQL", "Peer Code Reviews"
+                "Flask",
+                "BDD",
+                "Selenium",
+                "REST",
+                "SOAP",
+                "PostgreSQL",
+                "Peer Code Reviews"
             ]
         },
         {
@@ -75,7 +99,12 @@
             "isRemote": true,
             "location": "New York",
             "highlights": [
-                "Docker", "Linux", "MailShake", "Cypress", "Security Compliance", "SDLC"
+                "Docker",
+                "Linux",
+                "MailShake",
+                "Cypress",
+                "Security Compliance",
+                "SDLC"
             ]
         },
         {
@@ -88,7 +117,11 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Typescript", "Android", "C/C++", "ESP32", "PlatformIO"
+                "Typescript",
+                "Android",
+                "C/C++",
+                "ESP32",
+                "PlatformIO"
             ]
         },
         {
@@ -101,7 +134,13 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "MATLAB", "C/C++", "PLC", "Arduino", "Python", "Circuit Boards", "Assembly"
+                "MATLAB",
+                "C/C++",
+                "PLC",
+                "Arduino",
+                "Python",
+                "Circuit Boards",
+                "Assembly"
             ]
         }
     ],
@@ -176,7 +215,7 @@
     ],
     "skills": [
         {
-            "name": "front",
+            "name": "Front",
             "level": null,
             "keywords": [
                 "HTML",
@@ -188,7 +227,7 @@
             ]
         },
         {
-            "name": "back",
+            "name": "Back",
             "level": null,
             "keywords": [
                 "Python",
@@ -212,7 +251,7 @@
             ]
         },
         {
-            "name": "tools",
+            "name": "Tools",
             "level": null,
             "keywords": [
                 "Git",
@@ -226,24 +265,33 @@
     "languages": [
         {
             "language": "Spanish",
-            "fluency": "Native speaker"
+            "fluency": "native speaker"
         },
         {
             "language": "English",
-            "fluency": "Advanced (C2)"
+            "fluency": "advanced (C2)"
         },
         {
             "language": "German",
-            "fluency": "Basic"
+            "fluency": "basic"
         }
     ],
     "interests": [
         {
-            "name": "Wildlife",
+            "name": "Family life",
+            "keywords": null
+        },
+        {
+            "name": "Martial arts",
             "keywords": [
-                "Ferrets",
-                "Unicorns"
+                "Full Contact",
+                "Muay Thai",
+                "Tai Chi Chuan"
             ]
+        },
+        {
+            "name": "Trekking",
+            "keywords": null
         }
     ],
     "references": null,
@@ -254,7 +302,9 @@
             "endDate": null,
             "description": "Attendance taking, but with Machine Learning",
             "highlights": [
-                "FastAPI", "Computer Vision", "Pytest"
+                "FastAPI",
+                "Computer Vision",
+                "Pytest"
             ],
             "url": "https://www.linkedin.com/company/atendi-ai/"
         },
@@ -264,7 +314,8 @@
             "endDate": null,
             "description": "Improve your resume using local LLM",
             "highlights": [
-                "API", "Pytest"
+                "API",
+                "Pytest"
             ],
             "url": "https://github.com/gianfranco-s/improve-my-cv"
         }

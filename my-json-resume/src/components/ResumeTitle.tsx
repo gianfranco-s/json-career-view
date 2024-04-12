@@ -1,17 +1,15 @@
 import React from 'react';
 
 interface TitleDataProps {
-    titleData: {
-        name: string;
-        resumeTitle: string;
-    }
+    name: string;
+    resumeTitle: string;
 }
 
-function Title({ titleData }: TitleDataProps) {
+function Title({ name, resumeTitle }: TitleDataProps) {
     return (
         <div>
-            <h1 className="text-center text-3xl mb-4">{titleData.name}</h1>
-            <h2 className="text-center font-bold text-lg">{titleData.resumeTitle}</h2>
+            <h1 className="text-center text-3xl mb-4">{name}</h1>
+            <h2 className="text-center font-bold text-lg">{resumeTitle}</h2>
         </div>
     );
 }

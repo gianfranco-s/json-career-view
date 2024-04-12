@@ -3,18 +3,15 @@ import SpokenLanguagesItem from './SpokenLanguagesItem';
 import { SpokenLanguagesItemDataProps } from './SpokenLanguagesItem';
 
 interface SpokenLanguagesProps {
-    spokenLanguages: {
-        sectionTitle: string;
-        sectionList: SpokenLanguagesItemDataProps[];
-    };
-}
+    spokenLanguages: SpokenLanguagesItemDataProps[];
+};
 
 function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
-    const languagesList = spokenLanguages.sectionList.map((lang, index) =>
+    const languagesList = spokenLanguages.map((lang, index) =>
         <SpokenLanguagesItem key={index} spokenLanguagesItemData={lang} />)
     return (
         <div>
-            <h2 className="text-2xl mb-4">{spokenLanguages.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">Languages</h2>
             {languagesList}
         </div>
     );
