@@ -1,0 +1,272 @@
+{
+    "basics": {
+        "name": "Gianfranco Salomone",
+        "label": "Python Developer",
+        "image": "",
+        "email": "gianfranco.s@gmail.com",
+        "phone": "+5491157318476",
+        "url": "",
+        "summary": "Passionate about Python development, I find joy in crafting solutions that resonate with my enthusiasm. Nestled in the serene beauty of Patagonia, near Mount Piltriquitrón, I cherish moments of coding, baking, and trekking with my loved ones—Luca, Francesca, and Luz.",
+        "location": {
+            "city": "El Bolsón",
+            "countryCode": "AR",
+            "region": "Río Negro"
+        },
+        "profiles": [
+            {
+                "network": "linkedin",
+                "username": "gianfranco-salomone",
+                "url": "https://www.linkedin.com/in/gianfranco-salomone/"
+            },
+            {
+                "network": "github",
+                "username": "gianfranco-s",
+                "url": "https://github.com/gianfranco-s"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Baitcon/AySA",
+            "position": "Lead Python Dev",
+            "url": "https://www.baitcon.com/",
+            "startDate": "2022-11-01",
+            "endDate": null,
+            "summary": "Designed and developed Flask microsites for corporate use. Managed deployment across DEV, QAS, UAT and PRD environments. Built Python ETL pipeline for Oracle to SAP HANA data migration. Utilized SAP BAS and SAP HANA for development and deployment. Conducted regular code reviews. Advocated for and implemented Test-Driven Development. Most projects for AySA are geared towards migrating local workflows to cloud-based ones.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Flask", "DTAP environments", "ETL", "SAP HANA", "SAP BTP", "SAP AI Core", "Code Reviews", "TDD", "MySQL", "React", "Pytest"
+            ]
+        },
+        {
+            "name": "MecanTronic",
+            "position": "Cloud Developer / DevOps",
+            "url": "https://mecantronic.com.ar/",
+            "startDate": "2022-03-01",
+            "endDate": null,
+            "summary": "Developed an IoT project using MQTT to monitor sensors based on ESP32. Optimized development workflows with Docker, orchestrating InﬂuxDB-Grafana-MQTT containers using docker-compose. Developed Python mock sensors to validate container functionality. Deployed production and staging environments on AWS. Contributed to international client technical sales pitches.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Python", "MQTT", "IoT", "Docker", "DEV and PRD environments", "AWS EC2", "InfluxDB", "Grafana", "SSH"
+            ]
+        },
+        {
+            "name": "Shuttle99",
+            "position": "Full Stack developer",
+            "url": "https://shuttle99.com/",
+            "startDate": "2022-04-01",
+            "endDate": "2023-08-01",
+            "summary": "Maintained a complex Flask project for a multinational Fintech ﬁrm. Managed user data in PostgreSQL databases. Integrated partner REST and SOAP APIs across multiple countries. Conducted regular code peer reviews. Developed Selenium-based end-to-end (E2E) Behave tests.",
+            "isRemote": true,
+            "location": "Canary Islands",
+            "highlights": [
+                "Flask", "BDD", "Selenium", "REST", "SOAP", "PostgreSQL", "Peer Code Reviews"
+            ]
+        },
+        {
+            "name": "Emissary Software LLC",
+            "position": "Python developer",
+            "url": "https://www.emissary.ai/",
+            "startDate": "2021-09-21",
+            "endDate": "2022-07-01",
+            "summary": "Dockerized and deployed apps on AWS, optimizing for legacy Ubuntu versions. Conducted Cypress end-to-end (E2E) testing to ensure quality and reliability. Integrated MailShake to the main Django app using REST API, enhancing cold-email reporting. Responded to security questionnaires from prospective clients, addressing inquiries about our user data protection policies, Software Development Life Cycle (SDLC), and the security practices we would implement.",
+            "isRemote": true,
+            "location": "New York",
+            "highlights": [
+                "Docker", "Linux", "MailShake", "Cypress", "Security Compliance", "SDLC"
+            ]
+        },
+        {
+            "name": "Freelance",
+            "position": "IoT developer",
+            "url": null,
+            "startDate": "2021-09-21",
+            "endDate": "2022-07-01",
+            "summary": "Developed an Android app for Bluetooth Low Energy connectivity to an embedded turbine speed controller. Designed the mobile app frontend using React Native and Typescript. Implemented backend connectivity with ESP32 using C++ and Platform IO.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Typescript", "Android", "C/C++", "ESP32", "PlatformIO"
+            ]
+        },
+        {
+            "name": "Electronics, Physics and Control Systems",
+            "position": "University Teacher and Researcher",
+            "url": null,
+            "startDate": "2010-01-01",
+            "endDate": "2021-06-01",
+            "summary": "Taught linear control strategies and numerical simulation techniques using MATLAB and Python. Designed a sun follower system using a 3-phase motor and SCADA PLC. Implemented control logic in Ladder language and created LabView dashboards. Developed electromechanical automations with Arduino and C language.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "MATLAB", "C/C++", "PLC", "Arduino", "Python", "Circuit Boards", "Assembly"
+            ]
+        }
+    ],
+    "volunteer": null,
+    "education": [
+        {
+            "institution": "SAA-C03 - AWS",
+            "url": null,
+            "area": "AWS Solutions Architect",
+            "studyType": null,
+            "startDate": "2024-02-01",
+            "endDate": null
+        },
+        {
+            "institution": "C_HANATEC_19 - SAP",
+            "url": "https://www.credly.com/badges/229ebe18-c51d-41ab-84c7-89b378bbd191/public_url",
+            "area": "SAP HANA 2.0 SPS07 - Associate Cert.",
+            "studyType": null,
+            "startDate": "2023-12-14",
+            "endDate": "2024-02-17"
+        },
+        {
+            "institution": "IBM Skillsbuild",
+            "url": null,
+            "area": "Native Mobile Development",
+            "studyType": null,
+            "startDate": "2021-07-01",
+            "endDate": "2021-11-01"
+        },
+        {
+            "institution": "Buenos Aires Ciudad - Codo a Codo",
+            "url": null,
+            "area": "Python Full Stack",
+            "studyType": null,
+            "startDate": "2021-02-01",
+            "endDate": "2021-07-21"
+        },
+        {
+            "institution": "Facultad de Ingeniería del Ejército",
+            "url": null,
+            "area": "Control Systems Specialist",
+            "studyType": "specialist",
+            "startDate": "2011-01-01",
+            "endDate": "2013-01-01"
+        },
+        {
+            "institution": "Facultad de Ingeniería del Ejército",
+            "url": null,
+            "area": "Electronics Engineer",
+            "studyType": "masters",
+            "startDate": "2011-01-01",
+            "endDate": "2013-01-01"
+        }
+    ],
+    "awards": null,
+    "certificates": [
+        {
+            "name": "SAP Certified Technology Associate",
+            "date": "2021-11-07",
+            "issuer": "SAP",
+            "url": "https://www.credly.com/badges/229ebe18-c51d-41ab-84c7-89b378bbd191/public_url"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Todo Bajo Control",
+            "publisher": "unpublished",
+            "releaseDate": null,
+            "url": null,
+            "summary": "Description…"
+        }
+    ],
+    "skills": [
+        {
+            "name": "front",
+            "level": null,
+            "keywords": [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "React/TypeScript",
+                "tailwindcss",
+                "Bootstrap"
+            ]
+        },
+        {
+            "name": "back",
+            "level": null,
+            "keywords": [
+                "Python",
+                "Flask",
+                "FastAPI",
+                "Pandas",
+                "Linux",
+                "Docker",
+                "Gherkin",
+                "Cypress",
+                "AWS EC2",
+                "SSH",
+                "PostgreSQL/MySQL",
+                "InfluxDB",
+                "ORM",
+                "SAP HANA/SAP BAS/SAP BTP",
+                "CloudFoundry",
+                "C/C++",
+                "Assembly",
+                "MATLAB"
+            ]
+        },
+        {
+            "name": "tools",
+            "level": null,
+            "keywords": [
+                "Git",
+                "GitHub",
+                "VSCode",
+                "Slack",
+                "Jira"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "Spanish",
+            "fluency": "Native speaker"
+        },
+        {
+            "language": "English",
+            "fluency": "Advanced (C2)"
+        },
+        {
+            "language": "German",
+            "fluency": "Basic"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Wildlife",
+            "keywords": [
+                "Ferrets",
+                "Unicorns"
+            ]
+        }
+    ],
+    "references": null,
+    "projects": [
+        {
+            "name": "Atendi",
+            "startDate": "2024-02-01",
+            "endDate": null,
+            "description": "Attendance taking, but with Machine Learning",
+            "highlights": [
+                "FastAPI", "Computer Vision", "Pytest"
+            ],
+            "url": "https://www.linkedin.com/company/atendi-ai/"
+        },
+        {
+            "name": "Improve My Cv",
+            "startDate": "2024-04-09",
+            "endDate": null,
+            "description": "Improve your resume using local LLM",
+            "highlights": [
+                "API", "Pytest"
+            ],
+            "url": "https://github.com/gianfranco-s/improve-my-cv"
+        }
+    ]
+}
