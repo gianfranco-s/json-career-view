@@ -39,9 +39,9 @@ const Home = () => {
             <SkillsCard skills={resumeData.skills} />
           </div>
 
-          {/* <div className="mb-10">
+          <div className="mb-10">
             <EducationCard education={resumeData.education} />
-          </div> */}
+          </div>
 
           {/* <div className="mb-10">
             <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />

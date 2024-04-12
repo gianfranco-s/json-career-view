@@ -3,19 +3,16 @@ import EducationItem from './EducationItem'
 import { EducationItemDataProps } from './EducationItem';
 
 export interface EducationProps {
-    education: {
-        sectionTitle: string;
-        sectionList: EducationItemDataProps[];
-    };
+    education: EducationItemDataProps[];
 }
 
 function EducationCard({ education }: EducationProps) {
-    const educationList = education.sectionList.map((educ, index) => (
+    const educationList = education.map((educ, index) => (
         <EducationItem key={index} educationItemData={educ} />
     ))
     return (
         <div>
-            <h2 className="text-2xl mb-4">{education.sectionTitle}</h2>
+            <h2 className="text-2xl mb-4">Education</h2>
             {educationList}
         </div>
     );
