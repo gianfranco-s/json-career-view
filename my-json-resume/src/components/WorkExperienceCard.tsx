@@ -1,7 +1,7 @@
 import React from 'react';
 import WorkExperienceItem, { WorkExperienceItemDataProps } from './WorkExperienceItem';
 
-interface WorkExperienceCardProps{
+interface WorkExperienceCardProps {
     workExperience: WorkExperienceItemDataProps[];
 }
 

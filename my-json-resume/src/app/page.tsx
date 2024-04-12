@@ -14,8 +14,6 @@ const Home = () => {
     GitHub: resumeData.basics.profiles[1].url
   }
 
-  const workExperience = resumeData.work
-
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-center">
@@ -30,7 +28,7 @@ const Home = () => {
       <div className="flex flex-wrap">
         <div className="container mx-auto px-4 py-8 w-full md:w-1/2">
           <div className="mb-10">
-            <WorkExperienceCard workExperience={workExperience} />
+            <WorkExperienceCard workExperience={resumeData.work} />
           </div>
         </div>
 

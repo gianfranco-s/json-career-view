@@ -4,9 +4,9 @@ export interface WorkExperienceItemDataProps {
     workExperienceItemData: {
         name: string;
         position: string;
-        url: string;
+        url?: string | null;
         startDate: string;
-        endDate: string;
+        endDate?: string | null;
         isRemote: boolean;
         location: string;
         summary: string;
