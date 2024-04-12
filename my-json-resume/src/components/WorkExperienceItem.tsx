@@ -2,29 +2,33 @@ import React from 'react';
 
 export interface WorkExperienceItemDataProps {
     workExperienceItemData: {
-        id: string;
+        name: string;
         position: string;
-        company: string;
-        yearStart: string;
-        yearEnd: string;
+        url: string;
+        startDate: string;
+        endDate: string;
         isRemote: boolean;
         location: string;
-        decription: string[];
+        summary: string;
+        highlights: string[]
     };
 }
 
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
-    const datesSpan = `${workExperienceItemData.yearStart} - ${workExperienceItemData.yearEnd ? workExperienceItemData.yearEnd : 'Present'}`;
+    const datesSpan = `${workExperienceItemData.startDate} - ${workExperienceItemData.endDate ? workExperienceItemData.endDate : 'Present'}`;
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site'
-    const additionalData = `${workExperienceItemData.company} | ${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
+    const additionalData = `${workExperienceItemData.name} | ${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
+
+    // Splitting summary text at each '.' character
+    const summarySentences = workExperienceItemData.summary.split('.').filter(sentence => sentence.trim() !== '');
 
     return (
         <div className="mb-4">
             <h3 className="text-sm font-medium mb-1">{workExperienceItemData.position}</h3>
             <h4 className="text-xs text-gray-500 mb-2">{additionalData}</h4>
             <ul className="list-disc pl-4 ml-2">
-                {workExperienceItemData.decription.map((descrItm, index) => (
-                    <li key={index} className="text-sm">{descrItm}</li>
+                {summarySentences.map((sentence, index) => (
+                    <li key={index}>{sentence.trim()}</li>
                 ))}
             </ul>
         </div>
