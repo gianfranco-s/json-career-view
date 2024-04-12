@@ -4,7 +4,7 @@ import WorkExperienceCard from '../components/WorkExperienceCard'
 import SkillsCard from '../components/SkillsCard'
 import EducationCard from '../components/EducationCard'
 import SpokenLanguagesCard from '../components/SpokenLanguagesCard'
-import AboutCard from '../components/AboutCard'
+import InterestsCard from '../components/InterestsCard'
 
 const Home = () => {
   const contactInfo = {
@@ -47,7 +47,7 @@ const Home = () => {
             <SpokenLanguagesCard spokenLanguages={resumeData.languages} />
           </div>
 
-          {/* <AboutCard about={resumeData.about} /> */}
+          <InterestsCard interests={resumeData.interests} />
         </div>
       </div>
     </div>
