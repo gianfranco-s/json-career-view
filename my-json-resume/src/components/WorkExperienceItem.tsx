@@ -15,9 +15,11 @@ export interface WorkExperienceItemDataProps {
 }
 
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
-    const datesSpan = `${workExperienceItemData.startDate} - ${workExperienceItemData.endDate ? workExperienceItemData.endDate : 'Present'}`;
+    const startYear = new Date(workExperienceItemData.startDate).getFullYear();
+    const endYear = workExperienceItemData.endDate ? new Date(workExperienceItemData.endDate).getFullYear() : 'Present';
+    const yearSpan = `${startYear} - ${endYear}`;
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site'
-    const additionalData = `${workExperienceItemData.name} | ${datesSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
+    const additionalData = `${workExperienceItemData.name} | ${yearSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
 
     // Splitting summary text at each '.' character
     const summarySentences = workExperienceItemData.summary.split('.').filter(sentence => sentence.trim() !== '');
