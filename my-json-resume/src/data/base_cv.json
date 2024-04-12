@@ -176,7 +176,7 @@
     ],
     "skills": [
         {
-            "name": "front",
+            "name": "Front",
             "level": null,
             "keywords": [
                 "HTML",
@@ -188,7 +188,7 @@
             ]
         },
         {
-            "name": "back",
+            "name": "Back",
             "level": null,
             "keywords": [
                 "Python",
@@ -212,7 +212,7 @@
             ]
         },
         {
-            "name": "tools",
+            "name": "Tools",
             "level": null,
             "keywords": [
                 "Git",

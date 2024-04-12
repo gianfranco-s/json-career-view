@@ -8,10 +8,10 @@ import AboutCard from '../components/AboutCard'
 
 const Home = () => {
   const contactInfo = {
-      mobilePhone: resumeData.basics.phone,
-      email: resumeData.basics.email,
-      LinkedIn: resumeData.basics.profiles[0].url,
-      GitHub: resumeData.basics.profiles[1].url
+    mobilePhone: resumeData.basics.phone,
+    email: resumeData.basics.email,
+    LinkedIn: resumeData.basics.profiles[0].url,
+    GitHub: resumeData.basics.profiles[1].url
   }
 
   const workExperience = resumeData.work
@@ -34,19 +34,21 @@ const Home = () => {
           </div>
         </div>
 
-        {/* <div className="container mx-auto px-4 py-8  w-full md:w-1/2 ">
+        <div className="container mx-auto px-4 py-8  w-full md:w-1/2 ">
           <div className="mb-10">
             <SkillsCard skills={resumeData.skills} />
           </div>
-          <div className="mb-10">
-            <EducationCard education={resumeData.education} />
-          </div>
-          <div className="mb-10">
-            <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
-          </div>
 
-          <AboutCard about={resumeData.about} />
-        </div> */}
+          {/* <div className="mb-10">
+            <EducationCard education={resumeData.education} />
+          </div> */}
+
+          {/* <div className="mb-10">
+            <SpokenLanguagesCard spokenLanguages={resumeData.spokenLanguages} />
+          </div> */}
+
+          {/* <AboutCard about={resumeData.about} /> */}
+        </div>
       </div>
     </div>
   );
