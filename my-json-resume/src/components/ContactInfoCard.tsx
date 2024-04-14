@@ -19,13 +19,13 @@ function ContactInfoCard({ contactInfo }: ContactInfoProps) {
             <a href={whatsappUrl} target="_blank" className="flex items-center text-gray-600">
                 <FontAwesomeIcon icon={faPhone} className="h-4 w-4 mr-2" /> {contactInfo.mobilePhone}
             </a>
-            <a href={emailTo} className="flex items-center text-gray-600">
+            <a href={emailTo} target="_blank" className="flex items-center text-gray-600">
                 <FontAwesomeIcon icon={faEnvelope} className="h-4 w-4 mr-2" /> {contactInfo.email}
             </a>
-            <a href={contactInfo.LinkedIn} className="flex items-center text-gray-600">
+            <a href={contactInfo.LinkedIn} target="_blank" className="flex items-center text-gray-600">
                 <FontAwesomeIcon icon={faLinkedin} className="h-4 w-4 mr-2" /> {linkedInEndpoint}
             </a>
-            <a href={contactInfo.GitHub} className="flex items-center text-gray-600">
+            <a href={contactInfo.GitHub} target="_blank" className="flex items-center text-gray-600">
                 <FontAwesomeIcon icon={faGithub} className="h-4 w-4 mr-2" /> {gitHubEndpoint}
             </a>
         </div >
