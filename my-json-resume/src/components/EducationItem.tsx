@@ -1,12 +1,8 @@
 import React from 'react';
+import { Education } from './types';
 
 export interface EducationItemDataProps {
-    educationItemData: {
-        area: string;
-        startDate: string;
-        endDate: string;
-        institution: string;
-    };
+    educationItemData: Education;
 }
 
 function EducationItem({ educationItemData }: EducationItemDataProps) {

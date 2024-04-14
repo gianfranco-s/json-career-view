@@ -1,9 +1,9 @@
 import React from 'react';
 import EducationItem from './EducationItem'
-import { EducationItemDataProps } from './EducationItem';
+import { Education } from './types';
 
 export interface EducationProps {
-    education: EducationItemDataProps[];
+    education: Education[];
 }
 
 function EducationCard({ education }: EducationProps) {
