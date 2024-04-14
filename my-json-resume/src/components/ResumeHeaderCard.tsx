@@ -1,11 +1,12 @@
 import React from 'react';
 import Title from '../components/ResumeTitle'
-import ContactInfo from '../components/ContactInfo'
+import ContactInfoCard from './ContactInfoCard'
+import { ContactInfo } from './typesHybrid';
 
 interface ResumeHeaderProps {
     name: string;
     resumeTitle: string;
-    contactInfo: object;
+    contactInfo: ContactInfo;
 }
 
 function ResumeHeaderCard({ name, resumeTitle, contactInfo }: ResumeHeaderProps) {
@@ -13,7 +14,7 @@ function ResumeHeaderCard({ name, resumeTitle, contactInfo }: ResumeHeaderProps)
         <div>
             <Title name={name} resumeTitle={resumeTitle} />
             <div className="mb-5 mt-5">
-                <ContactInfo contactInfo={contactInfo} />
+                <ContactInfoCard contactInfo={contactInfo} />
             </div>
         </div>
     );

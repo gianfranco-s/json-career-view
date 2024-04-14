@@ -58,7 +58,7 @@ export interface Language {
     fluency: string;
 }
 
-interface Interest {
+export interface Interest {
     name: string;
     keywords: string[] | null;
 }
