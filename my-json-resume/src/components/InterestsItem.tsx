@@ -1,10 +1,8 @@
 import React from 'react';
+import { Interest } from './types';
 
 export interface InterestsItemDataProps {
-    InterestsItemData: {
-        name: string;
-        keywords: string[];
-    };
+    InterestsItemData: Interest;
 }
 
 function InterestsItem({ InterestsItemData }: InterestsItemDataProps) {
