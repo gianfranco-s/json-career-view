@@ -47,7 +47,7 @@ interface Publication {
     summary: string;
 }
 
-interface Skill {
+export interface Skill {
     name: string;
     level: string | null;
     keywords: string[];
