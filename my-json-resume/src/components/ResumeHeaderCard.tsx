@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../components/ResumeTitle'
+import Title from '@/components/ResumeTitle'
 import ContactInfoCard from './ContactInfoCard'
 import { ContactInfo } from './typesCustom';
 
