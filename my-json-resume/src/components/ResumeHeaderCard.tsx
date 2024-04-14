@@ -1,7 +1,7 @@
 import React from 'react';
 import Title from '../components/ResumeTitle'
 import ContactInfoCard from './ContactInfoCard'
-import { ContactInfo } from './typesHybrid';
+import { ContactInfo } from './typesCustom';
 
 interface ResumeHeaderProps {
     name: string;
