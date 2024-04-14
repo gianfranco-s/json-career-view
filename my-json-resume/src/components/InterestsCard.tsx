@@ -1,9 +1,9 @@
 import React from 'react';
 import InterestsItem from './InterestsItem'
-import { InterestsItemDataProps } from './InterestsItem';
+import { Interest } from './types';
 
 interface InterestsProps {
-    interests: InterestsItemDataProps[];
+    interests: Interest[];
     };
 
 function InterestsCard({ interests }: InterestsProps) {

@@ -2,18 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
-
+import { ContactInfo } from './typesCustom';
 
 interface ContactInfoProps {
-    contactInfo: {
-        mobilePhone: string;
-        email: string;
-        LinkedIn: string;
-        GitHub: string;
-    };
+    contactInfo: ContactInfo;
 }
 
-function ContactInfo({ contactInfo }: ContactInfoProps) {
+function ContactInfoCard({ contactInfo }: ContactInfoProps) {
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${contactInfo.mobilePhone.replace('+', '')}`
     const emailTo = `mailto:${contactInfo.email}`
     const linkedInEndpoint = new URL(contactInfo.LinkedIn).pathname
@@ -37,4 +32,4 @@ function ContactInfo({ contactInfo }: ContactInfoProps) {
     );
 }
 
-export default ContactInfo;
+export default ContactInfoCard;

@@ -1,13 +1,9 @@
 import React from 'react';
+import { Skill } from './types';
 
-interface SkillsItem {
-    name: string;
-    level?: string;
-    keywords: string[]
-}
 
 interface SkillsProps {
-    skills: SkillsItem[];
+    skills: Skill[];
 }
 
 function Skills({ skills }: SkillsProps) {
@@ -24,7 +20,7 @@ function Skills({ skills }: SkillsProps) {
 
     return (
         <div>
-             <h2 className="text-2xl mb-4">Skills</h2>
+            <h2 className="text-2xl mb-4">Skills</h2>
             {skillsLayout}
         </div>
     );
