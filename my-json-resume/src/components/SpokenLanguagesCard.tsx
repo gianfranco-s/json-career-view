@@ -1,9 +1,9 @@
 import React from 'react';
 import SpokenLanguagesItem from './SpokenLanguagesItem';
-import { SpokenLanguagesItemDataProps } from './SpokenLanguagesItem';
+import { Language } from './types';
 
 interface SpokenLanguagesProps {
-    spokenLanguages: SpokenLanguagesItemDataProps[];
+    spokenLanguages: Language[];
 };
 
 function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {

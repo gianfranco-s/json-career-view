@@ -23,7 +23,7 @@ export interface WorkExperience {
     highlights: string[];
 }
 
-interface Education {
+export interface Education {
     institution: string;
     url: string | null;
     area: string;
@@ -53,7 +53,7 @@ export interface Skill {
     keywords: string[];
 }
 
-interface Language {
+export interface Language {
     language: string;
     fluency: string;
 }

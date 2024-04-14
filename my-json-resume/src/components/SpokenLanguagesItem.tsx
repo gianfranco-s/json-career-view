@@ -1,10 +1,8 @@
 import React from 'react';
+import { Language } from './types';
 
 export interface SpokenLanguagesItemDataProps {
-    spokenLanguagesItemData: {
-        language: string;
-        fluency: string;
-    };
+    spokenLanguagesItemData: Language;
 }
 
 function SpokenLanguagesItem({ spokenLanguagesItemData }: SpokenLanguagesItemDataProps) {
