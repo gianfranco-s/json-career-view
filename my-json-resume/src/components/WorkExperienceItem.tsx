@@ -1,17 +1,8 @@
 import React from 'react';
+import { WorkExperience } from './types';
 
 export interface WorkExperienceItemDataProps {
-    workExperienceItemData: {
-        name: string;
-        position: string;
-        url?: string | null;
-        startDate: string;
-        endDate?: string | null;
-        isRemote: boolean;
-        location: string;
-        summary: string;
-        highlights: string[]
-    };
+    workExperienceItemData: WorkExperience;
 }
 
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
