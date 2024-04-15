@@ -11,7 +11,7 @@ function EducationItem({ educationItemData }: EducationItemDataProps) {
     const yearSpan = `${startYear} - ${endYear}`;
     return (
         <div className="mb-4">
-            <h3 className="text-sm font-medium mb-1">{educationItemData.area}</h3>
+            <h4 className="text-sm font-medium mb-1">{educationItemData.area}</h4>
             <p className="text-sm mb-2">({yearSpan}) {educationItemData.institution}</p>
         </div>
     );

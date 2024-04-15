@@ -12,7 +12,7 @@ function EducationCard({ education }: EducationProps) {
     ))
     return (
         <div>
-            <h2 className="text-2xl mb-4">Education</h2>
+            <h3 className="text-2xl mb-4">Education</h3>
             {educationList}
         </div>
     );

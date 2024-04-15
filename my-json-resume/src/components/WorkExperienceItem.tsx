@@ -17,8 +17,8 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
 
     return (
         <div className="mb-4">
-            <h3 className="text-sm font-medium mb-1">{workExperienceItemData.position}</h3>
-            <h4 className="text-xs text-gray-500 mb-2">{additionalData}</h4>
+            <h4 className="text-sm font-medium mb-1">{workExperienceItemData.position}</h4>
+            <h5 className="text-xs text-gray-500 mb-2">{additionalData}</h5>
             <ul className="list-disc pl-4 ml-2">
                 {summarySentences.map((sentence, index) => (
                     <li key={index}>{sentence.trim()}</li>
