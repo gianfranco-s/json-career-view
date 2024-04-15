@@ -5,7 +5,7 @@
         "image": "",
         "email": "gianfranco.s@gmail.com",
         "phone": "+5491157318476",
-        "url": "",
+        "url": "https://gianfranco-salomone.com/",
         "summary": "Passionate about Python development, I find joy in crafting solutions that resonate with my enthusiasm. Nestled in the serene beauty of Patagonia, near Mount Piltriquitrón, I cherish moments of coding, baking, and trekking with my loved ones—Luca, Francesca, and Luz.",
         "location": {
             "city": "El Bolsón",
@@ -309,15 +309,29 @@
             "url": "https://www.linkedin.com/company/atendi-ai/"
         },
         {
-            "name": "Improve My Cv",
+            "name": "Improve My CV",
             "startDate": "2024-04-09",
             "endDate": null,
             "description": "Improve your resume using local LLM",
             "highlights": [
-                "API",
+                "Python",
+                "FastAPI",
                 "Pytest"
             ],
             "url": "https://github.com/gianfranco-s/improve-my-cv"
+        },
+        {
+            "name": "JSON Career View",
+            "startDate": "2024-04-09",
+            "endDate": null,
+            "description": "You're looking at it",
+            "highlights": [
+                "ReactJS",
+                "Typescript",
+                "TailwindCSS",
+                "NextJS"
+            ],
+            "url": "https://github.com/gianfranco-s/json-career-view"
         }
     ]
 }
