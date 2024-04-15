@@ -11,7 +11,7 @@ function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
         <SpokenLanguagesItem key={index} spokenLanguagesItemData={lang} />)
     return (
         <div>
-            <h2 className="text-2xl mb-4">Languages</h2>
+            <h3 className="text-2xl mb-4">Languages</h3>
             {languagesList}
         </div>
     );

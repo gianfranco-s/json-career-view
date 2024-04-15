@@ -11,7 +11,7 @@ function InterestsCard({ interests }: InterestsProps) {
         <InterestsItem key={index} InterestsItemData={interestsItm}/>)
     return (
         <div>
-            <h2 className="text-2xl mb-4">Interests</h2>
+            <h3 className="text-2xl mb-4">Interests</h3>
             {aboutList}
             <br />
         </div>
