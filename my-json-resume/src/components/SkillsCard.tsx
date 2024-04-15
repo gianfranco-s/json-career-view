@@ -9,7 +9,7 @@ interface SkillsProps {
 function Skills({ skills }: SkillsProps) {
     const skillsLayout = skills.map((skill, index) => (
         <div key={index}>
-            <h4 className="text-1xl mt-4">{skill.name}</h4>
+            <h4 className="text-sm font-medium mt-4">{skill.name}</h4>
             <ul>
                 {skill.keywords.map((keyword, keywordIndex) => (
                     <span key={keywordIndex}>{keyword} </span>
