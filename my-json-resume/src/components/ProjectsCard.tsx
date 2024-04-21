@@ -11,9 +11,9 @@ function ProjectsCard({ projects }: ProjectsProps) {
         <div className='span'>
             <h3 className="text-2xl">Current Projects</h3>
             <div className="flex">
-                <ProjectsItem projectsItemData={projects[0]}/>
-                <ProjectsItem projectsItemData={projects[1]}/>
-                <ProjectsItem projectsItemData={projects[2]}/>
+                <ProjectsItem projectsItemData={projects[0]} />
+                <ProjectsItem projectsItemData={projects[1]} />
+                <ProjectsItem projectsItemData={projects[2]} />
             </div>
         </div>
     );

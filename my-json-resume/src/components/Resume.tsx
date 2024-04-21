@@ -27,8 +27,8 @@ function Resume() {
       </div>
 
       <div className="flex flex-wrap">
-        <div className="container mx-auto px-4 pt-4 w-full">
-          <ProjectsCard projects={resumeData.projects}/>
+        <div className="px-4 pt-4 w-full">
+          <ProjectsCard projects={resumeData.projects} />
         </div>
       </div>
 
