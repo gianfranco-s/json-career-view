@@ -12,12 +12,13 @@ function ProjectsItem({ projectsItemData }: ProjectsItemDataProps) {
         </span>
     ));
 
+    const projectTitle = <h4 className="text-sm font-medium mb-1">{projectsItemData.name}</h4>
+
     return (
         <div className="mb-4 px-4 pt-4 mr-4">
-            <h4 className="text-sm font-medium mb-1">{projectsItemData.name}</h4>
+            {projectsItemData.url ? <a href={projectsItemData.url}>{projectTitle}</a> : projectTitle}
             <p className="text-sm mb-1">{projectsItemData.description}</p>
-            <div className="mb-1">{highlightTags}</div>
-            <p className="text-sm mb-1">{projectsItemData.url}</p>
+            {highlightTags}
         </div>
     );
 }
