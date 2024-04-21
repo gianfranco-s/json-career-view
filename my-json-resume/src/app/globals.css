@@ -31,3 +31,29 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer base {
+  .projects-bg-light {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+    border-radius: 0.5rem;
+    width: 300px;
+  }
+
+  .projects-bg-dark {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+    border-radius: 0.5rem;
+    width: 300px;
+  }
+}

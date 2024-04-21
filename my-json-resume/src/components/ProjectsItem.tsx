@@ -15,7 +15,7 @@ function ProjectsItem({ projectsItemData }: ProjectsItemDataProps) {
     const projectTitle = <h4 className="text-sm font-medium mb-1">{projectsItemData.name}</h4>;
 
     return (
-        <div className="my-4 px-4 py-4 mr-4 bg-gray-900 rounded-lg max-w-md sm:max-w-xl md:max-w-2xl" style={{ width: '300px' }}>
+        <div className="projects-bg-light dark:projects-bg-dark">
             {projectsItemData.url ? <a href={projectsItemData.url}>{projectTitle}</a> : projectTitle}
             <p className="text-sm mb-3">{projectsItemData.description}</p>
             {highlightTags}
