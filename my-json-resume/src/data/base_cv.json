@@ -300,10 +300,11 @@
             "name": "Atendi",
             "startDate": "2024-02-01",
             "endDate": null,
-            "description": "Attendance taking, but with Machine Learning",
+            "description": "We use people's faces to take attendance. Currently marketed towards Universities.",
             "highlights": [
                 "FastAPI",
                 "React",
+                "AWS",
                 "Computer Vision",
                 "Pytest"
             ],
@@ -313,9 +314,12 @@
             "name": "Improve My CV",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "Improve a JSON resume by asking an LLM",
+            "description": "Improve a JSON resume by asking an LLM. Can be either commercial, like OpenAI or local, like Ollama.",
             "highlights": [
                 "Python",
+                "Ollama",
+                "Requests",
+                "SDK",
                 "FastAPI",
                 "Pytest"
             ],
@@ -325,12 +329,26 @@
             "name": "JSON Career View",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "You're looking at it",
+            "description": "Render a resume based on a JSON file, using the jsonresume standard. You're looking at it :) ",
             "highlights": [
                 "ReactJS",
                 "TypeScript",
                 "TailwindCSS",
-                "NextJS"
+                "NextJS",
+                "Vercel"
+            ],
+            "url": "https://github.com/gianfranco-s/json-career-view"
+        },
+        {
+            "name": "Custom copilot",
+            "startDate": "2024-03-01",
+            "endDate": null,
+            "description": "For corporative use within a large company. It would provide on-the-fly assistance to working team leaders.",
+            "highlights": [
+                "SAP BTP",
+                "SAP AI Core",
+                "SAP AI Launchpad",
+                "Flask"
             ],
             "url": "https://github.com/gianfranco-s/json-career-view"
         }
