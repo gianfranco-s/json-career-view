@@ -5,6 +5,7 @@ import SkillsCard from '@/components/SkillsCard'
 import EducationCard from '@/components/EducationCard'
 import SpokenLanguagesCard from '@/components/SpokenLanguagesCard'
 import InterestsCard from '@/components/InterestsCard'
+import ProjectsCard from '@/components/ProjectsCard'
 
 function Resume() {
   const contactInfo = {
@@ -22,6 +23,12 @@ function Resume() {
             name={resumeData.basics.name}
             resumeTitle={resumeData.basics.label}
             contactInfo={contactInfo} />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap">
+        <div className="px-4 pt-4 w-full">
+          <ProjectsCard projects={resumeData.projects} />
         </div>
       </div>
 

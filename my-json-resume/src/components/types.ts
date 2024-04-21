@@ -63,7 +63,7 @@ export interface Interest {
     keywords: string[] | null;
 }
 
-interface Project {
+export interface Project {
     name: string;
     startDate: string;
     endDate: string | null;
