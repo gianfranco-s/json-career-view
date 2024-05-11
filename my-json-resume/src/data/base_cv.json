@@ -6,11 +6,11 @@
         "email": "gianfranco.s@gmail.com",
         "phone": "+5491157318476",
         "url": "https://gianfranco-salomone.com/",
-        "summary": "Passionate about Python development, I find joy in crafting solutions that resonate with my enthusiasm. Nestled in the serene beauty of Patagonia, near Mount Piltriquitrón, I cherish moments of coding, baking, and trekking with my loved ones—Luca, Francesca, and Luz.",
+        "summary": "Passionate about Python development, I find joy in crafting solutions that resonate with my enthusiasm. Nestled in the serene beauty of Patagonia, near Mount Piltriquitr\u00f3n, I cherish moments of coding, baking, and trekking with my loved ones\u2014Luca, Francesca, and Luz.",
         "location": {
-            "city": "El Bolsón",
+            "city": "El Bols\u00f3n",
             "countryCode": "AR",
-            "region": "Río Negro"
+            "region": "R\u00edo Negro"
         },
         "profiles": [
             {
@@ -55,7 +55,7 @@
             "url": "https://mecantronic.com.ar/",
             "startDate": "2022-03-01",
             "endDate": null,
-            "summary": "Developed an IoT project using MQTT to monitor sensors based on ESP32. Optimized development workflows with Docker, orchestrating InﬂuxDB-Grafana-MQTT containers using docker-compose. Developed Python mock sensors to validate container functionality. Deployed production and staging environments on AWS. Contributed to international client technical sales pitches.",
+            "summary": "Developed an IoT project using MQTT to monitor sensors based on ESP32. Optimized development workflows with Docker, orchestrating InfluxDB-Grafana-MQTT containers using docker-compose. Developed Python mock sensors to validate container functionality. Deployed production and staging environments on AWS. Contributed to international client technical sales pitches.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
@@ -76,7 +76,7 @@
             "url": "https://shuttle99.com/",
             "startDate": "2022-04-01",
             "endDate": "2023-08-01",
-            "summary": "Maintained a complex Flask project for a multinational Fintech ﬁrm. Managed user data in PostgreSQL databases. Integrated partner REST and SOAP APIs across multiple countries. Conducted regular code peer reviews. Developed Selenium-based end-to-end (E2E) Behave tests.",
+            "summary": "Maintained a complex Flask project for a multinational Fintech \ufb01rm. Managed user data in PostgreSQL databases. Integrated partner REST and SOAP APIs across multiple countries. Conducted regular code peer reviews. Developed Selenium-based end-to-end (E2E) Behave tests.",
             "isRemote": true,
             "location": "Canary Islands",
             "highlights": [
@@ -179,7 +179,7 @@
             "endDate": "2021-07-21"
         },
         {
-            "institution": "Facultad de Ingeniería del Ejército",
+            "institution": "Facultad de Ingenier\u00eda del Ej\u00e9rcito",
             "url": null,
             "area": "Control Systems Specialist",
             "studyType": "specialist",
@@ -187,7 +187,7 @@
             "endDate": "2013-01-01"
         },
         {
-            "institution": "Facultad de Ingeniería del Ejército",
+            "institution": "Facultad de Ingenier\u00eda del Ej\u00e9rcito",
             "url": null,
             "area": "Electronics Engineer",
             "studyType": "masters",
@@ -210,7 +210,7 @@
             "publisher": "unpublished",
             "releaseDate": null,
             "url": null,
-            "summary": "Description…"
+            "summary": "A study on the effects of computer vision on machine learning models"
         }
     ],
     "skills": [
@@ -245,9 +245,7 @@
                 "ORM",
                 "SAP HANA/SAP BAS/SAP BTP",
                 "CloudFoundry",
-                "C/C++",
-                "Assembly",
-                "MATLAB"
+                "C/C++, Assembly"
             ]
         },
         {
@@ -300,7 +298,7 @@
             "name": "Atendi",
             "startDate": "2024-02-01",
             "endDate": null,
-            "description": "We use people's faces to take attendance. Currently marketed towards Universities.",
+            "description": "A web application for managing a team's attendance. Currently marketed towards Universities.",
             "highlights": [
                 "FastAPI",
                 "React",
@@ -314,14 +312,12 @@
             "name": "Improve My CV",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "Improve a JSON resume by asking an LLM. Can be either commercial, like OpenAI or local, like Ollama.",
+            "description": "A RESTful API for a machine learning model. Used for predicting student attendance.",
             "highlights": [
+                "Django",
                 "Python",
-                "Ollama",
-                "Requests",
-                "SDK",
-                "FastAPI",
-                "Pytest"
+                "Machine Learning",
+                "RESTful APIs"
             ],
             "url": "https://github.com/gianfranco-s/improve-my-cv"
         },
@@ -329,13 +325,13 @@
             "name": "JSON Career View",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "Render a resume based on a JSON file, using the jsonresume standard. You're looking at it :) ",
+            "description": "A web application for a company's internal communication. Used for managing team members and sharing information.",
             "highlights": [
-                "ReactJS",
-                "TypeScript",
-                "TailwindCSS",
-                "NextJS",
-                "Vercel"
+                "Flask",
+                "Linux",
+                "Docker",
+                "Gherkin",
+                "Cypress"
             ],
             "url": "https://github.com/gianfranco-s/json-career-view"
         },
