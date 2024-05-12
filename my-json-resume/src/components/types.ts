@@ -21,6 +21,7 @@ export interface WorkExperience {
     isRemote: boolean;
     location: string;
     highlights: string[];
+    techHighlights: string[];
 }
 
 export interface Education {

@@ -32,10 +32,17 @@
             "url": "https://www.baitcon.com/",
             "startDate": "2022-11-01",
             "endDate": null,
-            "summary": "Currently leading a team of junior devs to create an LLM-based product. Designed and developed Flask microsites for corporate use. Managed deployment across DEV, QAS, UAT and PRD environments. Built Python ETL pipeline for Oracle to SAP HANA data migration. Utilized SAP BAS and SAP HANA for development and deployment. Conducted regular code reviews. Advocated for and implemented Test-Driven Development. Most projects for AySA are geared towards migrating local workflows to cloud-based ones.",
+            "summary": "Lead developer and consultant in Python projects. Company's projects range from ETL to FullStack applications. All environments are deployed in SAP BTP or SAP AI Core. Most projects are geared towards in-company management.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
+                "Currently leading a team of junior devs to create an LLM-based app to quickly summarize legal requirements from long pdfs.",
+                "Managed deployment across DEV, QAS, UAT and PRD environments.",
+                "Built Python ETL pipeline for Oracle to SAP HANA data migration.",
+                "Reviewed code regularly for peers and junior devs.",
+                "Implemented Test-Driven Development."
+            ],
+            "techHighlights": [
                 "Flask",
                 "DTAP environments",
                 "ETL",
@@ -55,16 +62,24 @@
             "url": "https://mecantronic.com.ar/",
             "startDate": "2022-03-01",
             "endDate": null,
-            "summary": "Developed an IoT project using MQTT to monitor sensors based on ESP32. Optimized development workflows with Docker, orchestrating InfluxDB-Grafana-MQTT containers using docker-compose. Developed Python mock sensors to validate container functionality. Deployed production and staging environments on AWS. Contributed to international client technical sales pitches.",
+            "summary": "Currently working as DevOps; managing PRD level servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
+                "Developed an IoT project using MQTT to monitor sensors.",
+                "Optimized development workflows with Docker, orchestrating InﬂuxDB-Grafana-MQTT containers using docker-compose.",
+                "Developed Python automations used for integration tests.",
+                "Deployed production and staging environments on AWS.",
+                "Contributed to international client technical sales pitches."
+            ],
+            "techHighlights": [
                 "Python",
                 "MQTT",
                 "IoT",
                 "Docker",
                 "DEV and PRD environments",
-                "AWS EC2",
+                "AWS",
+                "EC2",
                 "InfluxDB",
                 "Grafana",
                 "SSH"
@@ -76,17 +91,23 @@
             "url": "https://shuttle99.com/",
             "startDate": "2022-04-01",
             "endDate": "2023-08-01",
-            "summary": "Maintained a complex Flask project for a multinational Fintech \ufb01rm. Managed user data in PostgreSQL databases. Integrated partner REST and SOAP APIs across multiple countries. Conducted regular code peer reviews. Developed Selenium-based end-to-end (E2E) Behave tests.",
+            "summary": "Maintained a complex Flask project deployed across multiple countries in multiple languages. Worked through all the stack of technologies of the project: frontend in JavaScript, HTML and CSS, backend in Flask, database in PostgreSQL and Redis. Databases stored tens of thousands of clients.",
             "isRemote": true,
             "location": "Canary Islands",
             "highlights": [
+                "Managed user data in PostgreSQL databases.",
+                "Integrated partner REST and SOAP APIs across multiple countries.",
+                "Conducted regular code peer reviews.",
+                "Developed Selenium-based end-to-end (E2E) Behave tests."
+            ],
+            "techHighlights": [
                 "Flask",
                 "BDD",
                 "Selenium",
                 "REST",
                 "SOAP",
                 "PostgreSQL",
-                "Peer Code Reviews"
+                "Code Reviews"
             ]
         },
         {
@@ -95,10 +116,18 @@
             "url": "https://www.emissary.ai/",
             "startDate": "2021-09-21",
             "endDate": "2022-07-01",
-            "summary": "Dockerized and deployed apps on AWS, optimizing for legacy Ubuntu versions. Conducted Cypress end-to-end (E2E) testing to ensure quality and reliability. Integrated MailShake to the main Django app using REST API, enhancing cold-email reporting. Responded to security questionnaires from prospective clients, addressing inquiries about our user data protection policies, Software Development Life Cycle (SDLC), and the security practices we would implement.",
+            "summary": "My main responsibilities were to perform first surveys of new technologies, Cypress E2E testing and making sure the company was compliant with current US standard security policies.",
             "isRemote": true,
             "location": "New York",
             "highlights": [
+                "Dockerized and deployed apps on AWS, optimizing for legacy Ubuntu versions.",
+                "Conducted Cypress end-to-end (E2E) testing to ensure quality and reliability.",
+                "Integrated MailShake to the main Django app using REST API, enhancing cold-email reporting.",
+                "Responded to security questionnaires from prospective clients, addressing inquiries about our user data protection policies, Software Development Life Cycle (SDLC), and the security practices we would implement.",
+                "Performed initial tests of Wazuh integration for server monitoring."
+
+            ],
+            "techHighlights": [
                 "Docker",
                 "Linux",
                 "MailShake",
@@ -113,10 +142,16 @@
             "url": null,
             "startDate": "2021-09-21",
             "endDate": "2022-07-01",
-            "summary": "Developed an Android app for Bluetooth Low Energy connectivity to an embedded turbine speed controller. Designed the mobile app frontend using React Native and TypeScript. Implemented backend connectivity with ESP32 using C++ and Platform IO.",
+            "summary": "Worked independently for a startup which developed a bluetooth-controlled grill. I was tasked to create the interface between an Android device and the grill's brain.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
+                "Developed an Android app for Bluetooth Low Energy connectivity to an embedded turbine speed controller.",
+                "Designed the mobile app frontend using React Native and Typescript.",
+                "Implemented backend connectivity with ESP32 using C++ and Platform IO."
+                
+            ],
+            "techHighlights": [
                 "TypeScript",
                 "Android",
                 "C/C++",
@@ -130,10 +165,18 @@
             "url": null,
             "startDate": "2010-01-01",
             "endDate": "2021-06-01",
-            "summary": "Taught linear control strategies and numerical simulation techniques using MATLAB and Python. Designed a sun follower system using a 3-phase motor and SCADA PLC. Implemented control logic in Ladder language and created LabView dashboards. Developed electromechanical automations with Arduino and C language.",
+            "summary": "I've always been a teacher at heart. I taught on many levels through many years.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
+                "Developed Physics simulations using Python.",
+                "Developed lab experiences for Physics students.",
+                "Simulated linear and non-linear control strategies using MATLAB and Python.",
+                "Developed electromechanical automations with Arduino and C language.",
+                "Advocated to change current workflows from closed source software (MATLAB) to open source (Python)."
+                
+            ],
+            "techHighlights": [
                 "MATLAB",
                 "C/C++",
                 "PLC",
@@ -346,7 +389,7 @@
                 "SAP AI Launchpad",
                 "Flask"
             ],
-            "url": "https://github.com/gianfranco-s/json-career-view"
+            "url": null
         }
     ]
 }
