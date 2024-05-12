@@ -258,18 +258,6 @@
     ],
     "skills": [
         {
-            "name": "Front",
-            "level": null,
-            "keywords": [
-                "HTML",
-                "CSS",
-                "JavaScript",
-                "React/TypeScript",
-                "tailwindcss",
-                "Bootstrap"
-            ]
-        },
-        {
             "name": "Back",
             "level": null,
             "keywords": [
@@ -280,15 +268,44 @@
                 "Linux",
                 "Docker",
                 "Gherkin",
+                "Selenium",
                 "Cypress",
-                "AWS EC2",
-                "SSH",
-                "PostgreSQL/MySQL",
+                "C/C++",
+                "Assembly"
+            ]
+        },
+        {
+            "name": "Front",
+            "level": null,
+            "keywords": [
+                "ReactJS",
+                "TypeScript",
+                "JavaScript ES6",
+                "HTML/CSS",
+                "TailwindCSS",
+                "Bootstrap",
+                "NextJS"
+            ]
+        },
+        {
+            "name": "Databases",
+            "level": null,
+            "keywords": [
+                "PostgreSQL",
+                "MySQL",
                 "InfluxDB",
-                "ORM",
-                "SAP HANA/SAP BAS/SAP BTP",
-                "CloudFoundry",
-                "C/C++, Assembly"
+                "SAP HANA",
+                "ORM"
+            ]
+        },
+        {
+            "name": "Cloud",
+            "level": null,
+            "keywords": [
+                "AWS",
+                "SAP BTP",
+                "SAP AI Core",
+                "Cloud Foundry"
             ]
         },
         {
@@ -297,9 +314,9 @@
             "keywords": [
                 "Git",
                 "GitHub",
-                "VSCode",
-                "Slack",
-                "Jira"
+                "Flake8",
+                "isort",
+                "Slack"
             ]
         }
     ],
@@ -319,19 +336,13 @@
     ],
     "interests": [
         {
-            "name": "Family life",
+            "name": "Proud dad",
+            "summary": "I'm a stay-at-home dad, so I try to balance work life with family life. I have two kids and I like to take them to activities and play with them as much as possible. Childhood does not come twice.",
             "keywords": null
         },
         {
-            "name": "Martial arts",
-            "keywords": [
-                "Full Contact",
-                "Muay Thai",
-                "Tai Chi Chuan"
-            ]
-        },
-        {
-            "name": "Trekking",
+            "name": "Amateur baker",
+            "summary": "I love Lemon Meringue Pie, so much that in order to avoid bugging people to cook it, I learned to do it myself. After that, there was no stopping: tiramisu, Castella cake, flan. Do you have a sweet tooth as well?",
             "keywords": null
         }
     ],
@@ -341,13 +352,13 @@
             "name": "Atendi",
             "startDate": "2024-02-01",
             "endDate": null,
-            "description": "A web application for managing a team's attendance. Currently marketed towards Universities.",
+            "description": "We use people's faces to take attendance. Currently marketed towards Universities.",
             "highlights": [
                 "FastAPI",
-                "React",
+                "ReactJS",
                 "AWS",
                 "Computer Vision",
-                "Pytest"
+                "TDD"
             ],
             "url": "https://www.linkedin.com/company/atendi-ai/"
         },
@@ -355,12 +366,12 @@
             "name": "Improve My CV",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "A RESTful API for a machine learning model. Used for predicting student attendance.",
+            "description": "Improve a JSON resume by asking an LLM. Can be either commercial, like OpenAI or local, like Ollama.",
             "highlights": [
-                "Django",
-                "Python",
-                "Machine Learning",
-                "RESTful APIs"
+                "FastAPI",
+                "Ollama",
+                "Requests",
+                "Pytest"
             ],
             "url": "https://github.com/gianfranco-s/improve-my-cv"
         },
@@ -368,26 +379,25 @@
             "name": "JSON Career View",
             "startDate": "2024-04-09",
             "endDate": null,
-            "description": "A web application for a company's internal communication. Used for managing team members and sharing information.",
+            "description": "Render a resume based on a JSON file, using the jsonresume standard. You're looking at it :)",
             "highlights": [
-                "Flask",
-                "Linux",
-                "Docker",
-                "Gherkin",
-                "Cypress"
+                "ReactJS",
+                "TypeScript",
+                "TailwindCSS",
+                "NextJS",
+                "Vercel"
             ],
             "url": "https://github.com/gianfranco-s/json-career-view"
         },
         {
-            "name": "Custom copilot",
+            "name": "Custom copilot on SAP",
             "startDate": "2024-03-01",
             "endDate": null,
-            "description": "For corporative use within a large company. It would provide on-the-fly assistance to working team leaders.",
+            "description": "For corporate use. It would provide assistance closely manage day-to-day spending in the context of a state funded company.",
             "highlights": [
                 "SAP BTP",
                 "SAP AI Core",
-                "SAP AI Launchpad",
-                "Flask"
+                "SAP HANA Vector Store"
             ],
             "url": null
         }
