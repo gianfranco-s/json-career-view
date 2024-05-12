@@ -5,6 +5,11 @@ export interface WorkExperienceItemDataProps {
     workExperienceItemData: WorkExperience;
 }
 
+function ItemsFromDots(baseText: string) {
+    // Splitting summary text at each '.' character
+    return baseText.split('.').filter(sentence => sentence.trim() !== '')
+}
+
 function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataProps) {
     const startYear = new Date(workExperienceItemData.startDate).getFullYear();
     const endYear = workExperienceItemData.endDate ? new Date(workExperienceItemData.endDate).getFullYear() : 'Present';
@@ -12,8 +17,7 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site'
     const additionalData = `${workExperienceItemData.name} | ${yearSpan} | ${remoteOrOnsite} | ${workExperienceItemData.location}`
 
-    // Splitting summary text at each '.' character
-    const summarySentences = workExperienceItemData.summary.split('.').filter(sentence => sentence.trim() !== '');
+    const summarySentences = ItemsFromDots(workExperienceItemData.summary);
 
     return (
         <div className="mb-4">
