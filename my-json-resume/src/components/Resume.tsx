@@ -1,3 +1,4 @@
+"use client"
 import resumeData from '@/data/base_cv.json'
 import ResumeHeaderCard from '@/components/ResumeHeaderCard'
 import WorkExperienceCard from '@/components/WorkExperienceCard'
@@ -6,6 +7,7 @@ import EducationCard from '@/components/EducationCard'
 import SpokenLanguagesCard from '@/components/SpokenLanguagesCard'
 import InterestsCard from '@/components/InterestsCard'
 import ProjectsCard from '@/components/ProjectsCard'
+import DownloadPDF from '@/components/PdfCreator'
 
 function Resume() {
   const contactInfo = {
@@ -15,8 +17,12 @@ function Resume() {
     GitHub: resumeData.basics.profiles[1].url
   }
 
+  const pdfResume = <DownloadPDF/>
   return (
     <div className="container mx-auto px-4 py-8 md:w-2/3">
+      <div className="flex justify-right">
+        {pdfResume}
+      </div>
       <div className="flex justify-center">
         <div className="w-full md:w-1/2">
           <ResumeHeaderCard
