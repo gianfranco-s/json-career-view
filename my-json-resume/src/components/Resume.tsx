@@ -17,8 +17,18 @@ function Resume() {
     GitHub: resumeData.basics.profiles[1].url
   }
 
-  const pdfResume = <DownloadPDF/>
-  return (
+  const pdfResume = <DownloadPDF
+                      name={resumeData.basics.name}
+                      resumeTitle={resumeData.basics.label}
+                      contactInfo={contactInfo}
+                      workExperience={resumeData.work}
+                      skills={resumeData.skills}
+                      education={resumeData.education}
+                      spokenLanguages={resumeData.languages}
+                      interests={resumeData.interests}
+                    />
+
+                    return (
     <div className="container mx-auto px-4 py-8 md:w-2/3">
       <div className="flex justify-right">
         {pdfResume}
