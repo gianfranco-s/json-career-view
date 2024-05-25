@@ -61,6 +61,7 @@ export interface Language {
 
 export interface Interest {
     name: string;
+    summary: string;
     keywords: string[] | null;
 }
 
