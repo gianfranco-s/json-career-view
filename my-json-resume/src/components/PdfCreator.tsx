@@ -23,30 +23,38 @@ function DownloadPDF(props: DownloadPDFProps) {
         items: work.highlights.map(item => `- ${item}\n`),
       }));
 
-    const skillsList = props.skills[0].keywords.map(skill => `${skill}`)
+    const skillsList = props.skills.map(skill => ({
+        name: skill.name,
+        keywords: skill.keywords,
+    }))
+    
+    const skillsToDoc = skillsList.flatMap(skl => [
+        // {text: `${skl.name}\n`, style: 'subsection'},
+        {text: `${skl.keywords}\n\n`, style: 'normal'}
+    ])
 
     const educations = props.education.map((ed_item, index) => ({
         name: `${ed_item.institution}\n`,
-        degree: `${ed_item.area}\n`,
+        degree: `${ed_item.area}\n\n`,
       }));
 
     const educationsToDoc = educations.flatMap(ed => [
-        {text: ed.name, style: 'normal'},
+        {text: ed.name, style: 'subsection'},
         {text: ed.degree, style: 'normal'}
     ])
 
     const workExpToDoc = workExperiences.flatMap(workExp => [
-        {text: workExp.name, style: 'normal'},
+        {text: workExp.name, style: 'subsection'},
         {text: workExp.items, style: 'normal'}
     ])
 
     const languagesToDoc = props.spokenLanguages.flatMap(lang => [
-        {text: `${lang.language}\n`, style: 'normal'}
+        {text: `${lang.language}: ${lang.fluency}\n\n`, style: 'normal'}
     ])
 
     const interestsToDoc = props.interests.flatMap(intst => [
-        {text: intst.name, style: 'normal'},
-        {text: intst.summary, style: 'normal'}
+        {text: `${intst.name}\n`, style: 'subsection'},
+        {text: `${intst.summary}\n\n`, style: 'normal'}
     ])
 
     const docDefinition = {
@@ -70,7 +78,7 @@ function DownloadPDF(props: DownloadPDFProps) {
                         width: '30%',
                         text: [
                             {text: 'Skills\n', style: 'section'},
-                            {text: `${skillsList}\n`, style: 'normal'},
+                            ...skillsToDoc,
                             {text: 'Education\n', style: 'section'},
                             ...educationsToDoc,
                             {text: 'Languages\n', style: 'section'},
@@ -97,6 +105,11 @@ function DownloadPDF(props: DownloadPDFProps) {
             },
             section: {
                 fontSize: 16,
+                bold: true,
+                alignment: 'left',
+            },
+            subsection: {
+                fontSize: 9,
                 bold: true,
                 alignment: 'left',
             },
