@@ -30,6 +30,25 @@ function DownloadPDF(props: DownloadPDFProps) {
         degree: `${ed_item.area}\n`,
       }));
 
+    const educationsToDoc = educations.flatMap(ed => [
+        {text: ed.name, style: 'normal'},
+        {text: ed.degree, style: 'normal'}
+    ])
+
+    const workExpToDoc = workExperiences.flatMap(workExp => [
+        {text: workExp.name, style: 'normal'},
+        {text: workExp.items, style: 'normal'}
+    ])
+
+    const languagesToDoc = props.spokenLanguages.flatMap(lang => [
+        {text: `${lang.language}\n`, style: 'normal'}
+    ])
+
+    const interestsToDoc = props.interests.flatMap(intst => [
+        {text: intst.name, style: 'normal'},
+        {text: intst.summary, style: 'normal'}
+    ])
+
     const docDefinition = {
         content: [
             { text: props.name, style: 'name' },
@@ -44,18 +63,7 @@ function DownloadPDF(props: DownloadPDFProps) {
                         width: '*',
                         text: [
                             {text: 'Experience\n', style: 'section'},
-                            {text: workExperiences[0].name, style: 'normal'},
-                            {text: workExperiences[0].items, style: 'normal'},
-                            {text: workExperiences[1].name, style: 'normal'},
-                            {text: workExperiences[1].items, style: 'normal'},
-                            {text: workExperiences[2].name, style: 'normal'},
-                            {text: workExperiences[2].items, style: 'normal'},
-                            {text: workExperiences[3].name, style: 'normal'},
-                            {text: workExperiences[3].items, style: 'normal'},
-                            {text: workExperiences[4].name, style: 'normal'},
-                            {text: workExperiences[4].items, style: 'normal'},
-                            {text: workExperiences[5].name, style: 'normal'},
-                            {text: workExperiences[5].items, style: 'normal'},
+                            ...workExpToDoc
                         ]
                     },
                     {
@@ -64,27 +72,11 @@ function DownloadPDF(props: DownloadPDFProps) {
                             {text: 'Skills\n', style: 'section'},
                             {text: `${skillsList}\n`, style: 'normal'},
                             {text: 'Education\n', style: 'section'},
-                            {text: educations[0].name, style: 'normal'},
-                            {text: educations[0].degree, style: 'normal'},
-                            {text: educations[1].name, style: 'normal'},
-                            {text: educations[1].degree, style: 'normal'},
-                            {text: educations[2].name, style: 'normal'},
-                            {text: educations[2].degree, style: 'normal'},
-                            {text: educations[3].name, style: 'normal'},
-                            {text: educations[3].degree, style: 'normal'},
-                            {text: educations[4].name, style: 'normal'},
-                            {text: educations[4].degree, style: 'normal'},
-                            {text: educations[5].name, style: 'normal'},
-                            {text: educations[5].degree, style: 'normal'},
+                            ...educationsToDoc,
                             {text: 'Languages\n', style: 'section'},
-                            {text: `${props.spokenLanguages[0].language}\n`, style: 'normal'},
-                            {text: `${props.spokenLanguages[1].language}\n`, style: 'normal'},
-                            {text: `${props.spokenLanguages[2].language}\n`, style: 'normal'},
+                            ...languagesToDoc,
                             {text: 'Interests\n', style: 'section'},
-                            {text: props.interests[0].name, style: 'normal'},
-                            {text: props.interests[0].summary, style: 'normal'},
-                            {text: props.interests[1].name, style: 'normal'},
-                            {text: props.interests[1].summary, style: 'normal'},
+                            ...interestsToDoc
                         ]
                     }
                 ],
