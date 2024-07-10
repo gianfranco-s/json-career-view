@@ -36,7 +36,7 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Currently leading a team of junior devs to create an LLM-based app to quickly summarize legal requirements from long pdfs.",
+                "Currently leading a team of junior devs to create an LLM-based app to quickly summarize legal requirements from long pdfs (RAG).",
                 "Managed deployment across DEV, QAS, UAT and PRD environments.",
                 "Built Python ETL pipeline for Oracle to SAP HANA data migration.",
                 "Reviewed code regularly for peers and junior devs.",
@@ -62,7 +62,7 @@
             "url": "https://mecantronic.com.ar/",
             "startDate": "2022-03-01",
             "endDate": null,
-            "summary": "Currently working as DevOps; managing PRD level servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
+            "summary": "Currently working as DevOps; managing PRD servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
@@ -198,9 +198,17 @@
             "endDate": null
         },
         {
-            "institution": "C_HANATEC_19 - SAP",
-            "url": "https://www.credly.com/badges/229ebe18-c51d-41ab-84c7-89b378bbd191/public_url",
-            "area": "SAP HANA 2.0 SPS07 - Associate Cert.",
+            "institution": "SAP Certified",
+            "url": "https://www.credly.com/badges/802751fe-6430-4c8c-81c2-f129e67d2e1d/public_url",
+            "area": "SAP Data Engineer",
+            "studyType": null,
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-20"
+        },
+        {
+            "institution": "SAP Certified",
+            "url": "https://www.credly.com/badges/8f99822a-e0f6-4773-8614-468f5038afdc/public_url",
+            "area": "SAP Database Administrator",
             "studyType": null,
             "startDate": "2023-12-14",
             "endDate": "2024-02-17"
@@ -208,7 +216,7 @@
         {
             "institution": "IBM Skillsbuild",
             "url": null,
-            "area": "Native Mobile Development",
+            "area": "React Native Mobile Dev",
             "studyType": null,
             "startDate": "2021-07-01",
             "endDate": "2021-11-01"
@@ -241,8 +249,20 @@
     "awards": null,
     "certificates": [
         {
-            "name": "SAP Certified Technology Associate",
-            "date": "2021-11-07",
+            "name": "SAP Certified Associate - Data Engineer - SAP HANA",
+            "date": "2024-06-30",
+            "issuer": "SAP",
+            "url": "https://www.credly.com/badges/802751fe-6430-4c8c-81c2-f129e67d2e1d/public_url"
+        },
+        {
+            "name": "SAP Certified Associate - Database Administrator - SAP HANA",
+            "date": "2024-01-18",
+            "issuer": "SAP",
+            "url": "https://www.credly.com/badges/8f99822a-e0f6-4773-8614-468f5038afdc/public_url"
+        },
+        {
+            "name": "SAP Certified Technology Associate - SAP HANA 2.0 SPS07",
+            "date": "2024-01-18",
             "issuer": "SAP",
             "url": "https://www.credly.com/badges/229ebe18-c51d-41ab-84c7-89b378bbd191/public_url"
         }
@@ -327,7 +347,7 @@
         },
         {
             "language": "English",
-            "fluency": "advanced (C2)"
+            "fluency": "advanced (C1)"
         },
         {
             "language": "German",
