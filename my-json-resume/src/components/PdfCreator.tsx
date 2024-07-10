@@ -19,7 +19,7 @@ interface DownloadPDFProps {
 
 function DownloadPDF(props: DownloadPDFProps) {
     const workExperiences = props.workExperience.map((work, index) => ({
-        name: `${work.name}\n`,
+        name: work.name,
         items: work.highlights.map(item => `- ${item}\n`),
       }));
 
@@ -44,8 +44,8 @@ function DownloadPDF(props: DownloadPDFProps) {
     ])
 
     const workExpToDoc = workExperiences.flatMap(workExp => [
-        {text: workExp.name, style: 'subsection'},
-        {text: workExp.items, style: 'normal'}
+        {text: `${workExp.name}\n`, style: 'subsection'},
+        {text: `${workExp.items}\n`, style: 'normal'}
     ])
 
     const languagesToDoc = props.spokenLanguages.flatMap(lang => [
