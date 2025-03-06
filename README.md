@@ -11,3 +11,8 @@
 - [ ] [Download resume in PDF](https://www.npmjs.com/package/@react-pdf/renderer)
 - [ ] Automate a query to an LLM to update the JSON resume with a job description
 
+## Deploy with vercel
+   ```
+   cd my-json-resume
+   vercel --prod
+   ```
