@@ -6,7 +6,7 @@
         "email": "gianfranco.s@gmail.com",
         "phone": "+5491157318476",
         "url": "https://gianfranco-salomone.com/",
-        "summary": "Passionate about Python development, I find joy in crafting solutions that resonate with my enthusiasm. Nestled in the serene beauty of Patagonia, near Mount Piltriquitr\u00f3n, I cherish moments of coding, baking, and trekking with my loved ones\u2014Luca, Francesca, and Luz.",
+        "summary": "I love coding—simple as that. I coded Math, Physics and a bunch of software solutions. Professionally, I've built applications across industries like Gaming, AI detection, Human Resources and Fintech. I always strive to implement clean(er) code and SOLID principles. From microcontrollers to cloud apps, I stay curious and continuously refine my skills. Based in Patagonia near Mount Piltriquitrón, I enjoy baking and trekking with my family—Luz, Luca, and baby Francesca.",
         "location": {
             "city": "El Bols\u00f3n",
             "countryCode": "AR",
@@ -27,7 +27,7 @@
     },
     "work": [
         {
-            "name": "Baitcon/AySA",
+            "name": "EPIC iO",
             "position": "Backend AI Engineer",
             "url": "https://www.epicio.com/",
             "startDate": "2024-11-18",
