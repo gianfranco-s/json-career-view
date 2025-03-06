@@ -28,10 +28,95 @@
     "work": [
         {
             "name": "Baitcon/AySA",
-            "position": "Lead Python Dev",
+            "position": "Backend AI Engineer",
+            "url": "https://www.epicio.com/",
+            "startDate": "2024-11-18",
+            "endDate": null,
+            "summary": "This role involves optimizing infrastructure, automating deployments, and integrating monitoring solutions to ensure the reliability and efficiency of AI applications.",
+            "isRemote": true,
+            "location": "US",
+            "highlights": [
+                "Updated Docker images to improve building times.",
+                "Deployed metrics using Prometheus client.",
+                "Consumed metrics using Prometheus and Grafana.",
+                "Implemented FastAPI to expose AI detection products.",
+                "Used Ansible to automate deployment to different environments.",
+                "Reviewed code regularly for peers and junior devs."
+            ],
+            "techHighlights": [
+                "Python",
+                "FastAPI",
+                "Docker",
+                "Ansible",
+                "Pytest",
+                "devcontainers",
+                "Code Reviews",
+                "gstreamer"
+            ]
+        },
+        {
+            "name": "MecanTronic",
+            "position": "Cloud Developer / DevOps",
+            "url": "https://mecantronic.com.ar/",
+            "startDate": "2022-03-01",
+            "endDate": null,
+            "summary": "Currently working as DevOps; managing PRD servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Deployed production and staging environments to AWS.",
+                "Advocated for and implemented security best practices.",
+                "Managed workflows using Docker and Docker Compose.",
+                "Designed and developed REST API for backend of custom CRM project.",
+                "Managed IoT reporting based on stack InﬂuxDB-Grafana-MQTT.",
+                "Provided feedback for Python team leaders about infrastructure and code best practices."
+            ],
+            "techHighlights": [
+                "Python",
+                "AWS EC2",
+                "AWS S3",
+                "AWS RDS",
+                "AWS SES",
+                "MQTT",
+                "IoT",
+                "Docker",
+                "DEV, STG and PRD environments",
+                "InfluxDB",
+                "Grafana",
+                "SSH"
+            ]
+        },
+        {
+            "name": "Upwork/AtticGames",
+            "position": "LLM Python Developer",
+            "url": null,
+            "startDate": "2024-07-01",
+            "endDate": "2024-11-15",
+            "summary": "Tasked with integrating an LLM to a game to generate endless content for worlds based on the user's prompt. Main challenge: response repeatability.",
+            "isRemote": true,
+            "location": "US",
+            "highlights": [
+                "Used Ollama locally for game content generation.",
+                "Created content for worlds by layering different steps of world creation.",
+                "Convert user prompts to standardized JSON, based on the world's setting.",
+                "Integrated with the main engine using REST API.",
+                "Create prompt manager UI in order to quickly iterate over promts more easily."
+            ],
+            "techHighlights": [
+                "FastAPI",
+                "Ollama",
+                "HTTP requests",
+                "prompt engineering",
+                "TypeScript",
+                "JSON schemas"
+            ]
+        },
+        {
+            "name": "Baitcon/AySA",
+            "position": "Python Team Lead",
             "url": "https://www.baitcon.com/",
             "startDate": "2022-11-01",
-            "endDate": null,
+            "endDate": "2025-02-28",
             "summary": "Lead developer and consultant in Python projects. Company's projects range from ETL to FullStack applications. All environments are deployed in SAP BTP or SAP AI Core. Most projects are geared towards in-company management.",
             "isRemote": true,
             "location": "Buenos Aires",
@@ -54,35 +139,6 @@
                 "MySQL",
                 "React",
                 "Pytest"
-            ]
-        },
-        {
-            "name": "MecanTronic",
-            "position": "Cloud Developer / DevOps",
-            "url": "https://mecantronic.com.ar/",
-            "startDate": "2022-03-01",
-            "endDate": null,
-            "summary": "Currently working as DevOps; managing PRD servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
-            "isRemote": true,
-            "location": "Buenos Aires",
-            "highlights": [
-                "Developed an IoT project using MQTT to monitor sensors.",
-                "Optimized development workflows with Docker, orchestrating InﬂuxDB-Grafana-MQTT containers using docker-compose.",
-                "Developed Python automations used for integration tests.",
-                "Deployed production and staging environments on AWS.",
-                "Contributed to international client technical sales pitches."
-            ],
-            "techHighlights": [
-                "Python",
-                "MQTT",
-                "IoT",
-                "Docker",
-                "DEV and PRD environments",
-                "AWS",
-                "EC2",
-                "InfluxDB",
-                "Grafana",
-                "SSH"
             ]
         },
         {
@@ -273,7 +329,7 @@
             "publisher": "unpublished",
             "releaseDate": null,
             "url": null,
-            "summary": "A study on the effects of computer vision on machine learning models"
+            "summary": "A Control Systems text book."
         }
     ],
     "skills": [
@@ -283,6 +339,7 @@
             "keywords": [
                 "Python",
                 "Flask",
+                "Ansible",
                 "FastAPI",
                 "Pandas",
                 "Linux",
@@ -324,8 +381,7 @@
             "keywords": [
                 "AWS",
                 "SAP BTP",
-                "SAP AI Core",
-                "Cloud Foundry"
+                "SAP AI Core"
             ]
         },
         {
@@ -336,7 +392,8 @@
                 "GitHub",
                 "Flake8",
                 "isort",
-                "Slack"
+                "Slack",
+                "Jira"
             ]
         }
     ],
@@ -357,7 +414,7 @@
     "interests": [
         {
             "name": "Proud dad",
-            "summary": "I'm a stay-at-home dad, so I try to balance work life with family life. I have two kids and I like to take them to activities and play with them as much as possible. Childhood does not come twice.",
+            "summary": "Like any dad, I try to balance work life with family life. I have two kids and I like to take them to activities and play with them as much as possible. Childhood does not come twice.",
             "keywords": null
         },
         {
@@ -410,9 +467,20 @@
             "url": "https://github.com/gianfranco-s/json-career-view"
         },
         {
+            "name": "Invoice automation",
+            "startDate": "2024-09-06",
+            "endDate": "2024-09-07",
+            "description": "Weekend project to integrate ARCA REST API to automate invoice generation.",
+            "highlights": [
+                "Python",
+                "REST API"
+            ],
+            "url": "https://github.com/gianfranco-s/facturacion-servicios-afip"
+        },
+        {
             "name": "Custom copilot on SAP",
             "startDate": "2024-03-01",
-            "endDate": null,
+            "endDate": "2024-05-01",
             "description": "For corporate use. It would provide assistance closely manage day-to-day spending in the context of a state funded company.",
             "highlights": [
                 "SAP BTP",
