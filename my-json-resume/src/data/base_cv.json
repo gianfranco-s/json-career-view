@@ -216,8 +216,8 @@
             ]
         },
         {
-            "name": "Electronics, Physics and Control Systems",
-            "position": "University Teacher and Researcher",
+            "name": "UNLZ - UNGS - FIE - UB",
+            "position": "University Teacher",
             "url": null,
             "startDate": "2010-01-01",
             "endDate": "2021-06-01",
@@ -225,20 +225,58 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
-                "Developed Physics simulations using Python.",
-                "Developed lab experiences for Physics students.",
-                "Simulated linear and non-linear control strategies using MATLAB and Python.",
-                "Developed electromechanical automations with Arduino and C language.",
-                "Advocated to change current workflows from closed source software (MATLAB) to open source (Python)."
-                
+                "Designed and structured comprehensive syllabi for Electronics and Control Systems courses.",
+                "Developed Physics simulations using MATLAB.",
+                "Designed and implemented hands-on lab experiences for Physics students.",
+                "Created and facilitated laboratory experiments for Electronics students using Arduino and Arduino-based simulations.",
+                "Simulated and analyzed linear and non-linear control strategies using MATLAB and Python.",
+                "Advocated for transitioning from closed-source software (MATLAB) to open-source alternatives (Python)."
             ],
             "techHighlights": [
                 "MATLAB",
                 "C/C++",
-                "PLC",
                 "Arduino",
                 "Python",
                 "Circuit Boards",
+                "Assembly"
+            ]
+        },
+        {
+            "name": "Facultad de Ingeniería del Ejército",
+            "position": "Academic Researcher",
+            "url": null,
+            "startDate": "2018-01-01",
+            "endDate": "2021-06-01",
+            "summary": "I was tasked with designing a sun follower system to be used to improve energy efficiency of the electronics lab.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Designed a sun follower system using a 3-phase motor.",
+                "Automation performed with SCADA PLC.",
+                "Implemented control logic in Ladder language and created LabView dashboards."
+            ],
+            "techHighlights": [
+                "LabView",
+                "PLC",
+                "SCADA"
+            ]
+        },
+        {
+            "name": "Defense Ministry/CITEDEF",
+            "position": "Defense IoT Software Developer",
+            "url": null,
+            "startDate": "2010-08-01",
+            "endDate": "2013-09-01",
+            "summary": "Upgrade for training sofware used in LASER duel simulators for the Argentine army.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Blank ammunition shot detected via optical sensors.",
+                "Shooter information sent via solid state pulse laser.",
+                "Shooter ID and timestamp stored in the target unit."
+            ],
+            "techHighlights": [
+                "C/C++",
                 "Assembly"
             ]
         }
