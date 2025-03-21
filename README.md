@@ -46,3 +46,5 @@ Coded in TypeScript
 * fix code to load relative paths
 * use Lambda to export PDF (don't forget to limit output to 1 per minute)
 * add button in frontend to generate PDF for specific profile
+* use carrousel for current projects
+* show status un current projects
