@@ -37,8 +37,7 @@
             "location": "US",
             "highlights": [
                 "Updated Docker images to improve building times.",
-                "Deployed metrics using Prometheus client.",
-                "Consumed metrics using Prometheus and Grafana.",
+                "Deployed and consumed metrics using Prometheus and Grafana.",
                 "Implemented FastAPI to expose AI detection products.",
                 "Used Ansible to automate deployment to different environments.",
                 "Reviewed code regularly for peers and junior devs."
