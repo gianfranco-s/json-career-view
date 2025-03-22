@@ -1,13 +1,21 @@
 import base64
 import json
 import logging
+import uuid
 
+from datetime import datetime
+from os import remove
 from typing import Any
 
 from cv_to_pdf import render_pdf
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
+
+
+def create_download_name(name: str = 'exported_cv', profile: str | None = None) -> str:
+    name = name.lower().replace(' ', '_')
+    return f"{datetime.now().strftime(r'%Y%m%d_%H%M%S')}_{name}_{profile if profile is not None else 'full'}.pdf"
 
 
 def lambda_handler(event: dict, context: Any) -> None:
@@ -20,17 +28,23 @@ def lambda_handler(event: dict, context: Any) -> None:
             "body": json.dumps({"error": "Missing 'cv_json'"})
         }
 
-    output_path = '/tmp/exported_cv.pdf'
-    render_pdf(cv_data=json.loads(raw_cv_json), profile=profile, output_path=output_path)
+    tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'
+    cv_data = json.loads(raw_cv_json)
+    render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename)
 
-    with open(output_path, 'rb') as f:
+    with open(tmp_filename, 'rb') as f:
         encoded_pdf = base64.b64encode(f.read()).decode('utf-8')
-    
+
+    download_filename = create_download_name(cv_data.get('basics').get('name'), profile)
+
+    remove(tmp_filename)
     return {
             "statusCode": 200,
             "headers": {
-                "Content-Type": "application/pdf"
+                "Content-Type": "application/pdf",
+                "Content-Disposition": f"attachment; filename={download_filename}"
             },
+            
             "body": encoded_pdf,
             "isBase64Encoded": True
         }
@@ -39,18 +53,20 @@ def lambda_handler(event: dict, context: Any) -> None:
 if __name__ == "__main__":
     """Local test"""
     
-    filename = 'gianfranco-salomone-cv.json'  # In current dir
+    filename = 'base_cv.json'  # In current dir
     with open(filename, "r", encoding="utf-8") as f:
         cv_json = f.read()
 
     test_event = {
         "cv_json": cv_json,
-        "profile": "python-developer"
+        "profile": "python_developer"
     }
 
     response = lambda_handler(test_event, None)
+    from pprint import pprint
+    pprint(response)
 
-    output_file = filename.replace('.json', '.pdf')
+    output_file = response['headers'].get('Content-Disposition').split('=')[1]
     if response.get("statusCode") == 200:
         with open(output_file, "wb") as f:
             f.write(base64.b64decode(response["body"]))

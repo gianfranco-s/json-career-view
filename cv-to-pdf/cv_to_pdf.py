@@ -5,7 +5,7 @@ from pdfkit import from_string
 from jinja2 import Environment, FileSystemLoader
 
 PROFILES = {
-    'python-developer': ['EPIC iO',
+    'python_developer': ['EPIC iO',
                          'MecanTronic',
                          'Upwork/AtticGames',
                          'Baitcon/AySA',
