@@ -33,11 +33,7 @@ Coded in TypeScript
    ```
    sudo apt-get install -y wkhtmltopdf
    ```
-2. Copy resume to pdf directory
-   ```
-   cp gianfranco-salomone-cv.json cv-to-pdf/base_cv.json
-   ```
-3. Choose a profile and export
+2. Choose a profile and export
    ```
    cd cv-to-pdf/
    PROFILE="python-developer" python main_lambda.py
@@ -52,15 +48,18 @@ Coded in TypeScript
 * show status in current projects
 
 
-Download .zip from:
-https://github.com/jblotus/aws-lambda-wkhtmltopdf
-
-Upload to AWS
-```sh
-aws lambda publish-layer-version \
-  --layer-name wkhtmltopdf-layer \
-  --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
-  --zip-file fileb://wkhtmltopdf.zip \
-  --compatible-runtimes python3.13 \
-  --profile gian
-```
+### Deploy lambda
+1. Download `wkhtmltopdf.zip`: https://github.com/jblotus/aws-lambda-wkhtmltopdf
+2. Upload to AWS
+   ```sh
+   aws lambda publish-layer-version \
+      --layer-name wkhtmltopdf-layer \
+      --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
+      --zip-file fileb://wkhtmltopdf.zip \
+      --compatible-runtimes python3.13 \
+      --profile gian
+   ```
+3. Export dependencies to requirements file
+   ```sh
+   poetry export -f requirements.txt --without-hashes -o requirements.txt
+   ```

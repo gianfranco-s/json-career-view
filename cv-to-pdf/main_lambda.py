@@ -61,7 +61,7 @@ def lambda_handler(event: dict, context: Any) -> None:
 if __name__ == "__main__":
     """Local test"""
     
-    filename = 'base_cv.json'  # In current dir
+    filename = '../gianfranco-salomone-cv.json'  # In current dir
     with open(filename, "r", encoding="utf-8") as f:
         cv_json = f.read()
 
