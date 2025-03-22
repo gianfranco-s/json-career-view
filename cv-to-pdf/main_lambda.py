@@ -13,10 +13,17 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 
-def create_download_name(name: str = 'exported_cv', profile: str | None = None) -> str:
-    name = name.lower().replace(' ', '_')
-    timestamp = datetime.now().strftime(r'%Y%m%d_%H%M%S')
-    return f"{timestamp}_{name}_{profile if profile is not None else 'full'}.pdf"
+def create_download_name(name: str = 'exported_cv', profile: str | None = None, is_python_compatible: bool = False) -> str:
+    if profile is None:
+        profile = 'full'
+
+    if is_python_compatible:
+        timestamp = datetime.now().strftime(r'%Y%m%d_%H%M%S')
+        return f"{timestamp}_{name.lower().replace(' ', '_')}_{profile}.pdf"
+    
+    else:
+        timestamp = datetime.now().strftime(r'%Y-%m-%d')
+        return f"{name} - {profile.capitalize()} {timestamp}.pdf"
 
 
 def lambda_handler(event: dict, context: Any) -> None:
