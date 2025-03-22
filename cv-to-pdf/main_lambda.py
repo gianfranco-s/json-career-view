@@ -15,7 +15,8 @@ logger.setLevel(logging.INFO)
 
 def create_download_name(name: str = 'exported_cv', profile: str | None = None) -> str:
     name = name.lower().replace(' ', '_')
-    return f"{datetime.now().strftime(r'%Y%m%d_%H%M%S')}_{name}_{profile if profile is not None else 'full'}.pdf"
+    timestamp = datetime.now().strftime(r'%Y%m%d_%H%M%S')
+    return f"{timestamp}_{name}_{profile if profile is not None else 'full'}.pdf"
 
 
 def lambda_handler(event: dict, context: Any) -> None:
