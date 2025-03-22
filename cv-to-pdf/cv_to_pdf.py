@@ -1,7 +1,3 @@
-import json
-import os
-import sys
-
 from typing import Iterable
 from datetime import datetime
 
@@ -18,15 +14,6 @@ PROFILES = {
                          'Freelance'], 
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
-
-
-def load_json_cv(file_path: str) -> dict:
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Error loading CV: {e}")
-        sys.exit(1)
 
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:
@@ -89,6 +76,7 @@ def render_html(cv_data: dict) -> str:
 
 def save_to_pdf(html_content: str, output_path: str) -> None:
     """Convert HTML to PDF."""
+    print(f'Saving to pdf at {output_path}')
     try:
         # Save HTML file first (for debugging)
         # html_path = output_path.replace('.pdf', '.html')
@@ -113,19 +101,8 @@ def save_to_pdf(html_content: str, output_path: str) -> None:
         print(f"Error creating PDF: {e}")
         print("HTML file was saved for manual conversion.")
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python cv_to_pdf.py <path_to_json_cv> [output_path]")
-        sys.exit(1)
 
-    cv_path = sys.argv[1]
-    default_output = datetime.now().strftime(r"%Y%m%d_%H%M%S_") + cv_path
-    output_path = sys.argv[2] if len(sys.argv) > 2 else default_output.replace('.json', '.pdf')
-    
-    cv_data = load_json_cv(cv_path)
-
-    profile = os.environ.get('PROFILE', None)
-
+def render_pdf(cv_data: dict, output_path: str = '/tmp/exported_cv.pdf', profile: str | None = None) -> None:
     if profile is not None:
         cv_data = filter_experiences(cv_data=cv_data, include=PROFILES.get(profile))
 
@@ -133,7 +110,3 @@ def main():
     html_content = render_html(cv_data)
     
     save_to_pdf(html_content, output_path)
-
-
-if __name__ == "__main__":
-    main()
