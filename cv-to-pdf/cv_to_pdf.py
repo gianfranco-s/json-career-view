@@ -76,30 +76,24 @@ def render_html(cv_data: dict) -> str:
 
 def save_to_pdf(html_content: str, output_path: str) -> None:
     """Convert HTML to PDF."""
-    print(f'Saving to pdf at {output_path}')
-    try:
-        # Save HTML file first (for debugging)
-        # html_path = output_path.replace('.pdf', '.html')
-        # with open(html_path, 'w', encoding='utf-8') as f:
-        #     f.write(html_content)
+    # Save HTML file first (for debugging)
+    # html_path = output_path.replace('.pdf', '.html')
+    # with open(html_path, 'w', encoding='utf-8') as f:
+    #     f.write(html_content)
 
-        margin = '10mm'
-        options = {
-            'page-size': 'A4',
-            'margin-top': margin,
-            'margin-right': margin,
-            'margin-bottom': margin,
-            'margin-left': margin,
-            'encoding': 'UTF-8',
-            'no-outline': None,
-            'enable-local-file-access': None
-        }
-        
-        from_string(html_content, output_path, options=options)
-        
-    except Exception as e:
-        print(f"Error creating PDF: {e}")
-        print("HTML file was saved for manual conversion.")
+    margin = '10mm'
+    options = {
+        'page-size': 'A4',
+        'margin-top': margin,
+        'margin-right': margin,
+        'margin-bottom': margin,
+        'margin-left': margin,
+        'encoding': 'UTF-8',
+        'no-outline': None,
+        'enable-local-file-access': None
+    }
+    
+    from_string(html_content, output_path, options=options)
 
 
 def render_pdf(cv_data: dict, output_path: str = '/tmp/exported_cv.pdf', profile: str | None = None) -> None:
