@@ -3,8 +3,9 @@
 ### I have a dream...
 To be able to be able to manage my life sheet a single source. I want to be able to
 * use a structured format for *all* my work experiences
-* be able to export to pdf
 * be able to showcase my life sheet on the web [gianfranco-salomone.com](https://gianfranco-salomone.com/)
+* be able to export to pdf from my website
+* pay close to nothing to maintain these services
 * *eventually* be able to update it using an LLM based on specific job descriptions
 
 This is my personal project, where I sometimes put in the work to get there.
@@ -44,7 +45,7 @@ Coded in TypeScript
 
 ## If I ever get around to it
 * fix code to load relative paths
-* use Lambda to export PDF (don't forget to limit output to 1 per minute)
+* use Lambda to export PDF (don't forget to limit output to 1 per minute per IP, and a total of 10 downloads for that IP)
 * add button in frontend to generate PDF for specific profile
 * use carrousel for current projects
 * show status un current projects
