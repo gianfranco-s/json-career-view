@@ -35,7 +35,7 @@ Coded in TypeScript
    ```
 2. Copy resume to pdf directory
    ```
-   cp gianfranco-salomone-cv.json cv-to-pdf/
+   cp gianfranco-salomone-cv.json cv-to-pdf/base_cv.json
    ```
 3. Choose a profile and export
    ```
