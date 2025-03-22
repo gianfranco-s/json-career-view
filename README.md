@@ -44,8 +44,23 @@ Coded in TypeScript
    ```
 
 ## If I ever get around to it
-* fix code to load relative paths
-* use Lambda to export PDF (don't forget to limit output to 1 per minute per IP, and a total of 10 downloads for that IP)
+* <s>fix code to load relative paths</s> if using Lambda, this isn't required
+* use Lambda to export PDF
+  * limit output to 1 per minute per IP, and a total of 10 downloads for that IP
 * add button in frontend to generate PDF for specific profile
 * use carrousel for current projects
-* show status un current projects
+* show status in current projects
+
+
+Download .zip from:
+https://github.com/jblotus/aws-lambda-wkhtmltopdf
+
+Upload to AWS
+```sh
+aws lambda publish-layer-version \
+  --layer-name wkhtmltopdf-layer \
+  --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
+  --zip-file fileb://wkhtmltopdf.zip \
+  --compatible-runtimes python3.13 \
+  --profile gian
+```
