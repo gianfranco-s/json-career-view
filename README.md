@@ -40,7 +40,7 @@ Coded in TypeScript
 3. Choose a profile and export
    ```
    cd cv-to-pdf/
-   PROFILE="python-developer" python cv_to_pdf.py gianfranco-salomone-cv.json
+   PROFILE="python-developer" python main_lambda.py
    ```
 
 ## If I ever get around to it

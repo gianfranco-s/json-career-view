@@ -52,8 +52,8 @@ if __name__ == "__main__":
 
     output_file = filename.replace('.json', '.pdf')
     if response.get("statusCode") == 200:
-        with open("output.pdf", "wb") as f:
+        with open(output_file, "wb") as f:
             f.write(base64.b64decode(response["body"]))
-        print("PDF saved as output.pdf")
+        print(f"PDF saved as {output_file}")
     else:
         print("Error:", response["body"])
