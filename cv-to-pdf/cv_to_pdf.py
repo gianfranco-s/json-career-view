@@ -1,7 +1,3 @@
-import json
-import os
-import sys
-
 from typing import Iterable
 from datetime import datetime
 
@@ -9,7 +5,7 @@ from pdfkit import from_string
 from jinja2 import Environment, FileSystemLoader
 
 PROFILES = {
-    'python-developer': ['EPIC iO',
+    'python_developer': ['EPIC iO',
                          'MecanTronic',
                          'Upwork/AtticGames',
                          'Baitcon/AySA',
@@ -18,15 +14,6 @@ PROFILES = {
                          'Freelance'], 
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
-
-
-def load_json_cv(file_path: str) -> dict:
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            return json.load(file)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Error loading CV: {e}")
-        sys.exit(1)
 
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:
@@ -89,43 +76,27 @@ def render_html(cv_data: dict) -> str:
 
 def save_to_pdf(html_content: str, output_path: str) -> None:
     """Convert HTML to PDF."""
-    try:
-        # Save HTML file first (for debugging)
-        # html_path = output_path.replace('.pdf', '.html')
-        # with open(html_path, 'w', encoding='utf-8') as f:
-        #     f.write(html_content)
+    # Save HTML file first (for debugging)
+    # html_path = output_path.replace('.pdf', '.html')
+    # with open(html_path, 'w', encoding='utf-8') as f:
+    #     f.write(html_content)
 
-        margin = '10mm'
-        options = {
-            'page-size': 'A4',
-            'margin-top': margin,
-            'margin-right': margin,
-            'margin-bottom': margin,
-            'margin-left': margin,
-            'encoding': 'UTF-8',
-            'no-outline': None,
-            'enable-local-file-access': None
-        }
-        
-        from_string(html_content, output_path, options=options)
-        
-    except Exception as e:
-        print(f"Error creating PDF: {e}")
-        print("HTML file was saved for manual conversion.")
-
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python cv_to_pdf.py <path_to_json_cv> [output_path]")
-        sys.exit(1)
-
-    cv_path = sys.argv[1]
-    default_output = datetime.now().strftime(r"%Y%m%d_%H%M%S_") + cv_path
-    output_path = sys.argv[2] if len(sys.argv) > 2 else default_output.replace('.json', '.pdf')
+    margin = '10mm'
+    options = {
+        'page-size': 'A4',
+        'margin-top': margin,
+        'margin-right': margin,
+        'margin-bottom': margin,
+        'margin-left': margin,
+        'encoding': 'UTF-8',
+        'no-outline': None,
+        'enable-local-file-access': None
+    }
     
-    cv_data = load_json_cv(cv_path)
+    from_string(html_content, output_path, options=options)
 
-    profile = os.environ.get('PROFILE', None)
 
+def render_pdf(cv_data: dict, output_path: str = '/tmp/exported_cv.pdf', profile: str | None = None) -> None:
     if profile is not None:
         cv_data = filter_experiences(cv_data=cv_data, include=PROFILES.get(profile))
 
@@ -133,7 +104,3 @@ def main():
     html_content = render_html(cv_data)
     
     save_to_pdf(html_content, output_path)
-
-
-if __name__ == "__main__":
-    main()

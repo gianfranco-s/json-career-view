@@ -35,12 +35,12 @@ Coded in TypeScript
    ```
 2. Copy resume to pdf directory
    ```
-   cp gianfranco-salomone-cv.json cv-to-pdf/
+   cp gianfranco-salomone-cv.json cv-to-pdf/base_cv.json
    ```
 3. Choose a profile and export
    ```
    cd cv-to-pdf/
-   PROFILE="python-developer" python cv_to_pdf.py gianfranco-salomone-cv.json
+   PROFILE="python-developer" python main_lambda.py
    ```
 
 ## If I ever get around to it

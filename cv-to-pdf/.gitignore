@@ -1,4 +1,4 @@
 *.pdf
-*.html
 *.lock
 *.json
+**/__pycache__/
