@@ -49,13 +49,13 @@ Coded in TypeScript
 
 
 ### Deploy lambda
-1. Download `wkhtmltopdf.zip`: https://github.com/jblotus/aws-lambda-wkhtmltopdf
+1. [Build wkhtmltopdf with dependencies](build_wkhtmltopdf.md)
 2. Upload to AWS
    ```sh
    aws lambda publish-layer-version \
-      --layer-name wkhtmltopdf-layer \
+      --layer-name wkhtmltopdf_with_dependencies \
       --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
-      --zip-file fileb://wkhtmltopdf.zip \
+      --zip-file fileb://wkhtmltopdf-with-deps.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```

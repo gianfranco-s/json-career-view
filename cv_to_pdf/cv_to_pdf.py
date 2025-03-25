@@ -2,7 +2,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Iterable
 
-from pdfkit import from_string
+from pdfkit import from_string, configuration
 from jinja2 import Environment, FileSystemLoader
 
 PROFILES = {
@@ -15,6 +15,8 @@ PROFILES = {
                          'Freelance'], 
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
+
+IS_LAMBDA = False
 
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:
@@ -95,7 +97,12 @@ def save_to_pdf(html_content: str, output_path: str) -> None:
         'enable-local-file-access': None
     }
     
-    from_string(html_content, output_path, options=options)
+    opt = dict(options=options)
+    if IS_LAMBDA:
+        opt.update(configuration=configuration(wkhtmltopdf='/opt/bin/wkhtmltopdf'))
+
+    from_string(html_content, output_path, **opt)
+
 
 
 def render_pdf(cv_data: dict, output_path: str = '/tmp/exported_cv.pdf', profile: str | None = None) -> None:
