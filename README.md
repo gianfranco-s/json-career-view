@@ -63,3 +63,20 @@ Coded in TypeScript
    ```sh
    poetry export -f requirements.txt --without-hashes -o requirements.txt
    ```
+
+4. Create lambda function in AWS
+5. Set wkhtmltopdf as layer
+6. Create project .zip file to be uploaded
+   ```sh
+   cd cv-to-pdf/
+   bash create-zip-project.sh
+   ```
+
+7. Upload newly created file to lambda function
+   ```sh
+   aws lambda update-function-code \
+      --function-name export-jsoncv-to-pdf \
+      --zip-file fileb://lambda_function.zip \
+      --profile gian
+   ```
+8. In Runtime settings, update Handler to be `lambda_package.main_lambda.lambda_handler`
