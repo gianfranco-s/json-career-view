@@ -27,17 +27,17 @@ def create_download_name(name: str = 'exported_cv', profile: str | None = None, 
 
 
 def lambda_handler(event: dict, context: Any) -> None:
-    raw_cv_json = event.get('cv_json')
+    cv_data = event.get('cv_json')
     profile = event.get('profile')
 
-    if not raw_cv_json:
+    if not cv_data:
         return {
             "statusCode": 400,
             "body": json.dumps({"error": "Missing 'cv_json'"})
         }
 
     tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'
-    cv_data = json.loads(raw_cv_json)
+
     render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename)
 
     with open(tmp_filename, 'rb') as f:
