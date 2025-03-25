@@ -1,20 +1,24 @@
 #!/bin/bash
 
-PACKAGE_DIR=lambda_package
-PYTHON_LIBS_DIR=$PACKAGE_DIR/python
-DEPENDENCIES_ZIP="CV2PDF_DEPENDENCIES.zip"
+DEPENDENCIES_DIR=dependencies_package
+CODE_DIR=cv_to_pdf
 
 echo "Cleaning up old build..."
-rm -rf $PACKAGE_DIR $ZIP_FILE $DEPENDENCIES_ZIP
+rm -rf *.zip
 
 echo "Creating dependencies layer..."
-mkdir -p $PACKAGE_DIR
-pip install --target $PYTHON_LIBS_DIR -r requirements.txt
-zip -r $DEPENDENCIES_ZIP $PACKAGE_DIR/
+OUTPUT_FILE=cv_to_pdf_dependencies.zip
+mkdir -p $DEPENDENCIES_DIR
+pip install --target $DEPENDENCIES_DIR/python -r requirements.txt
+zip -r $OUTPUT_FILE $DEPENDENCIES_DIR/
 
-# echo "Copying source files..."
-# cp main_lambda.py cv_to_pdf.py $PACKAGE_DIR/
-# cp -r templates $PACKAGE_DIR/
+echo "Creating code layer..."
+mkdir -p $CODE_DIR
+OUTPUT_FILE=cv_to_pdf.zip
+cp main_lambda.py cv_to_pdf.py $CODE_DIR/
+cp -r templates $CODE_DIR/
+zip -r $OUTPUT_FILE $CODE_DIR/
 
-# echo "Creating zip..."
-# zip -r $ZIP_FILE $PACKAGE_DIR/
+
+echo "Removing build files.."
+rm -rf $DEPENDENCIES_DIR $CODE_DIR

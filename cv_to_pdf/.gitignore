@@ -2,6 +2,5 @@
 *.lock
 *.json
 **/__pycache__/
-lambda_package/
 *.zip
 requirements.txt
