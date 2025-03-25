@@ -7,7 +7,7 @@ from datetime import datetime
 from os import remove
 from typing import Any
 
-from cv_to_pdf import render_pdf
+from cv_to_pdf.cv_to_pdf import render_pdf
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -56,28 +56,3 @@ def lambda_handler(event: dict, context: Any) -> None:
             "body": encoded_pdf,
             "isBase64Encoded": True
         }
-
-
-if __name__ == "__main__":
-    """Local test"""
-    
-    filename = '../gianfranco-salomone-cv.json'  # In current dir
-    with open(filename, "r", encoding="utf-8") as f:
-        cv_json = f.read()
-
-    test_event = {
-        "cv_json": cv_json,
-        "profile": "python_developer"
-    }
-
-    response = lambda_handler(test_event, None)
-    from pprint import pprint
-    pprint(response)
-
-    output_file = response['headers'].get('Content-Disposition').split('=')[1]
-    if response.get("statusCode") == 200:
-        with open(output_file, "wb") as f:
-            f.write(base64.b64decode(response["body"]))
-        print(f"PDF saved as {output_file}")
-    else:
-        print("Error:", response["body"])

@@ -1,5 +1,6 @@
-from typing import Iterable
 from datetime import datetime
+from pathlib import Path
+from typing import Iterable
 
 from pdfkit import from_string
 from jinja2 import Environment, FileSystemLoader
@@ -68,7 +69,8 @@ def prepare_cv_data(cv_data: dict) -> dict:
 
 
 def render_html(cv_data: dict) -> str:
-    env = Environment(loader=FileSystemLoader('templates'))
+    cv2pdf_dir = Path(__file__).parent.absolute()
+    env = Environment(loader=FileSystemLoader(cv2pdf_dir / 'templates'))
     template = env.get_template('cv_template.html')
 
     return template.render(cv=cv_data)
