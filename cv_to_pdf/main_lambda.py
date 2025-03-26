@@ -7,7 +7,7 @@ from datetime import datetime
 from os import remove
 from typing import Any
 
-from cv_to_pdf import render_pdf
+from cv_to_pdf.cv_to_pdf import render_pdf, IS_LAMBDA
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -26,18 +26,20 @@ def create_download_name(name: str = 'exported_cv', profile: str | None = None, 
         return f"{name} - {profile.capitalize()} {timestamp}.pdf"
 
 
-def lambda_handler(event: dict, context: Any) -> None:
-    raw_cv_json = event.get('cv_json')
-    profile = event.get('profile')
+def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA) -> None:
+    body = json.loads(event["body"]) if is_prod else event
+    raw_cv_data = body.get("cv_json")
+    cv_data = json.loads(raw_cv_data) if isinstance(raw_cv_data, str) else raw_cv_data
+    profile = body.get('profile')
 
-    if not raw_cv_json:
+    if not cv_data:
         return {
             "statusCode": 400,
-            "body": json.dumps({"error": "Missing 'cv_json'"})
+            "body": json.dumps({"error": body})
         }
 
     tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'
-    cv_data = json.loads(raw_cv_json)
+
     render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename)
 
     with open(tmp_filename, 'rb') as f:
@@ -56,28 +58,3 @@ def lambda_handler(event: dict, context: Any) -> None:
             "body": encoded_pdf,
             "isBase64Encoded": True
         }
-
-
-if __name__ == "__main__":
-    """Local test"""
-    
-    filename = 'base_cv.json'  # In current dir
-    with open(filename, "r", encoding="utf-8") as f:
-        cv_json = f.read()
-
-    test_event = {
-        "cv_json": cv_json,
-        "profile": "python_developer"
-    }
-
-    response = lambda_handler(test_event, None)
-    from pprint import pprint
-    pprint(response)
-
-    output_file = response['headers'].get('Content-Disposition').split('=')[1]
-    if response.get("statusCode") == 200:
-        with open(output_file, "wb") as f:
-            f.write(base64.b64decode(response["body"]))
-        print(f"PDF saved as {output_file}")
-    else:
-        print("Error:", response["body"])

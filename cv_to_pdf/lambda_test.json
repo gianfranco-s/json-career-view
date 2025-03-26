@@ -1,0 +1,146 @@
+{
+    "basics": {
+        "name": "Gianfranco Salomone",
+        "label": "Python Developer",
+        "image": "",
+        "email": "gianfranco.s@gmail.com",
+        "phone": "+5491157318476",
+        "url": "https://gianfranco-salomone.com/",
+        "summary": "I love coding—simple as that. I coded Math, Physics and a bunch of software solutions. Professionally, I've built applications across industries like Gaming, AI detection, Human Resources and Fintech. I always strive to implement clean(er) code and SOLID principles. From microcontrollers to cloud apps, I stay curious and continuously refine my skills. Based in Patagonia near Mount Piltriquitrón, I enjoy baking and trekking with my family—Luz, Luca, and baby Francesca.",
+        "location": {
+            "city": "El Bols\u00f3n",
+            "countryCode": "AR",
+            "region": "R\u00edo Negro"
+        },
+        "profiles": [
+            {
+                "network": "linkedin",
+                "username": "gianfranco-salomone",
+                "url": "https://www.linkedin.com/in/gianfranco-salomone/"
+            },
+            {
+                "network": "github",
+                "username": "gianfranco-s",
+                "url": "https://github.com/gianfranco-s"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "EPIC iO",
+            "position": "Backend AI Engineer",
+            "url": "https://www.sss.com/",
+            "startDate": "2024-11-18",
+            "endDate": null,
+            "summary": "This role involves optimizing infrastructure",
+            "isRemote": true,
+            "location": "US",
+            "highlights": [
+                "Updated Docker images to improve building times."
+            ],
+            "techHighlights": [
+                "Python"
+            ]
+        }
+    ],
+    "volunteer": null,
+    "education": [
+        {
+            "institution": "Facultad de Ingenier\u00eda del Ej\u00e9rcito",
+            "url": null,
+            "area": "Electronics Engineer",
+            "studyType": "masters",
+            "startDate": "2011-01-01",
+            "endDate": "2013-01-01"
+        }
+    ],
+    "awards": null,
+    "certificates": [
+        {
+            "name": "SAP Certified Associate - Data Engineer - SAP HANA",
+            "date": "2024-06-30",
+            "issuer": "SAP",
+            "url": "https://www.credly.com/badges/802751fe-6430-4c8c-81c2-f129e67d2e1d/public_url"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Todo Bajo Control",
+            "publisher": "unpublished",
+            "releaseDate": null,
+            "url": null,
+            "summary": "A Control Systems text book."
+        }
+    ],
+    "skills": [
+        {
+            "name": "Back",
+            "level": null,
+            "keywords": [
+                "Python"
+            ]
+        },
+        {
+            "name": "Front",
+            "level": null,
+            "keywords": [
+                "ReactJS"
+            ]
+        },
+        {
+            "name": "Databases",
+            "level": null,
+            "keywords": [
+                "PostgreSQL"
+            ]
+        },
+        {
+            "name": "Cloud",
+            "level": null,
+            "keywords": [
+                "AWS"
+            ]
+        },
+        {
+            "name": "Tools",
+            "level": null,
+            "keywords": [
+                "GitHub"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "Spanish",
+            "fluency": "native speaker"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Proud dad",
+            "summary": "Like any dad, I try to balance work life with family life. I have two kids and I like to take them to activities and play with them as much as possible. Childhood does not come twice.",
+            "keywords": null
+        },
+        {
+            "name": "Amateur baker",
+            "summary": "I love Lemon Meringue Pie, so much that in order to avoid bugging people to cook it, I learned to do it myself. After that, there was no stopping: tiramisu, Castella cake, flan. Do you have a sweet tooth as well?",
+            "keywords": null
+        }
+    ],
+    "references": null,
+    "projects": [
+        {
+            "name": "Improve My CV",
+            "startDate": "2024-04-09",
+            "endDate": null,
+            "description": "Improve a JSON resume by asking an LLM. Can be either commercial, like OpenAI or local, like Ollama.",
+            "highlights": [
+                "FastAPI",
+                "Ollama",
+                "Requests",
+                "Pytest"
+            ],
+            "url": "https://github.com/gianfranco-s/improve-my-cv"
+        }
+    ]
+}
