@@ -49,8 +49,9 @@ Coded in TypeScript
 
 
 ### Deploy lambda
-1. [Build wkhtmltopdf with dependencies](build_wkhtmltopdf.md)
-2. Upload to AWS as layer
+0. `cd cv_to_pdf/`
+1. [Build wkhtmltopdf (base dependency)](build_wkhtmltopdf.md)
+2. Upload wkhtmltopdf to AWS as layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name wkhtmltopdf_with_dependencies \
@@ -59,24 +60,77 @@ Coded in TypeScript
       --compatible-runtimes python3.13 \
       --profile gian
    ```
-3. Export dependencies to requirements file
+
+2. Export additional dependencies to requirements file
    ```sh
    poetry export -f requirements.txt --without-hashes -o requirements.txt
    ```
-4. Create additional zip files for upload
-5. Create project .zip file to be uploaded
-   ```sh
-   cd cv-to-pdf/
-   bash create-zip-project.sh
-   ```
-6. Create lambda function in AWS, from file 
-7. Set wkhtmltopdf as layer
 
-8. Upload newly created file to lambda function
+3. Create additional dependencies zip file for new layer
+   ```
+   mkdir -p python/
+   pip install --target python/ -r requirements.txt
+   zip -r python_deps_cv_to_pdf.zip python/
+   rm -rf python/
+   ```
+
+4. Upload additional dependencies layer
+   ```sh
+   aws lambda publish-layer-version \
+      --layer-name python_deps_cv_to_pdf \
+      --description "Python dependencies for cv_to_pdf project" \
+      --zip-file fileb://python_deps_cv_to_pdf.zip \
+      --compatible-runtimes python3.13 \
+      --profile gian
+   ```
+
+
+5. Create zip file for AWS Lambda Python code
+   ```sh
+   CODE_DIR=cv_to_pdf
+   mkdir -p $CODE_DIR
+   cp main_lambda.py cv_to_pdf.py -r templates $CODE_DIR/
+   zip -r cv_to_pdf.zip $CODE_DIR/
+   rm -rf $CODE_DIR/
+   ```
+6. Create lambda function in AWS, named `export-jsoncv-to-pdf`
+
+7.  Upload cv_to_pdf.zip file to Lambda function
    ```sh
    aws lambda update-function-code \
       --function-name export-jsoncv-to-pdf \
-      --zip-file fileb://lambda_function.zip \
+      --zip-file fileb://cv_to_pdf.zip \
       --profile gian
    ```
-9. In Runtime settings, update Handler to be `lambda_package.main_lambda.lambda_handler`
+8. In the AWS Lambda environment, under cv_to_pdf.py, set `IS_LAMBDA` to `True` and click "Deploy"
+
+9. In Runtime settings, update Handler to be `cv_to_pdf.main_lambda.lambda_handler`
+
+10. In Layers settings, add the layers created previously
+
+11. In Test tab, create a new test:
+   ```json
+   {
+      "cv_json": <copy-paste-lambda_test.json>,
+      "profile": "python_developer"
+   }
+   ```
+
+12. Set Configuration tab, set function configuration to 30s.
+
+13. Click "Test". Expected output:
+   ```
+   Status: Succeeded
+   Test Event Name: upload-resume
+
+   Response:
+   {
+      "statusCode": 200,
+      "headers": {
+         "Content-Type": "application/pdf",
+         "Content-Disposition": "attachment; filename=Gianfranco Salomone - Python_developer 2025-03-26.pdf"
+      },
+      "body": "really-long-string",
+      "isBase64Encoded": true
+   }
+   ```

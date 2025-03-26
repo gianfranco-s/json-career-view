@@ -1,6 +1,5 @@
 *.pdf
 *.lock
-*.json
 **/__pycache__/
 *.zip
 requirements.txt

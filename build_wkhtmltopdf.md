@@ -12,12 +12,7 @@
    ```
 
    install -y \
-    libXrender \
-    libXext \
-    libX11 \
     libjpeg-turbo \
-    fontconfig \
-    freetype \
     libpng \
     libpng-devel \
     xorg-x11-fonts-Type1 \
@@ -29,6 +24,14 @@
    ```
    mkdir -p layer/bin
    mkdir -p layer/lib
+
+   # Copy wkhtmltopdf binary
+   cp /usr/local/bin/wkhtmltopdf layer/bin/
+
+   # Identify required libraries
+   # ldd /usr/local/bin/wkhtmltopdf | awk '{print $3}' | grep -E "^/lib|^/usr/lib" | sort -u
+
+   # Copy said libraries
    cp /lib64/libX11.so.6 layer/lib
    cp /lib64/libXau.so.6 layer/lib
    cp /lib64/libXext.so.6 layer/lib
