@@ -39,15 +39,6 @@ Coded in TypeScript
    PROFILE="python-developer" python main_lambda.py
    ```
 
-## If I ever get around to it
-* <s>fix code to load relative paths</s> if using Lambda, this isn't required
-* use Lambda to export PDF
-  * limit output to 1 per minute per IP, and a total of 10 downloads for that IP
-* add button in frontend to generate PDF for specific profile
-* use carrousel for current projects
-* show status in current projects
-
-
 ### Deploy lambda
 0. `cd cv_to_pdf/`
 1. [Build wkhtmltopdf (base dependency)](build_wkhtmltopdf.md)
@@ -142,3 +133,13 @@ Coded in TypeScript
 
 * local: `python -m cv_to_pdf.test_local_pdf_generation`
 * remote: `python -m cv_to_pdf.test_remote_pdf_generation`
+
+
+## If I ever get around to it
+* <s>fix code to load relative paths</s> if using Lambda, this isn't required
+* <s>use Lambda to export PDF</s> Done!
+  * fix lambda so output is prettier (currently loads a lot of gibberish)
+  * limit output to 1 per minute per IP, and a total of 10 downloads for that IP
+* add button in frontend to generate PDF for specific profile
+* use carrousel for current projects
+* show status in current projects
