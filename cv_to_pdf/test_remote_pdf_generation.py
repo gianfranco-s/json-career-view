@@ -21,8 +21,6 @@ def remote_pdf_generation(url: str) -> None:
         "profile": "python_developer"
     }
 
-    from pprint import pprint
-    # pprint(test_event)
     print(json.dumps(test_event, indent=2))
 
     response = requests.post(
@@ -32,13 +30,13 @@ def remote_pdf_generation(url: str) -> None:
     )
 
     if response.status_code == 200:
-        response_json = response.json()
-        output_file = response_json['headers'].get('Content-Disposition').split('=')[1]
+        pdf_content = response.content
+        output_file = response.headers.get('Content-Disposition').split('=')[1]
         
         with open(output_file, "wb") as f:
-            f.write(base64.b64decode(response_json["body"]))
+            f.write(pdf_content)
         
-        print(f"PDF saved as {output_file}")
+        print(f"PDF saved as `{output_file}`")
     else:
         print("Error:", response.text)
 

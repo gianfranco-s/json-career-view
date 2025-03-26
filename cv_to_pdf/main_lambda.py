@@ -7,7 +7,7 @@ from datetime import datetime
 from os import remove
 from typing import Any
 
-from cv_to_pdf.cv_to_pdf import render_pdf
+from cv_to_pdf.cv_to_pdf import render_pdf, IS_LAMBDA
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -26,14 +26,16 @@ def create_download_name(name: str = 'exported_cv', profile: str | None = None, 
         return f"{name} - {profile.capitalize()} {timestamp}.pdf"
 
 
-def lambda_handler(event: dict, context: Any) -> None:
-    cv_data = event.get('cv_json')
-    profile = event.get('profile')
+def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA) -> None:
+    body = json.loads(event["body"]) if is_prod else event
+    raw_cv_data = body.get("cv_json")
+    cv_data = json.loads(raw_cv_data) if isinstance(raw_cv_data, str) else raw_cv_data
+    profile = body.get('profile')
 
     if not cv_data:
         return {
             "statusCode": 400,
-            "body": json.dumps({"error": "Missing 'cv_json'"})
+            "body": json.dumps({"error": body})
         }
 
     tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'

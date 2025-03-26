@@ -134,3 +134,11 @@ Coded in TypeScript
       "isBase64Encoded": true
    }
    ```
+
+14. In Configuration tab, Triggers, click "Add trigger" and then "API Gateway". If none exists, create an HTTP API, with Open security
+
+
+15. Tests (in project's root dir)
+
+* local: `python -m cv_to_pdf.test_local_pdf_generation`
+* remote: `python -m cv_to_pdf.test_remote_pdf_generation`

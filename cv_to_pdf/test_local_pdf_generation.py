@@ -1,3 +1,4 @@
+import json
 import base64
 
 from pathlib import Path
@@ -18,9 +19,8 @@ def local_pdf_generation() -> None:
         "profile": "python_developer"
     }
 
-    response = lambda_handler(test_event, None)
-    from pprint import pprint
-    pprint(response)
+    response = lambda_handler(test_event, None, is_prod=False)
+    
 
     output_file = response['headers'].get('Content-Disposition').split('=')[1]
     if response.get("statusCode") == 200:
