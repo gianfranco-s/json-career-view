@@ -5,7 +5,7 @@ from pathlib import Path
 from cv_to_pdf.main_lambda import lambda_handler
 
 
-def main_local() -> None:
+def local_pdf_generation() -> None:
 
     """Local test"""
     basedir = Path(__file__).parents[1]
@@ -32,4 +32,4 @@ def main_local() -> None:
 
 
 if __name__ == "__main__":
-    main_local()
+    local_pdf_generation()
