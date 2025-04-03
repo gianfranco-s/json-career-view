@@ -9,9 +9,9 @@ from cv_to_pdf.main_lambda import lambda_handler
 def local_pdf_generation() -> None:
 
     """Local test"""
-    basedir = Path(__file__).parents[1]
+    basedir = Path(__file__).parent
 
-    with open(basedir / 'gianfranco-salomone-cv.json', "r", encoding="utf-8") as f:
+    with open(basedir / 'lambda_test.json', "r", encoding="utf-8") as f:
         cv_json = f.read()
 
     test_event = {

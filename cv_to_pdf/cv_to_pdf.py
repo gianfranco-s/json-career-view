@@ -17,8 +17,6 @@ PROFILES = {
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
 
-IS_LAMBDA = getenv('IS_LAMBDA', 'true').lower() in ('1', 'true')
-
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:
     if len(include) < 1:
@@ -79,7 +77,7 @@ def render_html(cv_data: dict) -> str:
     return template.render(cv=cv_data)
 
 
-def save_to_pdf(html_content: str, output_path: str) -> None:
+def save_to_pdf(html_content: str, output_path: str, path_to_wkhtmltopdf: str | None = None) -> None:
     """Convert HTML to PDF."""
     # Save HTML file first (for debugging)
     # html_path = output_path.replace('.pdf', '.html')
@@ -97,20 +95,22 @@ def save_to_pdf(html_content: str, output_path: str) -> None:
         'no-outline': None,
         'enable-local-file-access': None
     }
-    
     opt = dict(options=options)
-    if IS_LAMBDA:
-        opt.update(configuration=configuration(wkhtmltopdf='/opt/bin/wkhtmltopdf'))
+
+    if path_to_wkhtmltopdf is not None:
+        opt.update(configuration=configuration(wkhtmltopdf=path_to_wkhtmltopdf))
 
     from_string(html_content, output_path, **opt)
 
 
-
-def render_pdf(cv_data: dict, output_path: str = '/tmp/exported_cv.pdf', profile: str | None = None) -> None:
+def render_pdf(cv_data: dict,
+               output_path: str = '/tmp/exported_cv.pdf',
+               profile: str | None = None,
+               path_to_wkhtmltopdf: str | None = None) -> None:
     if profile is not None:
         cv_data = filter_experiences(cv_data=cv_data, include=PROFILES.get(profile))
 
     cv_data = prepare_cv_data(cv_data)
     html_content = render_html(cv_data)
     
-    save_to_pdf(html_content, output_path)
+    save_to_pdf(html_content, output_path, path_to_wkhtmltopdf)

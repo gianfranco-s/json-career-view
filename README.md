@@ -82,7 +82,7 @@ Coded in TypeScript
    ```sh
    CODE_DIR=cv_to_pdf
    mkdir -p $CODE_DIR
-   cp main_lambda.py cv_to_pdf.py -r templates $CODE_DIR/
+   cp main_lambda.py cv_to_pdf.py __init__.py -r templates $CODE_DIR/
    zip -r deps/cv_to_pdf.zip $CODE_DIR/
    rm -rf $CODE_DIR/
    ```
@@ -142,22 +142,32 @@ docker buildx build \
    cv_to_pdf/
 ```
 
-Run container
+Run container (from project's root). 
 ```sh
 docker run -it --rm \
-   -v cv_to_pdf/deps:/app \
-   -v cv_to_pdf/test_remote_pdf_generation.py:/app \
-   -v cv_to_pdf/lambda_test.json:/app \
-   -e IS_LAMBDA=true \
+   -v $PWD/cv_to_pdf/deps:/tmp \
+   -v $PWD/cv_to_pdf/test_local_pdf_generation.py:/app/cv_to_pdf/test_local_pdf_generation.py \
+   -v $PWD/cv_to_pdf/lambda_test.json:/app/cv_to_pdf/lambda_test.json \
+   -v $PWD/cv_to_pdf/__init__.py:/app/cv_to_pdf/__init__.py \
+   -v $PWD/cv_to_pdf/main_lambda.py:/app/cv_to_pdf/main_lambda.py \
+   -v $PWD/cv_to_pdf/cv_to_pdf.py:/app/cv_to_pdf/cv_to_pdf.py \
+   -v $PWD/cv_to_pdf/templates:/app/cv_to_pdf/templates \
+   -e IS_DOCKER=true \
    lambda-pdf-test \
    sh
 ```
 
 Inside container
 ```sh
-unzip /app/wkhtmltopdf-with-deps.zip -d /opt && \
-unzip /app/python_deps_cv_to_pdf.zip -d /opt/python && \
-unzip /app/cv_to_pdf.zip -d /app
+unzip /tmp/wkhtmltopdf-with-deps.zip -d /opt && \
+unzip /tmp/python_deps_cv_to_pdf.zip -d /opt && \
+export LD_LIBRARY_PATH=/opt/lib
+python3 -m cv_to_pdf.test_local_pdf_generation
+```
+
+This will export the file inside the current directory. Move it to extract:
+```sh
+mv <filename> /tmp
 ```
 
 ## If I ever get around to it
