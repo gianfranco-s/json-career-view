@@ -1,0 +1,24 @@
+FROM amazonlinux:2 AS wkhtmltopdf_builder
+
+RUN yum update -y
+
+# Dependencies required for building
+RUN yum install -y libXrender libXext libX11 fontconfig freetype zip
+
+# wkhtmltopdf binary
+RUN yum install -y https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+
+RUN mkdir -p /layer/bin
+RUN mkdir -p /layer/lib
+
+# Copy wkhtmltopdf binary; will be bundled with dependencies
+RUN cp /usr/local/bin/wkhtmltopdf layer/bin/
+
+# Identify and copy required libraries dynamically
+RUN ldd /usr/local/bin/wkhtmltopdf | awk '{print $3}' | grep -E "^/lib|^/usr/lib" | xargs -I '{}' cp '{}' /layer/lib/
+
+# Create .zip
+RUN cd /layer && zip -r /wkhtmltopdf-with-deps.zip ./
+
+FROM scratch AS wkhtmltopdf_export
+COPY --from=wkhtmltopdf_builder /wkhtmltopdf-with-deps.zip /wkhtmltopdf-with-deps.zip
