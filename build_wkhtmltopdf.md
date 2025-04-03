@@ -2,7 +2,7 @@
 
 1. Start Amazon Linux 2 container
    ```
-   docker run -it --rm -v ./:/tmp amazonlinux:2 bash
+   docker run -it --rm -v $PWD/deps:/tmp amazonlinux:2 bash
    ```
 
 2. Inside the container, install dependencies

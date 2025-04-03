@@ -17,7 +17,7 @@ PROFILES = {
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
 
-IS_LAMBDA = getenv('IS_LAMBDA', 'false').lower() in ('1', 'true')
+IS_LAMBDA = getenv('IS_LAMBDA', 'true').lower() in ('1', 'true')
 
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:

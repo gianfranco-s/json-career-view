@@ -39,15 +39,17 @@ Coded in TypeScript
    PROFILE="python-developer" python main_lambda.py
    ```
 
+3. Preferred way to test: `IS_LAMBDA=false python -m cv_to_pdf.test_local_pdf_generation`
+
 ### Deploy lambda
-0. `cd cv_to_pdf/`
+0. `cd cv_to_pdf/  && mkdir -p deps/`
 1. [Build wkhtmltopdf (base dependency)](build_wkhtmltopdf.md)
 2. Upload wkhtmltopdf to AWS as layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name wkhtmltopdf_with_dependencies \
       --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
-      --zip-file fileb://wkhtmltopdf-with-deps.zip \
+      --zip-file fileb://deps/wkhtmltopdf-with-deps.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```
@@ -61,7 +63,7 @@ Coded in TypeScript
    ```
    mkdir -p python/
    pip install --target python/ -r requirements.txt
-   zip -r python_deps_cv_to_pdf.zip python/
+   zip -r deps/python_deps_cv_to_pdf.zip python/
    rm -rf python/
    ```
 
@@ -70,7 +72,7 @@ Coded in TypeScript
    aws lambda publish-layer-version \
       --layer-name python_deps_cv_to_pdf \
       --description "Python dependencies for cv_to_pdf project" \
-      --zip-file fileb://python_deps_cv_to_pdf.zip \
+      --zip-file fileb://deps/python_deps_cv_to_pdf.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```
@@ -81,7 +83,7 @@ Coded in TypeScript
    CODE_DIR=cv_to_pdf
    mkdir -p $CODE_DIR
    cp main_lambda.py cv_to_pdf.py -r templates $CODE_DIR/
-   zip -r cv_to_pdf.zip $CODE_DIR/
+   zip -r deps/cv_to_pdf.zip $CODE_DIR/
    rm -rf $CODE_DIR/
    ```
 6. Create lambda function in AWS, named `export-jsoncv-to-pdf`
@@ -90,10 +92,10 @@ Coded in TypeScript
    ```sh
    aws lambda update-function-code \
       --function-name export-jsoncv-to-pdf \
-      --zip-file fileb://cv_to_pdf.zip \
+      --zip-file fileb://deps/cv_to_pdf.zip \
       --profile gian
    ```
-8. In the AWS Lambda environment, under cv_to_pdf.py, set `IS_LAMBDA` to `True` and click "Deploy"
+8. In the AWS Lambda environment click "Deploy"
 
 9. In Runtime settings, update Handler to be `cv_to_pdf.main_lambda.lambda_handler`
 
@@ -129,10 +131,7 @@ Coded in TypeScript
 14. In Configuration tab, Triggers, click "Add trigger" and then "API Gateway". If none exists, create an HTTP API, with Open security
 
 
-15. Tests (in project's root dir)
-
-* local: `python -m cv_to_pdf.test_local_pdf_generation`
-* remote: `python -m cv_to_pdf.test_remote_pdf_generation`
+15. Test while in project's root dir: `python -m cv_to_pdf.test_remote_pdf_generation`
 
 ## Dockerized local test
 Build image
@@ -141,6 +140,24 @@ docker buildx build \
    -t lambda-pdf-test \
    -f cv_to_pdf/docker/Dockerfile.test \
    cv_to_pdf/
+```
+
+Run container
+```sh
+docker run -it --rm \
+   -v cv_to_pdf/deps:/app \
+   -v cv_to_pdf/test_remote_pdf_generation.py:/app \
+   -v cv_to_pdf/lambda_test.json:/app \
+   -e IS_LAMBDA=true \
+   lambda-pdf-test \
+   sh
+```
+
+Inside container
+```sh
+unzip /app/wkhtmltopdf-with-deps.zip -d /opt && \
+unzip /app/python_deps_cv_to_pdf.zip -d /opt/python && \
+unzip /app/cv_to_pdf.zip -d /app
 ```
 
 ## If I ever get around to it
