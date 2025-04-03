@@ -5,6 +5,9 @@ RUN yum update -y
 # Dependencies required for building
 RUN yum install -y libXrender libXext libX11 fontconfig freetype zip
 
+# Fonts
+RUN yum install -y fontconfig dejavu-sans-fonts dejavu-serif-fonts liberation-fonts
+
 # wkhtmltopdf binary
 RUN yum install -y https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
 
