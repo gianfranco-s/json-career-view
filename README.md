@@ -134,6 +134,14 @@ Coded in TypeScript
 * local: `python -m cv_to_pdf.test_local_pdf_generation`
 * remote: `python -m cv_to_pdf.test_remote_pdf_generation`
 
+## Dockerized local test
+Build image
+```sh
+docker buildx build \
+   -t lambda-pdf-test \
+   -f cv_to_pdf/docker/Dockerfile.test \
+   cv_to_pdf/
+```
 
 ## If I ever get around to it
 * <s>fix code to load relative paths</s> if using Lambda, this isn't required

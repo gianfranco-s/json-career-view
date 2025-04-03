@@ -1,0 +1,42 @@
+FROM amazonlinux:2
+
+RUN yum update -y
+RUN yum install curl unzip
+
+# System dependencies for building Python
+RUN yum install -y gcc make zlib-devel bzip2-devel readline-devel \
+    xz-devel libffi-devel
+
+ENV PYTHON_VERSION=3.13.0
+WORKDIR /opt
+
+RUN curl -O https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
+    tar xzf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
+    ./configure --enable-optimizations && \
+    make -j$(nproc) && \
+    make altinstall && \
+    ln -s /usr/local/bin/python3.13 /usr/bin/python3 && \
+    ln -s /usr/local/bin/pip3.13 /usr/bin/pip3
+
+WORKDIR /app
+
+COPY wkhtmltopdf-with-deps.zip .
+COPY python_deps_cv_to_pdf.zip .
+COPY cv_to_pdf.zip .
+
+RUN unzip wkhtmltopdf-with-deps.zip -d /opt && \
+    unzip python_deps_cv_to_pdf.zip -d /opt/python && \
+    unzip cv_to_pdf.zip -d /app
+
+RUN rm *.zip
+
+# Simulate Lambda env vars
+ENV PYTHONPATH=/opt/python
+ENV PATH="/opt/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
+# Set up test environment
+ENV IS_LAMBDA=true
+COPY test_remote_pdf_generation.py .
+
+CMD ["python3", "/app/test_remote_pdf_generation.py"]
