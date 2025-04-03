@@ -43,7 +43,7 @@ Coded in TypeScript
 
 ### Deploy lambda
 0. `cd cv_to_pdf/  && mkdir -p deps/`
-1. [Build wkhtmltopdf (base dependency)](build_wkhtmltopdf.md)
+1. Build wkhtmltopdf (base dependency)
    ```sh
    docker buildx build \
       --output type=local,dest=. \
