@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import getenv
 from pathlib import Path
 from typing import Iterable
 
@@ -16,7 +17,7 @@ PROFILES = {
     'teacher': ['UNLZ - UNGS - FIE - UB', 'Facultad de Ingeniería del Ejército']
 }
 
-IS_LAMBDA = False
+IS_LAMBDA = getenv('IS_LAMBDA', 'false').lower() in ('1', 'true')
 
 
 def filter_experiences(cv_data: dict, include: Iterable) -> dict:
