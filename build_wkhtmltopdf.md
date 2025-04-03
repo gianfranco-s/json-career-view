@@ -11,15 +11,6 @@
    yum install -y https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
    ```
 
-   install -y \
-    libjpeg-turbo \
-    libpng \
-    libpng-devel \
-    xorg-x11-fonts-Type1 \
-    xorg-x11-fonts-75dpi \
-    ghostscript \
-    urw-fonts \
-
 3. Still inside the container, create .zip
    ```
    mkdir -p layer/bin
