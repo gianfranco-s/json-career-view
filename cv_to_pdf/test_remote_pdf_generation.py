@@ -1,3 +1,4 @@
+import argparse
 import base64
 import json
 
@@ -42,5 +43,9 @@ def remote_pdf_generation(url: str) -> None:
 
 
 if __name__ == "__main__":
-    lambda_url = 'https://svojsyq0le.execute-api.us-east-1.amazonaws.com/default/export-jsoncv-to-pdf'
+    # lambda_url = 'https://svojsyq0le.execute-api.us-east-1.amazonaws.com/default/export-jsoncv-to-pdf'
+
+    parser = argparse.ArgumentParser(description="Generate PDF using AWS Lambda")
+    parser.add_argument("lambda_url", type=str, help="Lambda function HTTP endpoint")
+
     remote_pdf_generation(lambda_url)
