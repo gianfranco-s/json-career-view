@@ -162,16 +162,18 @@ docker run -it --rm \
    -v $PWD/cv_to_pdf/cv_to_pdf.py:/app/cv_to_pdf/cv_to_pdf.py \
    -v $PWD/cv_to_pdf/templates:/app/cv_to_pdf/templates \
    -e IS_DOCKER=true \
+   -e LD_LIBRARY_PATH=/opt/lib \
    lambda-pdf-test \
    sh
 ```
+(`LD_LIBRARY_PATH=/opt/lib` is where lambda will check for wkhtmltopdf)
 
 Inside container
 ```sh
+yum install -y fontconfig
 unzip /tmp/wkhtmltopdf-with-deps.zip -d /opt && \
 unzip /tmp/python_deps_cv_to_pdf.zip -d /opt && \
-export LD_LIBRARY_PATH=/opt/lib
-python3 -m cv_to_pdf.test_local_pdf_generation
+python3 -m cv_to_pdf.test_local_pdf_generation && mv Gianfranco* /tmp
 ```
 
 This will export the file inside the current directory. Move it to extract:
