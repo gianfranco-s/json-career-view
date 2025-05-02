@@ -1,10 +1,10 @@
 # JSON Career View
 
 ### I have a dream...
-To be able to be able to manage my life sheet a single source. I want to be able to
+To be able to be able to manage my life sheet from a single source. I want to be able to
 * use a structured format for *all* my work experiences
-* be able to showcase my life sheet on the web [gianfranco-salomone.com](https://gianfranco-salomone.com/)
-* be able to export to pdf from my website
+* filter my life sheet by profile on [gianfranco-salomone.com](https://gianfranco-salomone.com/)
+* export to pdf from my website
 * pay close to nothing to maintain these services
 * *eventually* be able to update it using an LLM based on specific job descriptions
 
@@ -42,8 +42,8 @@ Coded in TypeScript
 3. Preferred way to test: `IS_LAMBDA=false python -m cv_to_pdf.test_local_pdf_generation`
 
 ### Deploy lambda
-0. `cd cv_to_pdf/  && mkdir -p deps/`
-1. Build wkhtmltopdf (base dependency)
+1. `mkdir -p cv_to_pdf/deps/`
+2. Build wkhtmltopdf (base dependency)
    ```sh
    docker buildx build \
       --output type=local,dest=. \
@@ -53,22 +53,23 @@ Coded in TypeScript
    mv wkhtmltopdf-with-deps.zip cv_to_pdf/deps/
    ```
 
-2. Upload wkhtmltopdf to AWS as layer
+3. Upload wkhtmltopdf to AWS as layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name wkhtmltopdf_with_dependencies \
       --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
-      --zip-file fileb://deps/wkhtmltopdf-with-deps.zip \
+      --zip-file fileb://cv_to_pdf/deps/wkhtmltopdf-with-deps.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```
 
-2. Export additional dependencies to requirements file
+4. Export additional dependencies to requirements file
    ```sh
+   cd cv_to_pdf/
    poetry export -f requirements.txt --without-hashes -o requirements.txt
    ```
 
-3. Create additional dependencies zip file for new layer
+5. Create additional dependencies zip file for new layer
    ```
    mkdir -p python/
    pip install --target python/ -r requirements.txt
@@ -76,7 +77,7 @@ Coded in TypeScript
    rm -rf python/
    ```
 
-4. Upload additional dependencies layer
+6. Upload additional dependencies layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name python_deps_cv_to_pdf \
