@@ -46,11 +46,10 @@ Coded in TypeScript
 2. Build wkhtmltopdf (base dependency)
    ```sh
    docker buildx build \
-      --output type=local,dest=. \
+      --output type=local,dest=cv_to_pdf/deps \
       --target wkhtmltopdf_export \
       -f cv_to_pdf/docker/Dockerfile.wkhtmltopdf \
       .
-   mv wkhtmltopdf-with-deps.zip cv_to_pdf/deps/
    ```
 
 3. Upload wkhtmltopdf to AWS as layer
@@ -63,26 +62,21 @@ Coded in TypeScript
       --profile gian
    ```
 
-4. Export additional dependencies to requirements file
+4. Zip additional dependencies for lambda layer
    ```sh
-   cd cv_to_pdf/
-   poetry export -f requirements.txt --without-hashes -o requirements.txt
+   docker buildx build \
+      -f cv_to_pdf/docker/Dockerfile.python-deps \
+      --output type=local,dest=cv_to_pdf/deps \
+      --target python_deps_export \
+      .
    ```
 
-5. Create additional dependencies zip file for new layer
-   ```
-   mkdir -p python/
-   pip install --target python/ -r requirements.txt
-   zip -r deps/python_deps_cv_to_pdf.zip python/
-   rm -rf python/
-   ```
-
-6. Upload additional dependencies layer
+5. Upload additional dependencies layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name python_deps_cv_to_pdf \
       --description "Python dependencies for cv_to_pdf project" \
-      --zip-file fileb://deps/python_deps_cv_to_pdf.zip \
+      --zip-file fileb://cv_to_pdf/deps/python_deps_cv_to_pdf.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```

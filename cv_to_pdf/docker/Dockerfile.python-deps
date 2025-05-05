@@ -1,0 +1,22 @@
+FROM python:3.12-slim AS builder
+
+RUN apt-get update && apt-get install -y curl zip
+
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="/root/.local/bin:$PATH"
+
+RUN poetry self add poetry-plugin-export
+
+WORKDIR /app
+
+COPY cv_to_pdf/pyproject.toml .
+
+ARG REQUIREMENTS_FILE=requirements.txt
+RUN mkdir -p python/ && \
+    poetry export -f ${REQUIREMENTS_FILE} --without-hashes -o ${REQUIREMENTS_FILE}
+RUN pip install --target=python/ -r ${REQUIREMENTS_FILE}
+
+RUN zip -r python_deps_cv_to_pdf.zip python/
+
+FROM scratch AS python_deps_export
+COPY --from=builder /app/python_deps_cv_to_pdf.zip /
