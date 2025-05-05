@@ -84,11 +84,13 @@ Coded in TypeScript
 
 5. Create zip file for AWS Lambda Python code
    ```sh
+   cd cv_to_pdf/
    CODE_DIR=cv_to_pdf
    mkdir -p $CODE_DIR
    cp main_lambda.py cv_to_pdf.py __init__.py -r templates $CODE_DIR/
    zip -r deps/cv_to_pdf.zip $CODE_DIR/
    rm -rf $CODE_DIR/
+   cd ../
    ```
 6. Create lambda function in AWS, named `export-jsoncv-to-pdf`
 
@@ -96,7 +98,7 @@ Coded in TypeScript
    ```sh
    aws lambda update-function-code \
       --function-name export-jsoncv-to-pdf \
-      --zip-file fileb://deps/cv_to_pdf.zip \
+      --zip-file fileb://cv_to_pdf/deps/cv_to_pdf.zip \
       --profile gian
    ```
 8. In the AWS Lambda environment click "Deploy"
@@ -169,11 +171,6 @@ yum install -y fontconfig
 unzip /tmp/wkhtmltopdf-with-deps.zip -d /opt && \
 unzip /tmp/python_deps_cv_to_pdf.zip -d /opt && \
 python3 -m cv_to_pdf.test_local_pdf_generation && mv Gianfranco* /tmp
-```
-
-This will export the file inside the current directory. Move it to extract:
-```sh
-mv <filename> /tmp
 ```
 
 ## If I ever get around to it
