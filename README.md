@@ -167,7 +167,7 @@ docker run -it --rm \
 
 Inside container
 ```sh
-yum install -y fontconfig
+# yum install -y fontconfig  # Without this, fonts aren't properly rendered
 unzip /tmp/wkhtmltopdf-with-deps.zip -d /opt && \
 unzip /tmp/python_deps_cv_to_pdf.zip -d /opt && \
 python3 -m cv_to_pdf.test_local_pdf_generation && mv Gianfranco* /tmp
