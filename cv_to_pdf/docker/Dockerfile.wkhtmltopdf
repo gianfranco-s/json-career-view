@@ -1,0 +1,33 @@
+FROM amazonlinux:2 AS wkhtmltopdf_builder
+
+RUN yum update -y
+
+# Dependencies required for pdfkit
+RUN yum install -y libXrender libXext libX11 freetype zip
+
+# Fonts files
+RUN yum install -y dejavu-sans-fonts dejavu-serif-fonts liberation-fonts
+
+# wkhtmltopdf binary (https://wkhtmltopdf.org/downloads.html)
+# Amazon Linux 2 is based on CentOS 7, so I went with this image
+# There's a specific Amazon Linux package, but didn't work well out-of-the-box for me
+RUN yum install -y https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+
+# # Use if connection is poor :( (requires manual download)
+# COPY wkhtmltox-0.12.6-1.centos7.x86_64.rpm /
+# RUN yum install -y /wkhtmltox-0.12.6-1.centos7.x86_64.rpm
+
+RUN mkdir -p /layer/bin
+RUN mkdir -p /layer/lib
+
+# Copy wkhtmltopdf binary; will be bundled with dependencies
+RUN cp /usr/local/bin/wkhtmltopdf layer/bin/
+
+# Identify and copy required libraries dynamically
+RUN ldd /usr/local/bin/wkhtmltopdf | awk '{print $3}' | grep -E "^/lib|^/usr/lib" | xargs -I '{}' cp '{}' /layer/lib/
+
+# Create .zip
+RUN cd /layer && zip -r /wkhtmltopdf-with-deps.zip ./
+
+FROM scratch AS wkhtmltopdf_export
+COPY --from=wkhtmltopdf_builder /wkhtmltopdf-with-deps.zip /wkhtmltopdf-with-deps.zip

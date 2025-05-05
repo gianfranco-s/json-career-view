@@ -1,10 +1,10 @@
 # JSON Career View
 
 ### I have a dream...
-To be able to be able to manage my life sheet a single source. I want to be able to
+To be able to be able to manage my life sheet from a single source. I want to be able to
 * use a structured format for *all* my work experiences
-* be able to showcase my life sheet on the web [gianfranco-salomone.com](https://gianfranco-salomone.com/)
-* be able to export to pdf from my website
+* filter my life sheet by profile on [gianfranco-salomone.com](https://gianfranco-salomone.com/)
+* export to pdf from my website
 * pay close to nothing to maintain these services
 * *eventually* be able to update it using an LLM based on specific job descriptions
 
@@ -39,38 +39,44 @@ Coded in TypeScript
    PROFILE="python-developer" python main_lambda.py
    ```
 
+3. Preferred way to test: `IS_LAMBDA=false python -m cv_to_pdf.test_local_pdf_generation`
+
 ### Deploy lambda
-0. `cd cv_to_pdf/`
-1. [Build wkhtmltopdf (base dependency)](build_wkhtmltopdf.md)
-2. Upload wkhtmltopdf to AWS as layer
+1. `mkdir -p cv_to_pdf/deps/`
+2. Build wkhtmltopdf (base dependency)
+   ```sh
+   docker buildx build \
+      --output type=local,dest=cv_to_pdf/deps \
+      --target wkhtmltopdf_export \
+      -f cv_to_pdf/docker/Dockerfile.wkhtmltopdf \
+      .
+   ```
+
+3. Upload wkhtmltopdf to AWS as layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name wkhtmltopdf_with_dependencies \
       --description "Precompiled wkhtmltopdf binary for AWS Lambda" \
-      --zip-file fileb://wkhtmltopdf-with-deps.zip \
+      --zip-file fileb://cv_to_pdf/deps/wkhtmltopdf-with-deps.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```
 
-2. Export additional dependencies to requirements file
+4. Zip additional dependencies for lambda layer
    ```sh
-   poetry export -f requirements.txt --without-hashes -o requirements.txt
+   docker buildx build \
+      -f cv_to_pdf/docker/Dockerfile.python-deps \
+      --output type=local,dest=cv_to_pdf/deps \
+      --target python_deps_export \
+      .
    ```
 
-3. Create additional dependencies zip file for new layer
-   ```
-   mkdir -p python/
-   pip install --target python/ -r requirements.txt
-   zip -r python_deps_cv_to_pdf.zip python/
-   rm -rf python/
-   ```
-
-4. Upload additional dependencies layer
+5. Upload additional dependencies layer
    ```sh
    aws lambda publish-layer-version \
       --layer-name python_deps_cv_to_pdf \
       --description "Python dependencies for cv_to_pdf project" \
-      --zip-file fileb://python_deps_cv_to_pdf.zip \
+      --zip-file fileb://cv_to_pdf/deps/python_deps_cv_to_pdf.zip \
       --compatible-runtimes python3.13 \
       --profile gian
    ```
@@ -78,11 +84,13 @@ Coded in TypeScript
 
 5. Create zip file for AWS Lambda Python code
    ```sh
+   cd cv_to_pdf/
    CODE_DIR=cv_to_pdf
    mkdir -p $CODE_DIR
-   cp main_lambda.py cv_to_pdf.py -r templates $CODE_DIR/
-   zip -r cv_to_pdf.zip $CODE_DIR/
+   cp main_lambda.py cv_to_pdf.py __init__.py -r templates $CODE_DIR/
+   zip -r deps/cv_to_pdf.zip $CODE_DIR/
    rm -rf $CODE_DIR/
+   cd ../
    ```
 6. Create lambda function in AWS, named `export-jsoncv-to-pdf`
 
@@ -90,10 +98,10 @@ Coded in TypeScript
    ```sh
    aws lambda update-function-code \
       --function-name export-jsoncv-to-pdf \
-      --zip-file fileb://cv_to_pdf.zip \
+      --zip-file fileb://cv_to_pdf/deps/cv_to_pdf.zip \
       --profile gian
    ```
-8. In the AWS Lambda environment, under cv_to_pdf.py, set `IS_LAMBDA` to `True` and click "Deploy"
+8. In the AWS Lambda environment click "Deploy"
 
 9. In Runtime settings, update Handler to be `cv_to_pdf.main_lambda.lambda_handler`
 
@@ -129,11 +137,41 @@ Coded in TypeScript
 14. In Configuration tab, Triggers, click "Add trigger" and then "API Gateway". If none exists, create an HTTP API, with Open security
 
 
-15. Tests (in project's root dir)
+15. Test while in project's root dir: `python -m cv_to_pdf.test_remote_pdf_generation`
 
-* local: `python -m cv_to_pdf.test_local_pdf_generation`
-* remote: `python -m cv_to_pdf.test_remote_pdf_generation`
+## Dockerized local test
+Build image
+```sh
+docker buildx build \
+   -t lambda-pdf-test \
+   -f cv_to_pdf/docker/Dockerfile.test \
+   cv_to_pdf/
+```
 
+Run container (from project's root). 
+```sh
+docker run -it --rm \
+   -v $PWD/cv_to_pdf/deps:/tmp \
+   -v $PWD/cv_to_pdf/test_local_pdf_generation.py:/app/cv_to_pdf/test_local_pdf_generation.py \
+   -v $PWD/cv_to_pdf/lambda_test.json:/app/cv_to_pdf/lambda_test.json \
+   -v $PWD/cv_to_pdf/__init__.py:/app/cv_to_pdf/__init__.py \
+   -v $PWD/cv_to_pdf/main_lambda.py:/app/cv_to_pdf/main_lambda.py \
+   -v $PWD/cv_to_pdf/cv_to_pdf.py:/app/cv_to_pdf/cv_to_pdf.py \
+   -v $PWD/cv_to_pdf/templates:/app/cv_to_pdf/templates \
+   -e IS_DOCKER=true \
+   -e LD_LIBRARY_PATH=/opt/lib \
+   lambda-pdf-test \
+   sh
+```
+(`LD_LIBRARY_PATH=/opt/lib` is where lambda will check for wkhtmltopdf)
+
+Inside container
+```sh
+# yum install -y fontconfig  # Without this, fonts aren't properly rendered
+unzip /tmp/wkhtmltopdf-with-deps.zip -d /opt && \
+unzip /tmp/python_deps_cv_to_pdf.zip -d /opt && \
+python3 -m cv_to_pdf.test_local_pdf_generation && mv Gianfranco* /tmp
+```
 
 ## If I ever get around to it
 * <s>fix code to load relative paths</s> if using Lambda, this isn't required

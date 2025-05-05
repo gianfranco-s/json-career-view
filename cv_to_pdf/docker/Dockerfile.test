@@ -1,0 +1,27 @@
+FROM amazonlinux:2
+
+RUN yum update -y
+RUN yum install -y curl unzip
+
+# Dependencies for building Python
+RUN yum install -y gcc make zlib-devel bzip2-devel readline-devel xz-devel libffi-devel gzip tar
+
+ENV PYTHON_VERSION=3.13.0
+WORKDIR /opt
+
+RUN curl -O https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
+    tar xzf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
+    ./configure --enable-optimizations && \
+    make -j$(nproc) && \
+    make altinstall && \
+    ln -s /usr/local/bin/python3.13 /usr/bin/python3 && \
+    ln -s /usr/local/bin/pip3.13 /usr/bin/pip3
+
+# Simulate Lambda env vars
+ENV PYTHONPATH=/opt/python
+ENV PATH="/opt/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+
+ENV IS_LAMBDA=false
+
+WORKDIR /app

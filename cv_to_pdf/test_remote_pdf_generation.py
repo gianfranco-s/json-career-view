@@ -1,3 +1,4 @@
+import argparse
 import base64
 import json
 
@@ -11,9 +12,9 @@ from cv_to_pdf.main_lambda import lambda_handler
 def remote_pdf_generation(url: str) -> None:
 
     """Test only when Lambda function has HTTP endpoint enabled"""
-    basedir = Path(__file__).parents[1]
+    basedir = Path(__file__).parent
 
-    with open(basedir / 'gianfranco-salomone-cv.json', "r", encoding="utf-8") as f:
+    with open(basedir / 'lambda_test.json', "r", encoding="utf-8") as f:
         cv_json = json.load(f)
 
     test_event = {
@@ -21,7 +22,7 @@ def remote_pdf_generation(url: str) -> None:
         "profile": "python_developer"
     }
 
-    print(json.dumps(test_event, indent=2))
+    # print(json.dumps(test_event, indent=2))
 
     response = requests.post(
         url,
@@ -42,5 +43,11 @@ def remote_pdf_generation(url: str) -> None:
 
 
 if __name__ == "__main__":
-    lambda_url = 'https://svojsyq0le.execute-api.us-east-1.amazonaws.com/default/export-jsoncv-to-pdf'
-    remote_pdf_generation(lambda_url)
+    # lambda_url = 'https://pfl4bztdt1.execute-api.us-east-1.amazonaws.com/default/export-jsoncv-to-pdf'
+    # remote_pdf_generation(lambda_url)
+
+    parser = argparse.ArgumentParser(description="Generate PDF using AWS Lambda")
+    parser.add_argument("lambda_url", type=str, help="Lambda function HTTP endpoint")
+    args = parser.parse_args()
+
+    remote_pdf_generation(args.lambda_url)

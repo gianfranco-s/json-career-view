@@ -4,13 +4,16 @@ import logging
 import uuid
 
 from datetime import datetime
-from os import remove
+from os import getenv, remove
 from typing import Any
 
-from cv_to_pdf.cv_to_pdf import render_pdf, IS_LAMBDA
+from cv_to_pdf.cv_to_pdf import render_pdf
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
+
+IS_LAMBDA = getenv('IS_LAMBDA', 'true').lower() in ('1', 'true')
+IS_DOCKER = getenv('IS_DOCKER', 'false').lower() in ('1', 'true')
 
 
 def create_download_name(name: str = 'exported_cv', profile: str | None = None, is_python_compatible: bool = False) -> str:
@@ -26,7 +29,7 @@ def create_download_name(name: str = 'exported_cv', profile: str | None = None, 
         return f"{name} - {profile.capitalize()} {timestamp}.pdf"
 
 
-def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA) -> None:
+def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA, is_docker: bool = IS_DOCKER) -> None:
     body = json.loads(event["body"]) if is_prod else event
     raw_cv_data = body.get("cv_json")
     cv_data = json.loads(raw_cv_data) if isinstance(raw_cv_data, str) else raw_cv_data
@@ -40,7 +43,8 @@ def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA) -> None
 
     tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'
 
-    render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename)
+    path_to_wkhtmltopdf = '/opt/bin/wkhtmltopdf' if is_prod or is_docker else None
+    render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename, path_to_wkhtmltopdf=path_to_wkhtmltopdf)
 
     with open(tmp_filename, 'rb') as f:
         encoded_pdf = base64.b64encode(f.read()).decode('utf-8')

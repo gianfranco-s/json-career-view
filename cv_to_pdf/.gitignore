@@ -3,3 +3,6 @@
 **/__pycache__/
 *.zip
 requirements.txt
+**/deps/
+.venv/
+python/
