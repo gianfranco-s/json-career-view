@@ -43,14 +43,14 @@ Coded in TypeScript
 
 ### Deploy lambda
 1. `mkdir -p cv_to_pdf/deps/`
-2. Build wkhtmltopdf (base dependency)
+<!-- 2. Build wkhtmltopdf (base dependency)
    ```sh
    docker buildx build \
       --output type=local,dest=cv_to_pdf/deps \
       --target wkhtmltopdf_export \
       -f cv_to_pdf/docker/Dockerfile.wkhtmltopdf \
       .
-   ```
+   ``` -->
 
 3. Upload wkhtmltopdf to AWS as layer
    ```sh
@@ -68,7 +68,7 @@ Coded in TypeScript
       -f cv_to_pdf/docker/Dockerfile.python-deps \
       --output type=local,dest=cv_to_pdf/deps \
       --target python_deps_export \
-      .
+      cv_to_pdf
    ```
 
 5. Upload additional dependencies layer
