@@ -43,8 +43,7 @@ def lambda_handler(event: dict, context: Any, is_prod: bool = IS_LAMBDA, is_dock
 
     tmp_filename = f'/tmp/cv_{uuid.uuid4().hex}.pdf'
 
-    path_to_wkhtmltopdf = '/opt/bin/wkhtmltopdf' if is_prod or is_docker else None
-    render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename, path_to_wkhtmltopdf=path_to_wkhtmltopdf)
+    render_pdf(cv_data=cv_data, profile=profile, output_path=tmp_filename)
 
     with open(tmp_filename, 'rb') as f:
         encoded_pdf = base64.b64encode(f.read()).decode('utf-8')

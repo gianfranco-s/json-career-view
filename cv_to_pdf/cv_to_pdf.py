@@ -3,7 +3,7 @@ from os import getenv
 from pathlib import Path
 from typing import Iterable
 
-from pdfkit import from_string, configuration
+from weasyprint import HTML, CSS
 from jinja2 import Environment, FileSystemLoader
 
 PROFILES = {
@@ -77,40 +77,41 @@ def render_html(cv_data: dict) -> str:
     return template.render(cv=cv_data)
 
 
-def save_to_pdf(html_content: str, output_path: str, path_to_wkhtmltopdf: str | None = None) -> None:
+def save_to_pdf(html_content: str, output_path: str) -> None:
     """Convert HTML to PDF."""
     # Save HTML file first (for debugging)
     # html_path = output_path.replace('.pdf', '.html')
     # with open(html_path, 'w', encoding='utf-8') as f:
     #     f.write(html_content)
 
-    margin = '10mm'
-    options = {
-        'page-size': 'A4',
-        'margin-top': margin,
-        'margin-right': margin,
-        'margin-bottom': margin,
-        'margin-left': margin,
-        'encoding': 'UTF-8',
-        'no-outline': None,
-        'enable-local-file-access': None
-    }
-    opt = dict(options=options)
+    # margin = '10mm'
+    # options = {
+    #     'page-size': 'A4',
+    #     'margin-top': margin,
+    #     'margin-right': margin,
+    #     'margin-bottom': margin,
+    #     'margin-left': margin,
+    #     'encoding': 'UTF-8',
+    #     'no-outline': None,
+    #     'enable-local-file-access': None
+    # }
+    # opt = dict(options=options)
 
-    if path_to_wkhtmltopdf is not None:
-        opt.update(configuration=configuration(wkhtmltopdf=path_to_wkhtmltopdf))
+    # if path_to_wkhtmltopdf is not None:
+    #     opt.update(configuration=configuration(wkhtmltopdf=path_to_wkhtmltopdf))
 
-    from_string(html_content, output_path, **opt)
+    # from_string(html_content, output_path, **opt)
+
+    HTML(string=html_content).write_pdf(output_path)
 
 
 def render_pdf(cv_data: dict,
                output_path: str = '/tmp/exported_cv.pdf',
-               profile: str | None = None,
-               path_to_wkhtmltopdf: str | None = None) -> None:
+               profile: str | None = None) -> None:
     if profile is not None:
         cv_data = filter_experiences(cv_data=cv_data, include=PROFILES.get(profile))
 
     cv_data = prepare_cv_data(cv_data)
     html_content = render_html(cv_data)
     
-    save_to_pdf(html_content, output_path, path_to_wkhtmltopdf)
+    save_to_pdf(html_content, output_path)
