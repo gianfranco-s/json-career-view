@@ -36,10 +36,13 @@
             "isRemote": true,
             "location": "US",
             "highlights": [
-                "Updated Docker images to improve building times.",
+                "Cut building times by 50% by using Docker multitarget.",
+                "Dramatically reduced deployment times by using Ansible.",
+                "Automated performance test cases with Locust.",
+                "Pushed for changes in how QA is performed, for complex products.",
+                "Crafted metrics to find out when the system is about to break.",
                 "Deployed and consumed metrics using Prometheus and Grafana.",
                 "Implemented FastAPI to expose AI detection products.",
-                "Used Ansible to automate deployment to different environments.",
                 "Reviewed code regularly for peers and junior devs."
             ],
             "techHighlights": [
@@ -50,7 +53,9 @@
                 "Pytest",
                 "devcontainers",
                 "Code Reviews",
-                "gstreamer"
+                "gstreamer",
+                "Grafana",
+                "Bash"
             ]
         },
         {
@@ -64,10 +69,11 @@
             "location": "Buenos Aires",
             "highlights": [
                 "Deployed production and staging environments to AWS.",
-                "Advocated for and implemented security best practices.",
+                "Advocated for and implemented security best practices company-wide (wasn't easy).",
+                "Improved system security by implementing NGINX.",
                 "Managed workflows using Docker and Docker Compose.",
                 "Designed and developed REST API for backend of custom CRM project.",
-                "Managed IoT reporting based on stack InﬂuxDB-Grafana-MQTT.",
+                "Maintained IoT reporting based on stack InﬂuxDB-Grafana-MQTT.",
                 "Provided feedback for Python team leaders about infrastructure and code best practices."
             ],
             "techHighlights": [
@@ -76,6 +82,7 @@
                 "AWS S3",
                 "AWS RDS",
                 "AWS SES",
+                "AWS STS",
                 "MQTT",
                 "IoT",
                 "Docker",
@@ -192,7 +199,7 @@
             ]
         },
         {
-            "name": "Freelance",
+            "name": "Freelance - QuickGrill",
             "position": "IoT developer",
             "url": null,
             "startDate": "2021-09-21",
@@ -377,10 +384,13 @@
                 "Python",
                 "Flask",
                 "Ansible",
+                "Docker",
+                "PyTest",
+                "Bash",
+                "Gstreamer",
                 "FastAPI",
                 "Pandas",
                 "Linux",
-                "Docker",
                 "Gherkin",
                 "Selenium",
                 "Cypress",
@@ -430,7 +440,8 @@
                 "Flake8",
                 "isort",
                 "Slack",
-                "Jira"
+                "Jira",
+                "Grafana"
             ]
         }
     ],
