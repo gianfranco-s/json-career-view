@@ -37,10 +37,10 @@
             "location": "US",
             "highlights": [
                 "Cut building times by 50% by using Docker multitarget.",
-                "Dramatically reduced deployment times by using Ansible.",
+                "Dramatically reduced deployment times and complexity by using Ansible.",
                 "Automated performance test cases with Locust.",
                 "Pushed for changes in how QA is performed, for complex products.",
-                "Crafted metrics to find out when the system is about to break.",
+                "Deployed pipelines for automated QA tests.",
                 "Deployed and consumed metrics using Prometheus and Grafana.",
                 "Implemented FastAPI to expose AI detection products.",
                 "Reviewed code regularly for peers and junior devs."
@@ -62,9 +62,9 @@
             "name": "MecanTronic",
             "position": "Cloud Developer / DevOps",
             "url": "https://mecantronic.com.ar/",
-            "startDate": "2022-03-01",
+            "startDate": "2024-07-01",
             "endDate": null,
-            "summary": "Currently working as DevOps; managing PRD servers for Noisen, an app used to track noise levels in critical sectors in hospitals. I'm also the owner of an IoT codebase, involved in communicating ESP32-based sensors with cloud-based apps.",
+            "summary": "Currently working as DevOps; managing PRD servers for Noisen, an app used to track noise levels in critical sectors in hospitals.",
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
@@ -73,7 +73,6 @@
                 "Improved system security by implementing NGINX.",
                 "Managed workflows using Docker and Docker Compose.",
                 "Designed and developed REST API for backend of custom CRM project.",
-                "Maintained IoT reporting based on stack InﬂuxDB-Grafana-MQTT.",
                 "Provided feedback for Python team leaders about infrastructure and code best practices."
             ],
             "techHighlights": [
@@ -173,6 +172,32 @@
             ]
         },
         {
+            "name": "MecanTronic",
+            "position": "Cloud Developer",
+            "url": "https://mecantronic.com.ar/",
+            "startDate": "2023-01-03",
+            "endDate": "2023-09-30",
+            "summary": "Main developer of IoT Grafana reporting project.",
+            "isRemote": true,
+            "location": "Buenos Aires",
+            "highlights": [
+                "Deployed and maintained hospital-noise metrics dashboard.",
+                "Deployed and maintained QuickGrill calibration data metrics dashboard.",
+                "Improved how logs are stored and rotated in docker containers.",
+                "Maintained custom MQTT codebase for IoT projects."
+            ],
+            "techHighlights": [
+                "Python",
+                "AWS EC2",
+                "MQTT",
+                "IoT",
+                "Docker",
+                "InfluxDB",
+                "Grafana",
+                "SSH"
+            ]
+        },
+        {
             "name": "Emissary Software LLC",
             "position": "Python developer",
             "url": "https://www.emissary.ai/",
@@ -199,8 +224,8 @@
             ]
         },
         {
-            "name": "Freelance - QuickGrill",
-            "position": "IoT developer",
+            "name": "QuickGrill",
+            "position": "Freelance IoT developer",
             "url": null,
             "startDate": "2021-09-21",
             "endDate": "2022-07-01",
