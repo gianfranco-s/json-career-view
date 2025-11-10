@@ -18,17 +18,18 @@ Coded in TypeScript
    mkdir -p my-json-resume/src/data
    cp gianfranco-salomone-cv.json my-json-resume/src/data/base_cv.json
    ```
-2. Run the project
-   ```
-   (cd my-json-resume && npm run dev)
-   ```
-
-### Deploy to Vercel
-   ```
-   (cd my-json-resume && vercel --prod)
+2. Run the project using Docker
+   ```bash
+   docker buildx build -t json-career-view:<current_iso_date> -f docker/Dockerfile .
+   docker run -d -p 8080:80 json-career-view:<current_iso_date>
    ```
 
-## Export to pdf
+### Current deployment
+   Is through CloudFlare tunnel.
+   Project can be viewed at localhost:8080
+
+
+## Export to pdf (not deployed)
 1. Install required dependencies
    ```
    sudo apt-get install -y wkhtmltopdf

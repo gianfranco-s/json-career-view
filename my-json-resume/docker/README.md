@@ -6,10 +6,9 @@ cd my-json-resume/
 
 ### Production
 ```bash
-docker buildx build -t json-career-view -f docker/Dockerfile .
+docker buildx build -t json-career-view:<current_iso_date> -f docker/Dockerfile .
+docker run -d -p 8080:80 json-career-view:<current_iso_date>
 ```
-
-
 
 ### Development (hot-reload)
 ```bash
