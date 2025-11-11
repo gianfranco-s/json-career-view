@@ -36,14 +36,12 @@
             "isRemote": true,
             "location": "US",
             "highlights": [
-                "Cut building times by 50% by using Docker multitarget.",
-                "Dramatically reduced deployment times and complexity by using Ansible.",
+                "Cut building times by 50% by using Docker multi-stage.",
+                "Improved release times and complexity from 8hs to 2hs,  by using Ansible.",
                 "Automated performance test cases with Locust.",
+                "Crafted metrics to find out when the system is about to break.",
                 "Pushed for changes in how QA is performed, for complex products.",
-                "Deployed pipelines for automated QA tests.",
-                "Deployed and consumed metrics using Prometheus and Grafana.",
-                "Implemented FastAPI to expose AI detection products.",
-                "Reviewed code regularly for peers and junior devs."
+                "Developed automated CI pipelines to test performance."
             ],
             "techHighlights": [
                 "Python",
@@ -55,6 +53,7 @@
                 "Code Reviews",
                 "gstreamer",
                 "Grafana",
+                "Prometheus",
                 "Bash"
             ]
         },
@@ -68,12 +67,12 @@
             "isRemote": true,
             "location": "Buenos Aires",
             "highlights": [
+                "Reduced AWS legacy costs by over 25%.",
                 "Deployed production and staging environments to AWS.",
                 "Advocated for and implemented security best practices company-wide (wasn't easy).",
-                "Improved system security by implementing NGINX.",
-                "Managed workflows using Docker and Docker Compose.",
+                "Improved web security by implementing NGINX and CloudFlare.",
                 "Designed and developed REST API for backend of custom CRM project.",
-                "Provided feedback for Python team leaders about infrastructure and code best practices."
+                "Maintained IoT reporting based on stack InﬂuxDB-Grafana-MQTT."
             ],
             "techHighlights": [
                 "Python",
