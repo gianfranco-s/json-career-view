@@ -1,21 +1,19 @@
 # Docker workflow
 
+All commands run from `my-json-resume/`.
+
+### Extract static artifacts (no image left behind)
 ```bash
-cd my-json-resume/
+docker buildx build \
+  --output type=local,dest=./out \
+  --target artifacts \
+  -f docker/Dockerfile \
+  .
 ```
 
-### Production
+### Build and run locally with nginx
 ```bash
-docker buildx build -t json-career-view:<current_iso_date> -f docker/Dockerfile .
-docker run -d -p 8080:80 json-career-view:<current_iso_date>
-```
-
-### Development (hot-reload)
-```bash
-docker buildx build -t json-career-view:dev -f docker/Dockerfile.dev .
-docker run --rm \
-  -p 3000:3000 \
-  -v ./:/app \
-  -v node_modules:/app/node_modules \
-  json-career-view:dev
+docker buildx build -t json-career-view -f docker/Dockerfile .
+docker run --rm -p 8080:80 json-career-view
+# → http://localhost:8080
 ```

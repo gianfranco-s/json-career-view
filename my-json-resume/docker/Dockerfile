@@ -7,15 +7,23 @@ RUN npm ci
 
 COPY . .
 
-# Disable Next.js telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
 
 RUN npm run build
 
 
+# ── Export stage ──────────────────────────────────────────────────────────────
+# `docker buildx build --output type=local,dest=./out --target artifacts .`
+# extracts only the static files to the host; nothing else leaves the container.
+FROM scratch AS artifacts
+COPY --from=builder /app/out /
+
+
+# ── Local serving stage ───────────────────────────────────────────────────────
+# `docker buildx build -t json-career-view -f docker/Dockerfile .`
+# `docker run -p 8080:80 json-career-view`
 FROM nginx:alpine AS runner
 
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/out /usr/share/nginx/html
 
 EXPOSE 80

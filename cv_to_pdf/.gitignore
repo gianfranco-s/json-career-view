@@ -1,8 +1,0 @@
-*.pdf
-*.lock
-**/__pycache__/
-*.zip
-requirements.txt
-**/deps/
-.venv/
-python/
