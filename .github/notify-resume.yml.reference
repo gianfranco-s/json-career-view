@@ -1,0 +1,28 @@
+# Copy this file to gianfranco-s/gianfranco-s as:
+#   .github/workflows/notify-resume.yml
+#
+# Then add a secret in that repo:
+#   Settings → Secrets → Actions → New secret
+#   Name:  RESUME_REPO_TOKEN
+#   Value: a GitHub PAT (classic) with repo scope
+
+name: Notify resume site on cv.json change
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - cv.json
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger resume rebuild
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.RESUME_REPO_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/gianfranco-s/json-career-view/dispatches \
+            --data '{"event_type":"cv-updated"}'

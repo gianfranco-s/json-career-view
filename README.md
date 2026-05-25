@@ -19,12 +19,11 @@ At build time, the Next.js app fetches that file and renders it as a static site
 
 ## Website
 
-Coded in TypeScript (Next.js + TailwindCSS), deployed on Cloudflare Pages.
+Coded in TypeScript (Next.js + TailwindCSS), deployed on GitHub Pages at [gianfranco-salomone.com](https://gianfranco-salomone.com).
 
 ### Local development
 
 ```bash
-cd my-json-resume
 npm install
 npm run dev
 ```
@@ -33,27 +32,56 @@ The dev server fetches `cv.json` from GitHub on each request.
 
 ### Build via Docker
 
-See [my-json-resume/docker/README.md](my-json-resume/docker/README.md) for build commands (artifact export and local nginx).
+See [docker/README.md](docker/README.md) for build commands (artifact export and local nginx).
 
-### Cloudflare Pages setup
+### GitHub Pages setup
 
-| Setting | Value |
-|---|---|
-| **Root directory** | `my-json-resume` |
-| **Build command** | `npm ci && npm run build` |
-| **Build output directory** | `out` |
-| **Node.js version** | `NODE_VERSION = 20` |
+Deployments are handled by `.github/workflows/deploy.yml` via GitHub Actions. One-time setup:
+
+**1. Enable GitHub Pages**
+
+Repo → Settings → Pages → Source → **GitHub Actions**
+
+**2. Create a PAT for cross-repo triggers**
+
+GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token
+
+- Name: `RESUME_REPO_TOKEN`
+- Scope: `repo`
+
+**3. Add the PAT as a secret in the cv.json repo**
+
+In [gianfranco-s/gianfranco-s](https://github.com/gianfranco-s/gianfranco-s):
+Settings → Secrets → Actions → New repository secret → `RESUME_REPO_TOKEN`
+
+**4. Add the notify workflow to the cv.json repo**
+
+Copy `.github/notify-resume.yml.reference` from this repo into `gianfranco-s/gianfranco-s` as `.github/workflows/notify-resume.yml`.
+This fires a `cv-updated` dispatch event here whenever `cv.json` changes on `main`.
+
+**5. Configure DNS**
+
+At your registrar, point `gianfranco-salomone.com` to GitHub Pages:
+
+| Type | Name | Value |
+|---|---|---|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `gianfranco-s.github.io` |
+
+GitHub provisions HTTPS automatically once DNS resolves (may take up to 24 h).
 
 ### Updating the CV
 
 1. Edit `cv.json` in [gianfranco-s/gianfranco-s](https://github.com/gianfranco-s/gianfranco-s)
-2. Push the change
-3. Trigger a Cloudflare Pages rebuild (manually or via a deploy hook from a GitHub Action)
+2. Push to `main`
 
-The new build fetches the updated JSON and publishes the static site automatically.
+The notify workflow fires automatically, triggering a rebuild and deploy here. No manual steps needed.
 
 ## If I ever get around to it
 * add button in frontend to generate PDF for specific profile
 * use carousel for current projects
 * show status in current projects
-* automate CF Pages rebuild when cv.json changes (GitHub Actions → deploy hook)
+* automate rebuild when cv.json changes (cross-repo GitHub Actions trigger)

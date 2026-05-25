@@ -1,6 +1,6 @@
 # Docker workflow
 
-All commands run from `my-json-resume/`.
+All commands run from the repo root.
 
 ### Extract static artifacts (no image left behind)
 ```bash
