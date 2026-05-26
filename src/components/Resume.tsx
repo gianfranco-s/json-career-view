@@ -6,7 +6,7 @@ import EducationCard from '@/components/EducationCard'
 import SpokenLanguagesCard from '@/components/SpokenLanguagesCard'
 import InterestsCard from '@/components/InterestsCard'
 import ProjectsCard from '@/components/ProjectsCard'
-import ProfileSwitcher from '@/components/ProfileSwitcher'
+import ResumeTransition from '@/components/ResumeTransition'
 
 interface ResumeProps {
   data: ResumeData;
@@ -28,15 +28,8 @@ function Resume({ data, activeProfile }: ResumeProps) {
 
   const showProjects = activeProfileConfig?.showProjects ?? false
 
-  return (
+  const content = (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
-      {data.resumeProfiles && (
-        <ProfileSwitcher
-          profiles={data.resumeProfiles}
-          activeProfile={activeProfile}
-        />
-      )}
-
       <div className="mb-10 mt-4">
         <ResumeHeaderCard
           name={data.basics.name}
@@ -56,13 +49,21 @@ function Resume({ data, activeProfile }: ResumeProps) {
         </div>
 
         <div className="w-full md:w-64 shrink-0 space-y-8">
-          <SkillsCard skills={data.skills} />
+          <SkillsCard skills={data.skills ?? []} />
           <EducationCard education={data.education} />
           <SpokenLanguagesCard spokenLanguages={data.languages} />
           <InterestsCard interests={data.interests} />
         </div>
       </div>
     </div>
+  );
+
+  if (!data.resumeProfiles) return content;
+
+  return (
+    <ResumeTransition profiles={data.resumeProfiles} activeProfile={activeProfile}>
+      {content}
+    </ResumeTransition>
   );
 }
 

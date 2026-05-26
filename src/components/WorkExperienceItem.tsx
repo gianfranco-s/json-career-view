@@ -11,7 +11,6 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
         ? new Date(workExperienceItemData.endDate).getFullYear()
         : 'Present';
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site';
-    const meta = `${workExperienceItemData.name} · ${startYear}–${endYear} · ${remoteOrOnsite} · ${workExperienceItemData.location}`;
 
     const highlights = workExperienceItemData.highlights.filter(
         s => !s.startsWith('techHighlights')
@@ -39,15 +38,6 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
                 </ul>
             )}
 
-            {workExperienceItemData.techHighlights && workExperienceItemData.techHighlights.length > 0 && (
-                <div className="flex flex-wrap gap-1 mt-2">
-                    {workExperienceItemData.techHighlights.map((tech, i) => (
-                        <span key={i} className="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full">
-                            {tech}
-                        </span>
-                    ))}
-                </div>
-            )}
         </div>
     );
 }

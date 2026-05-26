@@ -25,7 +25,6 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 - `favicon.ico` (replaced by `icon.svg`)
-- Freelance stub work entry (individual company entries already cover the same roles)
 
 ---
 

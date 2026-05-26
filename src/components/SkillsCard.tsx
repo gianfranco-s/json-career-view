@@ -6,6 +6,7 @@ interface SkillsProps {
 }
 
 function SkillsCard({ skills }: SkillsProps) {
+    if (!skills || skills.length === 0) return null;
     return (
         <div>
             <h3 className="section-title">Skills</h3>
