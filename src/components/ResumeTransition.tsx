@@ -1,7 +1,10 @@
 'use client';
-import { useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import { ResumeProfile } from '@/components/types';
+
+/** Consumed by FadeSection — true while a profile navigation is in progress. */
+export const FadeContext = createContext<{ fading: boolean }>({ fading: false });
 
 interface Props {
   profiles: Record<string, ResumeProfile>;
@@ -16,17 +19,17 @@ interface Props {
  */
 export default function ResumeTransition({ profiles, activeProfile, children }: Props) {
   const router = useRouter();
-  const [contentVisible, setContentVisible] = useState(false);
+  const [fading, setFading] = useState(true);   // true = invisible; false = visible
   const [navOpen, setNavOpen] = useState(true);
 
   // Fade in on mount.
   useEffect(() => {
-    const id = requestAnimationFrame(() => setContentVisible(true));
+    const id = requestAnimationFrame(() => setFading(false));
     return () => cancelAnimationFrame(id);
   }, []);
 
   const handleNavigate = useCallback((href: string) => {
-    setContentVisible(false);
+    setFading(true);
     setTimeout(() => router.push(href), 300);
   }, [router]);
 
@@ -94,15 +97,10 @@ export default function ResumeTransition({ profiles, activeProfile, children }: 
         </button>
       </div>
 
-      {/* ── Fading content ──────────────────────────────────────────────── */}
-      <div
-        style={{
-          opacity: contentVisible ? 1 : 0,
-          transition: 'opacity 0.3s ease',
-        }}
-      >
+      {/* ── Content — FadeSection components inside subscribe to the context ── */}
+      <FadeContext.Provider value={{ fading }}>
         {children}
-      </div>
+      </FadeContext.Provider>
     </>
   );
 }

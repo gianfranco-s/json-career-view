@@ -21,22 +21,12 @@ export async function fetchCV(): Promise<ResumeData> {
  * Work entries:
  *   - shown when `showInProfiles` is absent / empty (universal)
  *   - shown when `showInProfiles` includes the slug
- *
- * Skills:
- *   - filtered by the profile's `skills` list if provided; otherwise all shown.
  */
 export function filterCV(data: ResumeData, slug: string): ResumeData {
-  const profile = data.resumeProfiles?.[slug];
-
   const filteredWork = data.work.filter((w) => {
     if (!w.showInProfiles || w.showInProfiles.length === 0) return true;
     return w.showInProfiles.includes(slug);
   });
 
-  const filteredSkills =
-    profile?.skills && profile.skills.length > 0
-      ? data.skills.filter((s) => profile.skills!.includes(s.name))
-      : data.skills;
-
-  return { ...data, work: filteredWork, skills: filteredSkills };
+  return { ...data, work: filteredWork };
 }
