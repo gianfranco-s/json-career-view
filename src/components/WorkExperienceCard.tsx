@@ -16,13 +16,29 @@ function sortByDate(a: WorkExperience, b: WorkExperience): number {
 }
 
 function WorkExperienceCard({ workExperience }: WorkExperienceCardProps) {
-    const items = [...workExperience].sort(sortByDate).map((workExp, index) => (
-        <WorkExperienceItem key={index} workExperienceItemData={workExp} />
-    ));
+    const sorted = [...workExperience].sort(sortByDate);
+    const main  = sorted.filter(w => !w.minorRole);
+    const minor = sorted.filter(w =>  w.minorRole);
+
     return (
         <div>
             <h3 className="section-title">Work Experience</h3>
-            {items}
+
+            {main.map((w, i) => (
+                <WorkExperienceItem key={i} workExperienceItemData={w} />
+            ))}
+
+            {minor.length > 0 && (
+                <details className="mt-2 group">
+                    <summary className="cursor-pointer list-none text-sm text-slate-400 hover:text-slate-600 transition-colors select-none mb-3">
+                        <span className="group-open:hidden">+ {minor.length} other role{minor.length > 1 ? 's' : ''}</span>
+                        <span className="hidden group-open:inline">− hide</span>
+                    </summary>
+                    {minor.map((w, i) => (
+                        <WorkExperienceItem key={i} workExperienceItemData={w} />
+                    ))}
+                </details>
+            )}
         </div>
     );
 }

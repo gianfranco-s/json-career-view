@@ -28,6 +28,11 @@ export interface WorkExperience {
      * e.g. ["backend", "ai"] → only in /backend and /ai.
      */
     showInProfiles?: string[];
+    /**
+     * When true, the entry is grouped under a collapsed "other roles" section
+     * rather than shown inline with the main work experience list.
+     */
+    minorRole?: boolean;
 }
 
 export interface Education {
