@@ -4,7 +4,7 @@ const CV_URL =
   'https://raw.githubusercontent.com/gianfranco-s/gianfranco-s/main/cv.json';
 
 export async function fetchCV(): Promise<ResumeData> {
-  const res = await fetch(CV_URL, { cache: 'no-store' });
+  const res = await fetch(CV_URL);
   if (!res.ok) throw new Error(`Failed to fetch CV: ${res.status}`);
   return res.json();
 }
