@@ -50,3 +50,9 @@ README.md
 .idea
 *.swp
 *.swo
+
+# Agents
+.claude/
+.agents/
+.github/
+.copilot/

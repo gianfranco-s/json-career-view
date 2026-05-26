@@ -22,6 +22,12 @@ export interface WorkExperience {
     location: string;
     highlights: string[];
     techHighlights: string[];
+    /**
+     * Profile slugs this entry should appear in.
+     * Absent or empty → shown in every profile route.
+     * e.g. ["backend", "ai"] → only in /backend and /ai.
+     */
+    showInProfiles?: string[];
 }
 
 export interface Education {
@@ -74,6 +80,19 @@ export interface Project {
     url: string | null;
 }
 
+/**
+ * One entry in the cv.json `resumeProfiles` map.
+ * Slug (the key) drives the route: /backend, /backend-ai, /devops …
+ * Adding a new entry here + tagging work entries with showInProfiles
+ * is all that's needed to publish a new profile route.
+ */
+export interface ResumeProfile {
+    title: string;
+    description?: string;
+    /** Skill category names to show; absent = show all. */
+    skills?: string[];
+}
+
 interface ResumeData {
     basics: {
         name: string;
@@ -97,6 +116,8 @@ interface ResumeData {
     interests: Interest[];
     references: null;
     projects: Project[];
+    /** Custom field: keyed by slug, drives profile routes. */
+    resumeProfiles?: Record<string, ResumeProfile>;
 }
 
 export default ResumeData;

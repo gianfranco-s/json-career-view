@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { fetchCV } from "@/lib/cv";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "JSON Career View",
-  description: "Created by gianfranco-s",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await fetchCV();
+  return {
+    title: data.basics.name,
+    description: data.basics.label,
+  };
+}
 
 export default function RootLayout({
   children,

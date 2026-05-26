@@ -1,0 +1,36 @@
+import ResumeData from '@/components/types';
+
+const CV_URL =
+  'https://raw.githubusercontent.com/gianfranco-s/gianfranco-s/main/cv.json';
+
+export async function fetchCV(): Promise<ResumeData> {
+  const res = await fetch(CV_URL);
+  if (!res.ok) throw new Error(`Failed to fetch CV: ${res.status}`);
+  return res.json();
+}
+
+/**
+ * Returns a copy of data filtered for a given profile slug.
+ *
+ * Work entries:
+ *   - shown when `showInProfiles` is absent / empty (universal)
+ *   - shown when `showInProfiles` includes the slug
+ *
+ * Skills:
+ *   - filtered by the profile's `skills` list if provided; otherwise all shown.
+ */
+export function filterCV(data: ResumeData, slug: string): ResumeData {
+  const profile = data.resumeProfiles?.[slug];
+
+  const filteredWork = data.work.filter((w) => {
+    if (!w.showInProfiles || w.showInProfiles.length === 0) return true;
+    return w.showInProfiles.includes(slug);
+  });
+
+  const filteredSkills =
+    profile?.skills && profile.skills.length > 0
+      ? data.skills.filter((s) => profile.skills!.includes(s.name))
+      : data.skills;
+
+  return { ...data, work: filteredWork, skills: filteredSkills };
+}

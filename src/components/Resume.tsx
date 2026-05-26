@@ -6,8 +6,15 @@ import EducationCard from '@/components/EducationCard'
 import SpokenLanguagesCard from '@/components/SpokenLanguagesCard'
 import InterestsCard from '@/components/InterestsCard'
 import ProjectsCard from '@/components/ProjectsCard'
+import ProfileSwitcher from '@/components/ProfileSwitcher'
 
-function Resume({ data }: { data: ResumeData }) {
+interface ResumeProps {
+  data: ResumeData;
+  /** Slug of the active profile, or null for the full (unfiltered) resume. */
+  activeProfile: string | null;
+}
+
+function Resume({ data, activeProfile }: ResumeProps) {
   const contactInfo = {
     mobilePhone: data.basics.phone,
     email: data.basics.email,
@@ -17,6 +24,13 @@ function Resume({ data }: { data: ResumeData }) {
 
   return (
     <div className="container mx-auto px-4 py-8 md:w-2/3">
+      {data.resumeProfiles && (
+        <ProfileSwitcher
+          profiles={data.resumeProfiles}
+          activeProfile={activeProfile}
+        />
+      )}
+
       <div className="flex justify-center">
         <div className="w-full md:w-1/2">
           <ResumeHeaderCard
@@ -39,7 +53,7 @@ function Resume({ data }: { data: ResumeData }) {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-8  w-full md:w-1/4 ">
+        <div className="container mx-auto px-4 py-8 w-full md:w-1/4">
           <div className="mb-10">
             <SkillsCard skills={data.skills} />
           </div>
