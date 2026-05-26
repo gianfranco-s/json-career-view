@@ -10,7 +10,9 @@ services:
       - ../:/app
       # Anonymous volume — seeded from the image's node_modules at startup,
       # preventing the host bind mount from shadowing the container's packages.
-      - /app/node_modules
+      - ../node_modules:/app/node_modules
+      # Mount local cv.json so edits are reflected instantly without pushing to GitHub.
+      - ../../gianfranco-s/cv.json:/cv-local.json:ro
     ports:
       - "3000:3000"
     environment:
@@ -18,3 +20,5 @@ services:
       # Polling is required for hot-reload inside Docker bind mounts;
       # inotify events from the host don't reach the container's watcher.
       WATCHPACK_POLLING: "true"
+      # When set, cv.ts reads from this path instead of fetching from GitHub.
+      CV_LOCAL_PATH: /cv-local.json

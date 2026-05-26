@@ -1,9 +1,15 @@
+import fs from 'fs/promises';
 import ResumeData from '@/components/types';
 
 const CV_URL =
   'https://raw.githubusercontent.com/gianfranco-s/gianfranco-s/main/cv.json';
 
 export async function fetchCV(): Promise<ResumeData> {
+  const localPath = process.env.CV_LOCAL_PATH;
+  if (localPath) {
+    const raw = await fs.readFile(localPath, 'utf-8');
+    return JSON.parse(raw);
+  }
   const res = await fetch(CV_URL);
   if (!res.ok) throw new Error(`Failed to fetch CV: ${res.status}`);
   return res.json();

@@ -11,18 +11,13 @@ function WorkExperienceItem({ workExperienceItemData }: WorkExperienceItemDataPr
         ? new Date(workExperienceItemData.endDate).getFullYear()
         : 'Present';
     const remoteOrOnsite = workExperienceItemData.isRemote ? 'Remote' : 'On-site';
-    const isCurrent = workExperienceItemData.endDate === null;
 
     const highlights = workExperienceItemData.highlights.filter(
         s => !s.startsWith('techHighlights')
     );
 
     return (
-        <div className={`
-            mb-6 pl-4
-            border-l-2 transition-colors duration-200
-            ${isCurrent ? 'border-l-slate-700' : 'border-l-slate-200 hover:border-l-slate-400'}
-        `}>
+        <div className="mb-6">
             <div className="flex items-baseline justify-between gap-2 mb-0.5">
                 <h4 className="font-semibold text-slate-800">{workExperienceItemData.position}</h4>
                 <span className="text-xs text-slate-400 whitespace-nowrap shrink-0">
