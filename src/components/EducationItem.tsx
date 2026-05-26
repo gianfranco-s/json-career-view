@@ -7,23 +7,28 @@ export interface EducationItemDataProps {
 
 function EducationItem({ educationItemData }: EducationItemDataProps) {
     const startYear = new Date(educationItemData.startDate).getFullYear();
-    const endYear = educationItemData.endDate ? new Date(educationItemData.endDate).getFullYear() : 'Present';
-    const yearSpan = `${startYear} - ${endYear}`;
-    const educationItem = <h4 className="text-sm font-medium mb-1">{educationItemData.area}</h4>;
-    const urlConditional = !educationItemData.url
-                            ? educationItem
-                            : (
-                            <a href={educationItemData.url} 
-                               className="hover:underline" 
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                {educationItem}
-                            </a>
-                            )
+    const endYear = educationItemData.endDate
+        ? new Date(educationItemData.endDate).getFullYear()
+        : 'Present';
+
+    const title = (
+        <p className="text-sm font-medium text-slate-700 leading-snug">
+            {educationItemData.area}
+        </p>
+    );
+
     return (
-        <div className="mb-4">
-            {urlConditional}
-            <p className="text-sm mb-2">({yearSpan}) {educationItemData.institution}</p>
+        <div className="mb-3">
+            {educationItemData.url
+                ? <a href={educationItemData.url} target="_blank" rel="noopener noreferrer"
+                     className="hover:underline underline-offset-2">
+                    {title}
+                  </a>
+                : title
+            }
+            <p className="text-xs text-slate-400">
+                {educationItemData.institution} · {startYear}–{endYear}
+            </p>
         </div>
     );
 }

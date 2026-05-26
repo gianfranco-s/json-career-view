@@ -62,9 +62,9 @@ No code changes needed.
 │   │   └── deploy.yml            # build + deploy to GitHub Pages
 │   └── notify-resume.yml.reference
 ├── docker/
-│   ├── Dockerfile
-│   ├── .dockerignore
-│   └── README.md
+│   ├── Dockerfile            # multi-stage: builder → artifacts / nginx runner (local only)
+│   ├── docker-compose.yml    # hot-reload dev server (local only); run from project root with -f docker/docker-compose.yml
+│   └── .dockerignore
 ├── public/
 │   └── CNAME                     # gianfranco-salomone.com
 ├── src/
@@ -90,6 +90,16 @@ No code changes needed.
 ├── package.json
 └── README.md
 ```
+
+## Environments
+
+| Concern | Tool | Notes |
+|---------|------|-------|
+| **Production build & deploy** | GitHub Actions → GitHub Pages | `.github/workflows/deploy.yml`; triggered by push to `main` or `repository_dispatch` from the cv.json repo |
+| **Local dev (hot-reload)** | `docker compose -f docker/docker-compose.yml up` | `docker/docker-compose.yml`; bind-mounts project root so edits reflect instantly at `localhost:3000` |
+| **Local prod preview** | `docker buildx build … && docker run` | Full static build → nginx; verifies the exact output that GitHub Pages will serve |
+
+**Docker is local-only.** No Docker image is pushed to a registry or used in CI.
 
 ## Key constraints
 - `output: 'export'` — no server; everything must be statically renderable at build time.

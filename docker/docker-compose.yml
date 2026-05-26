@@ -1,0 +1,20 @@
+services:
+  dev-resume:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: dev
+    working_dir: /app
+    volumes:
+      # Paths are relative to this file's directory (docker/), so ../ is the project root.
+      - ../:/app
+      # Anonymous volume — seeded from the image's node_modules at startup,
+      # preventing the host bind mount from shadowing the container's packages.
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_TELEMETRY_DISABLED: "1"
+      # Polling is required for hot-reload inside Docker bind mounts;
+      # inotify events from the host don't reach the container's watcher.
+      WATCHPACK_POLLING: "true"

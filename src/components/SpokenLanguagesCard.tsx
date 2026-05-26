@@ -1,18 +1,22 @@
 import React from 'react';
-import SpokenLanguagesItem from './SpokenLanguagesItem';
 import { Language } from './types';
 
 interface SpokenLanguagesProps {
     spokenLanguages: Language[];
-};
+}
 
 function SpokenLanguagesCard({ spokenLanguages }: SpokenLanguagesProps) {
-    const languagesList = spokenLanguages.map((lang, index) =>
-        <SpokenLanguagesItem key={index} spokenLanguagesItemData={lang} />)
     return (
         <div>
-            <h3 className="text-2xl mb-4">Languages</h3>
-            {languagesList}
+            <h3 className="section-title">Languages</h3>
+            <div className="space-y-1">
+                {spokenLanguages.map((lang, i) => (
+                    <div key={i} className="flex justify-between text-sm">
+                        <span className="text-slate-700">{lang.language}</span>
+                        <span className="text-slate-400">{lang.fluency}</span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

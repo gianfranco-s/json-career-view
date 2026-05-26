@@ -21,16 +21,28 @@ At build time, the Next.js app fetches that file and renders it as a static site
 
 Coded in TypeScript (Next.js + TailwindCSS), deployed on GitHub Pages at [gianfranco-salomone.com](https://gianfranco-salomone.com).
 
-### Local development, Docker is strongly preferred
+> **Production** is handled entirely by GitHub Actions + GitHub Pages.
+> Docker is for **local use only** — no image is pushed to any registry.
 
-Run locally
+### Local development — hot-reload
+
+```bash
+docker compose -f docker/docker-compose.yml up
+# → http://localhost:3000
+```
+
+Source files are bind-mounted into the container so edits reflect immediately.
+`cv.json` is fetched from GitHub on every request (no build step needed).
+
+### Local production preview
+
+Mirrors exactly what GitHub Pages will serve:
+
 ```bash
 docker buildx build -t json-career-view -f docker/Dockerfile .
 docker run --rm -p 8080:80 json-career-view
 # → http://localhost:8080
 ```
-
-The dev server fetches `cv.json` from GitHub on each request.
 
 
 ### GitHub Pages setup

@@ -1,19 +1,22 @@
 import React from 'react';
-import InterestsItem from './InterestsItem'
 import { Interest } from './types';
 
 interface InterestsProps {
     interests: Interest[];
-    };
+}
 
 function InterestsCard({ interests }: InterestsProps) {
-    const aboutList = interests.map((interestsItm, index) =>
-        <InterestsItem key={index} InterestsItemData={interestsItm}/>)
     return (
         <div>
-            <h3 className="text-2xl mb-4">Interests</h3>
-            {aboutList}
-            <br />
+            <h3 className="section-title">Interests</h3>
+            <div className="space-y-3">
+                {interests.map((item, i) => (
+                    <div key={i}>
+                        <p className="text-sm font-medium text-slate-700">{item.name}</p>
+                        <p className="text-xs text-slate-500 leading-relaxed">{item.summary}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

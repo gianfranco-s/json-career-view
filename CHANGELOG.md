@@ -8,17 +8,20 @@ Format loosely follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [0.10.0] — 2026-05-26
 
 ### Added
-- Profile routes — `/backend`, `/backend-ai`, `/devops` — each a statically generated page with a filtered subset of work experience
+- Profile routes statically generated with a filtered subset of work experience
 - `ProfileSwitcher` pill-nav component (hidden on print)
 - `resumeProfiles` top-level field in `cv.json` — defines available profiles, their titles and optional skill filters; no coupling to codebase
 - `showInProfiles` field on each work entry in `cv.json` — controls which profile routes it appears on; absent = show everywhere
 - `src/lib/cv.ts` — shared `fetchCV()` and `filterCV(data, slug)` utilities
 - `src/app/icon.svg` — GS initials SVG favicon
+- `docker/docker-compose.yml` for local development
 
 ### Changed
+- Deployment now done through GitHub Pages
 - Page title and description now derived from `cv.json` at build time via `generateMetadata()`
 - `Resume` component accepts `activeProfile` prop; passes `resumeProfiles` down to `ProfileSwitcher`
 - `[profile]/page.tsx` — `generateStaticParams` reads slugs from `cv.json`; sentinel `_` route ensures build resilience when `resumeProfiles` is absent
+- css styles
 
 ### Removed
 - `favicon.ico` (replaced by `icon.svg`)

@@ -1,5 +1,5 @@
 import React from 'react';
-import EducationItem from './EducationItem'
+import EducationItem from './EducationItem';
 import { Education } from './types';
 
 export interface EducationProps {
@@ -7,13 +7,12 @@ export interface EducationProps {
 }
 
 function EducationCard({ education }: EducationProps) {
-    const educationList = education.map((educ, index) => (
-        <EducationItem key={index} educationItemData={educ} />
-    ))
     return (
         <div>
-            <h3 className="text-2xl mb-4">Education</h3>
-            {educationList}
+            <h3 className="section-title">Education</h3>
+            {education.map((educ, i) => (
+                <EducationItem key={i} educationItemData={educ} />
+            ))}
         </div>
     );
 }

@@ -7,9 +7,9 @@ interface TitleDataProps {
 
 function Title({ name, resumeTitle }: TitleDataProps) {
     return (
-        <div>
-            <h1 className="text-center text-6xl mb-4">{name}</h1>
-            <h2 className="text-center text-4xl">{resumeTitle}</h2>
+        <div className="text-center">
+            <h1 className="text-5xl font-light tracking-tight mb-2">{name}</h1>
+            <p className="text-lg text-slate-500 tracking-wide">{resumeTitle}</p>
         </div>
     );
 }

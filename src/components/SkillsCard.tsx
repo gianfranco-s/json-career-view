@@ -1,29 +1,30 @@
 import React from 'react';
 import { Skill } from './types';
 
-
 interface SkillsProps {
     skills: Skill[];
 }
 
-function Skills({ skills }: SkillsProps) {
-    const skillsLayout = skills.map((skill, index) => (
-        <div key={index}>
-            <h4 className="text-sm font-medium mt-4">{skill.name}</h4>
-            <ul>
-                {skill.keywords.map((keyword, keywordIndex) => (
-                    <span key={keywordIndex}>{keyword} </span>
-                ))}
-            </ul>
-        </div>
-    ))
-
+function SkillsCard({ skills }: SkillsProps) {
     return (
         <div>
-            <h3 className="text-2xl mb-4">Skills</h3>
-            {skillsLayout}
+            <h3 className="section-title">Skills</h3>
+            {skills.map((skill, i) => (
+                <div key={i} className="mb-3">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 mb-1">
+                        {skill.name}
+                    </p>
+                    <div className="flex flex-wrap gap-1">
+                        {skill.keywords.map((kw, j) => (
+                            <span key={j} className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
+                                {kw}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
 
-export default Skills;
+export default SkillsCard;

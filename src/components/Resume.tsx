@@ -22,8 +22,14 @@ function Resume({ data, activeProfile }: ResumeProps) {
     GitHub: data.basics.profiles[1].url
   }
 
+  const activeProfileConfig = activeProfile
+    ? data.resumeProfiles?.[activeProfile]
+    : null
+
+  const showProjects = activeProfileConfig?.showProjects ?? false
+
   return (
-    <div className="container mx-auto px-4 py-8 md:w-2/3">
+    <div className="container mx-auto px-4 py-8 max-w-5xl">
       {data.resumeProfiles && (
         <ProfileSwitcher
           profiles={data.resumeProfiles}
@@ -31,45 +37,33 @@ function Resume({ data, activeProfile }: ResumeProps) {
         />
       )}
 
-      <div className="flex justify-center">
-        <div className="w-full md:w-1/2">
-          <ResumeHeaderCard
-            name={data.basics.name}
-            resumeTitle={data.basics.label}
-            contactInfo={contactInfo} />
-        </div>
+      <div className="mb-10 mt-4">
+        <ResumeHeaderCard
+          name={data.basics.name}
+          resumeTitle={data.basics.label}
+          contactInfo={contactInfo} />
       </div>
 
-      <div className="flex flex-wrap">
-        <div className="px-4 pt-4 w-full">
+      {showProjects && (
+        <div className="mb-10">
           <ProjectsCard projects={data.projects} />
         </div>
-      </div>
+      )}
 
-      <div className="flex flex-wrap">
-        <div className="container mx-auto px-4 pt-4 pb-8 w-full md:w-3/4">
-          <div className="mb-10">
-            <WorkExperienceCard workExperience={data.work} />
-          </div>
+      <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex-1 min-w-0">
+          <WorkExperienceCard workExperience={data.work} />
         </div>
 
-        <div className="container mx-auto px-4 py-8 w-full md:w-1/4">
-          <div className="mb-10">
-            <SkillsCard skills={data.skills} />
-          </div>
-
-          <div className="mb-10">
-            <EducationCard education={data.education} />
-          </div>
-
-          <div className="mb-10">
-            <SpokenLanguagesCard spokenLanguages={data.languages} />
-          </div>
-
+        <div className="w-full md:w-64 shrink-0 space-y-8">
+          <SkillsCard skills={data.skills} />
+          <EducationCard education={data.education} />
+          <SpokenLanguagesCard spokenLanguages={data.languages} />
           <InterestsCard interests={data.interests} />
         </div>
       </div>
     </div>
   );
-};
+}
+
 export default Resume;

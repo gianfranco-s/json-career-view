@@ -91,6 +91,8 @@ export interface ResumeProfile {
     description?: string;
     /** Skill category names to show; absent = show all. */
     skills?: string[];
+    /** Show the Projects section on this profile route. Default: false. */
+    showProjects?: boolean;
 }
 
 interface ResumeData {
